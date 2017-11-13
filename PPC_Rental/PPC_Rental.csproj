@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -174,6 +176,21 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\background\background.png" />
+    <Content Include="Images\IMG_1592-stamp.jpg" />
+    <Content Include="Images\Logo\logocuabinh.png" />
+    <Content Include="Images\PIS3280-Edit-stamp.jpg" />
+    <Content Include="Images\PIS3611.jpg" />
+    <Content Include="Images\PIS_4622-Edit.jpg" />
+    <Content Include="Images\PIS_6656-Edit-stamp.jpg" />
+    <Content Include="Images\PIS_6706-Edit-stamp.jpg" />
+    <Content Include="Images\PIS_7319-Edit-stamp.jpg" />
+    <Content Include="Images\PIS_7389-Edit-stamp.jpg" />
+    <Content Include="Images\PIS_7432-Edit-stamp.jpg" />
+    <Content Include="Images\Slider\1.png" />
+    <Content Include="Images\Slider\2.png" />
+    <Content Include="Images\Slider\3.png" />
+    <Content Include="Images\sunshine-benthanh-cityhome-10-stamp.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
