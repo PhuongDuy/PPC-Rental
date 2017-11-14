@@ -17,8 +17,5 @@ namespace PPC_Rental.Models
         public int ID { get; set; }
         public Nullable<int> Property_ID { get; set; }
         public Nullable<int> Feature_ID { get; set; }
-    
-        public virtual FEATURE FEATURE { get; set; }
-        public virtual PROPERTY PROPERTY { get; set; }
     }
 }
