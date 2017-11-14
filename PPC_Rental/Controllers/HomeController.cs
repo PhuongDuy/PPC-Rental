@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PPC_Rental.Models; 
 
 namespace PPC_Rental.Controllers
 {
     public class HomeController : Controller
     {
+        DemoPPCRentalEntities m = new DemoPPCRentalEntities();
         public ActionResult Index()
         {
-            return View();
+            var p = m.PROPERTies.ToList();
+            return View(p);
         }
 
         public ActionResult About()

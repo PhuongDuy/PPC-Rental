@@ -339,7 +339,9 @@ a {
   text-decoration: none;
 }
 
-a:hover,
+a:hover{
+    color:cornflowerblue;
+}
 a:focus {
   color: #2a6496;
   text-decoration: underline;
