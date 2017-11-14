@@ -14,23 +14,8 @@ namespace PPC_Rental.Models
     
     public partial class DISTRICT
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DISTRICT()
-        {
-            this.PROPERTies = new HashSet<PROPERTY>();
-            this.STREETs = new HashSet<STREET>();
-            this.WARDs = new HashSet<WARD>();
-        }
-    
         public int ID { get; set; }
         public string DistrictName { get; set; }
         public Nullable<bool> Status { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PROPERTY> PROPERTies { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<STREET> STREETs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WARD> WARDs { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace PPC_Rental.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DemoPPCRentalEntities : DbContext
+    public partial class DemoPPCRentalEntities1 : DbContext
     {
-        public DemoPPCRentalEntities()
-            : base("name=DemoPPCRentalEntities")
+        public DemoPPCRentalEntities1()
+            : base("name=DemoPPCRentalEntities1")
         {
         }
     
@@ -32,7 +32,5 @@ namespace PPC_Rental.Models
         public virtual DbSet<PROPERTY_FEATURE> PROPERTY_FEATURE { get; set; }
         public virtual DbSet<PROPERTY_TYPE> PROPERTY_TYPE { get; set; }
         public virtual DbSet<STREET> STREETs { get; set; }
-        public virtual DbSet<USER> USERs { get; set; }
-        public virtual DbSet<WARD> WARDs { get; set; }
     }
 }
