@@ -29,5 +29,33 @@ namespace PPC_Rental.Controllers
 
             return View();
         }
+
+        public PartialViewResult SearchBox()
+        {
+            return PartialView(m);
+        }
+
+        [HttpPost]
+        public ActionResult Search(string gia,string quanhuyen,string loaida,string duong, string phongtam,string phongngu,string baidauxe)
+        {
+            IEnumerable<PPC_Rental.Models.PROPERTY> ls;
+
+            if (gia == "Dưới 50000") {
+                ls = m.PROPERTies.ToList().Where(x => x.Price < 50000 || x.DISTRICT.DistrictName == quanhuyen || x.PROPERTY_TYPE.CodeType == loaida || x.STREET.StreetName == duong || x.BathRoom.ToString() == phongtam || x.BedRoom.ToString() == phongngu);
+            }
+            else if(gia == "Từ 50000-100000")
+            {
+                ls = m.PROPERTies.ToList().Where(x => (x.Price >= 50000 && x.Price < 100000) || x.DISTRICT.DistrictName == quanhuyen || x.PROPERTY_TYPE.CodeType == loaida || x.STREET.StreetName == duong || x.BathRoom.ToString() == phongtam || x.BedRoom.ToString() == phongngu);
+            }
+            else if(gia == "Từ 100000-150000") {
+                ls = m.PROPERTies.ToList().Where(x => (x.Price >= 100000 && x.Price < 150000) || x.DISTRICT.DistrictName == quanhuyen || x.PROPERTY_TYPE.CodeType == loaida || x.STREET.StreetName == duong || x.BathRoom.ToString() == phongtam || x.BedRoom.ToString() == phongngu);
+            }
+            else
+            {
+                ls = m.PROPERTies.ToList().Where(x => x.Price >= 150000 || x.DISTRICT.DistrictName == quanhuyen || x.PROPERTY_TYPE.CodeType == loaida || x.STREET.StreetName == duong || x.BathRoom.ToString() == phongtam || x.BedRoom.ToString() == phongngu);
+            }
+
+            return View(ls);
+        }
     }
 }

@@ -298,6 +298,8 @@
     <Content Include="Views\viewDetail\Support.cshtml" />
     <Content Include="Views\Shared\LayoutSale.cshtml" />
     <Content Include="Views\Sale\Index.cshtml" />
+    <Content Include="Views\Home\SearchBox.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

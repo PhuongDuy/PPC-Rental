@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+
+@model IEnumerable<PPC_Rental.Models.PROPERTY>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">KẾT QUẢ</div>
+    <div style="margin-top:2%">
+        <div class="row">
+            @{int count = 0; }
+
+            @{ foreach (var iteam in Model)
+                {
+                    <div class="col-sm-12 col-md-3">
+                        <div class="thumbnail">
+                            <img src="~/Images/@iteam.Avatar" />
+                            <div class="caption">
+                                <a href="#" style="text-decoration:none;"><h3 class="h3ac" style="color:red">@iteam.PropertyName</h3></a>
+                                <p>@iteam.Content.Substring(0, 50)</p>
+                                <hr />
+                                <p><span class="glyphicon glyphicon-map-marker"></span>@iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p>
+                                <hr />
+                                <p>Giá bán <span style="float:right"> @iteam.Price</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    count++;
+                    if (count > 6)
+                    { break; }
+                }
+            }
+        </div>
+        <nav aria-label="Page navigation" style="margin-left:40%">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div style="margin-top:2%">
+        <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">BẤT ĐỘNG SẢN MỚI NHẤT</div>
+
+        @{ int countt = 0;}
+        @{ foreach (var iteam in Model)
+            {
+                <div class="row" style="margin-top:2%">
+                    <div class="col-md-5">
+                        <img style="width:100%" class="img-responsive" src="~/Images/@iteam.Avatar" />
+                    </div>
+                    <div class="col-md-7">
+                        <h3>@iteam.PropertyName</h3>
+                        <div class="row">
+                            <hr />
+                            <div class="col-md-6">
+                                <p>Diện tích: @iteam.Area</p>
+                                <p>Phòng ngủ: @iteam.BedRoom </p>
+                                <p>Phòng tắm: @iteam.BathRoom </p>
+                                <p>Packing Place: @iteam.PackingPlace </p>
+                            </div>
+                            <div class=" col-md-6">
+
+                                <p>Địa chỉ: @iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p>
+
+                            </div>
+
+                        </div>
+                        <a class="btn btn-default" style="float:right">Giá : @iteam.Price</a>
+                        <a class="btn btn-primary" style="float:right">Xem chi tiết</a>
+
+                    </div>
+                </div>
+                countt++;
+                if (countt > 4) { break; }
+
+
+
+            }
+        }
+
+    </div>
+
+
+</div>
+
+<nav aria-label="Page navigation" style="margin-left:40%">
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
