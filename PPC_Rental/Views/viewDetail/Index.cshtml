@@ -1,112 +1,148 @@
-﻿@{
+﻿@model PPC_Rental.Models.PROPERTY
+@*@model IEnumerable<PPC_Rental.Models.PROPERTY>*@
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<ul class="nav nav-tabs">
-    <li role="presentation" class="active" style="font-size:20px"><a href="#"><span class="glyphicon glyphicon-home" style="margin-left: 40%"></span><br /> Tên dự án</a></li>
-    <li role="presentation" class="active" style="font-size:20px"><a href="#"><span class="glyphicon glyphicon-home" style="margin-left: 30%"></span><br /> Liên hệ</a></li>
-</ul>
-
-<div class="container">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>
-                    <h1><b>KING BAY - VIEW 3 MẶT SÔNG </b></h1><div class="break-line" style="background-color:blue; width:300px; height:3px;">
-
+<div>
+    <ul class="nav nav-tabs" style="font-size:25px;">
+        <li role="presentation" class="active"><a href=""><span class="glyphicon glyphicon-home"></span> Thông tin dự án</a></li>
+        <li role="presentation"><a href="~/viewDetail/Support/"><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
+    </ul>
+</div>
+<div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
+    Tên dự án : @Html.DisplayFor(model => model.PropertyName)
+</div>
+<div class="row" style="margin-top:5%;font-size:17px;">
+    <div class="col-md-6">Địa chỉ : @Html.DisplayFor(model => model.STREET.StreetName) @Html.DisplayFor(model => model.WARD.WardName) @Html.DisplayFor(model => model.DISTRICT.DistrictName)</div>
+    <div class="col-md-6" style="text-align:right;color:#f43f3f">@Html.DisplayFor(model => model.Price) USD</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+</div>
+<div class="content">
+    <div class="pill-content" style="margin-top:5%">@Html.DisplayFor(model => model.Content)</div>
+    <div class="alert alert-info" style="margin-top:2%">Địa chỉ</div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>Loại dự án : @Html.DisplayFor(model => model.PROPERTY_TYPE.CodeType)</p>
+            <p>Quận huyện : @Html.DisplayFor(model => model.DISTRICT.DistrictName)</p>
+        </div>
+        <div class="col-md-4">
+            <p>Tên dự án : @Html.DisplayFor(model => model.PropertyName)</p>
+            <p>Phường, xã :@Html.DisplayFor(model => model.WARD.WardName) </p>
+        </div>
+        <div class="col-md-4">
+            <p>Đường: @Html.DisplayFor(model => model.STREET.StreetName)</p>
+            <p>Thành Phố : Hồ Chí Minh</p>
+        </div>
+    </div>
+    <div class="alert alert-info">Mô tả chi tiết</div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>Mã căn hộ : @Html.DisplayFor(model => model.ID)</p>
+            <p>Phòng khách : Đang cập nhật  </p>
+            <p>Số chỗ đậu xe : Đang cập nhật</p>
+        </div>
+        <div class="col-md-4">
+            <p>Giá : @Html.DisplayFor(model => model.Price)</p>
+            <p>Phòng ngủ : @Html.DisplayFor(model => model.BedRoom)</p>
+        </div>
+        <div class="col-md-4">
+            <p>Diện tích : @Html.DisplayFor(model => model.Area)</p>
+            <p>Phòng tắm : @Html.DisplayFor(model => model.BedRoom)</p>
+        </div>
+    </div>
+    <div class="alert alert-info">Các tiện ích</div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>Ban công : @Html.DisplayFor(model => model.PackingPlace)</p>
+        </div>
+        <div class="col-md-4">
+            <p>Chỗ đậu xe : Đang cập nhật</p>
+        </div>
+        <div class="col-md-4">
+            <p>Thang máy : Đang cập nhật</p>
+        </div>
+    </div>
+</div>
+<div style="font-size:30px;font-weight:bold;color:#ea9e25;text-align:center;margin-top:10%">
+    <p>Phòng kinh doanh dự án</p>
+    <p><span class="glyphicon glyphicon-earphone"></span> 0916.356.789</p>
+</div>
+<div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
+    Các dự án khác
+</div>
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+        </a>
+    </div>
+</div>
+@*<div style="margin-top:2%">
+        <div class="row">
+            @{int count = 0; }
+            @{ foreach (var iteam in Model)
+            {
+                    <div class="col-sm-12 col-md-3">
+                        <div class="thumbnail">
+                            <img src="~/Images/@iteam.Avatar" />
+                            <div class="caption">
+                                <a href="~/viewDetail/Index/@iteam.ID" style="text-decoration:none;"><h3 class="h3ac" style="color:red">@iteam.PropertyName</h3></a>
+                                <p>@iteam.Content.Substring(0, 50)</p>
+                                <hr />
+                                <p><span class="glyphicon glyphicon-map-marker"></span>@iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p>
+                                <hr />
+                                <p>Giá bán <span style="float:right"> @iteam.Price</span></p>
+                            </div>
+                        </div>
                     </div>
-                </th>
-                <th align="right" style="color:red"><h1><b>3 tỷ (VNĐ) </b></h1></th>
+                    count++;
+                    if (count > 3)
+                    { break; }
+                }
+            }
+        </div>
+    </div>*@
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="2" style="font-size:20px; color:gray">35 Trần Hưng Đạo - QUẬN 1</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
-<h1>HÌNH ẢNH</h1>
-<div class="container">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th colspan="3">
-                    <p style="font-size:15px; align-content:center">
-                        Căn hộ Vinhomes Gardenia Mỹ Đình tọa lạc tại khu vực thoáng đãng bậc nhất Hà Nội với mật độ tòa nhà cao tầng thấp nhất nên mỗi căn hộ tại đây sẽ được hưởng tầm view xa và đẹp ngoài sự mong đợi. Nằm trên mặt đường Hàm Nghi với liên kết vùng vượt trội, cư dân sống tại căn hộ Vinhomes Gardenia sẽ dễ dàng đi chuyển đi học, đi làm, đi chơi, về quê,… bởi những tuyến đường huyết mạch nằm ngay sát như Lê Đức Thọ, Hồ Tùng Mậu, đường sắt trên cao tuyến Nhổn – Ga Hà Nội.<br />
-                        Chọn căn căn hộ Vinhomes Gardenia Mỹ Đình, trước hết quý vị đã chọn cho mình một sản phẩm chất lượng được kiến tạo bởi bàn tay của ông lớn bất động sản VinGroup, sau đó là một chuỗi tiện ích tuyệt vời hoàn thiện, rồi đến một tổ ấm đẳng cấp với thiệt kế ưu việt từng chi tiết. Dự án ngay từ cái tên đã chứng minh rằng đây là nơi đáng sống bậc nhất Hà Nội: khu vườn xanh được xây dựng bởi thương hiệu hàng đầu”.
-                    </p>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="3" style="background:blue; font-size:20px">Address</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr style="font-size:20px">
-                <td>Loại căn hộ: chung cư</td>
-                <td>Tên dự án: King Man</td>
-                <td>Thành phố: Thành phố Hồ Chí Minh</td>
-            </tr>
-            <tr style="font-size:20px">
-                <td>Quận, Huyện: 1</td>
-                <td>Phường, Xã: 3</td>
-                <td>Đường: Trần Hưng Đạo</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <td colspan="3" style="background:blue; font-size:20px">Mô tả chi tiết căn hộ</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr style="font-size:20px">
-                <td>Mã căn hộ: 1</td>
-                <td>Giá: 3 tỷ (VNĐ)</td>
-                <td>Diện tích: 25 m<sup>2</sup></td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr style="font-size:20px">
-                <td>Phòng khách: 1</td>
-                <td>Phòng ngủ: 2</td>
-                <td>Phòng tắm: 2</td>
-            </tr>
-            <tr style="font-size:20px"><td colspan="3">Số chỗ đậu xe: 2</td></tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <td colspan="3" style="background:blue; font-size:20px">Tiện ích</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr style="font-size:15px;text-align:left">
-                <td><label><input type="checkbox" />Ban công</label></td>
-                <td><label><input type="checkbox" />Chỗ đậu xe</label></td>
-                <td><label><input type="checkbox" />Thang máy</label></td>
-            </tr>
-            <tr style="font-size:15px;text-align:left">
-                <td><label><input type="checkbox" />Vườn</label></td>
-                <td><label><input type="checkbox" />Phòng tập Gym</label></td>
-                <td><label><input type="checkbox" />Nhà bếp</label></td>
-            </tr>
-            <tr style="font-size:15px;text-align:left">
-                <td><label><input type="checkbox" />Phòng giặc ủi</label></td>
-                <td><label><input type="checkbox" />Chỗ nuôi thú cưng</label></td>
-                <td><label><input type="checkbox" />Hồ bơi</label></td>
-            </tr>
-            <tr style="font-size:15px;text-align:left">
-                <td><label><input type="checkbox" />Sàn gỗ</label></td>
-                <td colspan="2"> <label><input type="checkbox" />Bảo vệ</label></td>
-            </tr>
-        </tbody>
 
-    </table>
-</div>
 
 
