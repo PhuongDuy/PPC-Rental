@@ -18,7 +18,7 @@
                                 <a href="#" style="text-decoration:none;"><h3 class="h3ac" style="color:red">@iteam.PropertyName</h3></a>
                                 <p>@iteam.Content.Substring(0, 50)</p>
                                 <hr />
-                                <p><span class="glyphicon glyphicon-map-marker"></span>@iteam.Street_ID @iteam.Ward_ID @iteam.District_ID</p>
+                                <p><span class="glyphicon glyphicon-map-marker"></span>@iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p>
                                 <hr />
                                 <p>Giá bán <span style="float:right"> @iteam.Price</span></p>
                             </div>
@@ -53,7 +53,7 @@
                             </div>
                             <div class=" col-md-6">
 
-                                <p>Địa chỉ: @iteam.Street_ID @iteam.Ward_ID @iteam.District_ID</p>
+                                <p>Địa chỉ: @iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p>
 
                             </div>
 

@@ -9,7 +9,7 @@ namespace PPC_Rental.Controllers
 {
     public class HomeController : Controller
     {
-        DemoPPCRentalEntities1 m = new DemoPPCRentalEntities1();
+        K21T1_Team4Entities1 m = new K21T1_Team4Entities1();
         public ActionResult Index()
         {
             var p = m.PROPERTies.ToList();

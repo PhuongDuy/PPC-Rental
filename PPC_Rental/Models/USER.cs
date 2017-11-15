@@ -12,25 +12,27 @@ namespace PPC_Rental.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DISTRICT
+    public partial class USER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DISTRICT()
+        public USER()
         {
             this.PROPERTies = new HashSet<PROPERTY>();
-            this.STREETs = new HashSet<STREET>();
-            this.WARDs = new HashSet<WARD>();
+            this.PROPERTies1 = new HashSet<PROPERTY>();
         }
     
         public int ID { get; set; }
-        public string DistrictName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string FullName { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string Role { get; set; }
         public Nullable<bool> Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROPERTY> PROPERTies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<STREET> STREETs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WARD> WARDs { get; set; }
+        public virtual ICollection<PROPERTY> PROPERTies1 { get; set; }
     }
 }
