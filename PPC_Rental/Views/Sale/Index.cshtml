@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutSale.cshtml";
 }
+ @using PPC_Rental.Models;
 
 <body style="background-color: #e0e0d1;">
     <div>
@@ -38,9 +39,37 @@
                 <button type="button" style="font-size:18px;border-radius : 5px;">Add</button>
             </div>
         </div><!-- /.container-fluid -->
-
+       
     </nav>
-
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table" id="dataTable" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;border: 1px solid;border-radius: 5px;">
+                <thead>
+                    <tr role="row">
+                        <th class="sale-table-head" style="width:380px;border: 1px solid">Tên dự án</th>
+                        <th class="sale-table-head" style="width: 200px;border: 1px solid">Mã dự án</th>
+                        <th class="sale-table-head" style="width: 120px;border: 1px solid ">Loại dự án</th>
+                        <th class="sale-table-head" style="width: 200px;border: 1px solid">Quận</th>
+                        <th class="sale-table-head" style="width: 400px;border: 1px solid">Đường</th>
+                        <th class="sale-table-head" style="width: 300px;border: 1px solid">Công cụ</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color:  white;">
+                    @foreach (PROPERTY item in Model)
+                    {
+                      <tr role="row" style="border: 1px solid;">
+                          <td style="border: 1px solid;">@Html.DisplayFor(modle => item.PropertyName)</td>
+                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.ID)</td>
+                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.PropertyType_ID)</td>
+                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.District_ID)</td>
+                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.Street_ID)</td>
+                          <td class="glyphicon glyphicon-pencil" style="margin-left: 45%;"></td>
+                      </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 
