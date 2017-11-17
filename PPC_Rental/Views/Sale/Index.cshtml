@@ -84,9 +84,9 @@
                             <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.STREET.StreetName)</td>
                             <td style="border: 1px solid;padding: 0;">
                                 <ul style="margin-left: 20%;margin-top: 10px;">
-                                    <li class="glyphicon glyphicon-eye-open" style="color: #595959;"></li> |
-                                    <li class="glyphicon glyphicon-pencil" style="color: #595959;"></li> |
-                                    <li class = "glyphicon glyphicon-remove" style="color: #595959;"></li>
+                                    <li class="glyphicon glyphicon-eye-open" style="color: #595959;">@Html.ActionLink("Detail","Detail",new { id = item.ID } )</li> |
+                                    <li class="glyphicon glyphicon-pencil" style="color: #595959;">@Html.ActionLink("Edit", "EditProject", new { id = item.ID })</li> |
+                                    <li class = "glyphicon glyphicon-remove" style="color: #595959;">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</li>
                                 </ul>
                             </td>
                         </tr>

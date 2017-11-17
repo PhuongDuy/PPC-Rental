@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/LayoutSale.cshtml";
 }
 
+
 <!DOCTYPE html>
 <html>
 <body style="background-color: #e0e0d1;">
@@ -173,8 +174,56 @@
                     <input id="bep" type="radio" class="form-control-radio" name="bep" placeholder="Co"> Có
                     <input id="bep" type="radio" class="form-control-radio" name="bep" placeholder="Khong"> Không
                 </div>
-
             </div>
+        </div>
+        <br />
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Địa chỉ</p>
+            </div>
+        </nav>
+        <div class="container-fluid" style="border: 1px solid;">
+            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">City :</span>
+                    <p style="margin-top:10px;margin-left: 20px;">HCM</p>
+                    <span class="input-group-addon">District :</span>
+                    <select id="district" class="form-control" name="district" style="width: 100px;"><option></option></select>
+                    <span class="input-group-addon">Ward :</span>
+                    <select id="ward" class="form-control" name="ward" style="width: 100px;"><option></option></select>
+                </div>
+                <div class="input-group" style="width: 500px">
+                    <span class="input-group-addon">Street :</span>
+                    <select id="street" class="form-control" name="street"><option></option></select>
+                </div>
+            </div>
+        </div>
+        <br />
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Quản lý :</p>
+            </div>
+        </nav>
+        <div class="container-fluid" style="border: 1px solid;">
+            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">Sale :</span>
+                    <p style="margin-top:10px;margin-left: 20px;"></p>
+                    <span class="input-group-addon">Updated at :</span>
+                    <p style="margin-top:10px;margin-left: 20px;"></p>
+                </div>
+                <div class="input-group" style="width: 500px">
+                    <span class="input-group-addon">Status :</span>
+                    <select id="status" class="form-control" name="status" style="width: 230px;"><option></option></select>
+                    <span class="input-group-addon">Note :</span>
+                    <input id="note" type="text" class="form-control" name="note" placeholder="....">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style="text-align:right;">
+            <button type="button" style="margin-right: 20px;border-radius : 5px;background-color: #3377ff; font-size: 16px;width: 100px;padding: 5px;">Quay lại</button>
+            <button type="button" style="border-radius : 5px;background-color: #3377ff; font-size: 16px;width: 100px;padding: 5px;">Lưu</button>
         </div>
     </div>
 
