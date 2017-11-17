@@ -1,0 +1,183 @@
+﻿
+@{
+    ViewBag.Title = "EditProject";
+    Layout = "~/Views/Shared/LayoutSale.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body style="background-color: #e0e0d1;">
+    <div>
+        <div class="col-md-1">
+            <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
+        </div><h1>Danh sách dự án \ Edit</h1>
+    </div>
+    <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;">
+        <div class="container-fluid" style="margin-top: 10px">
+            <div class="col-md-3">
+                <select class="sale-select-option">
+                    <option>Tên dự án</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="sale-select-option1">
+                    <option>Loại</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="sale-select-option1">
+                    <option>Quận</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="sale-select-option">
+                    <option>Đường</option>
+                </select>
+            </div>
+            <div class="col-md-3 text-right" style="font-size:18px;">
+                <button type="submit" style="border-radius : 5px;margin-right: 20px;"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
+                <img src="~/Images/ImageSale/if_edit_add_3219.png" style="width: 18px;" />
+                <button type="button" style="font-size:18px;border-radius : 5px;">Add</button>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="col-sm-6">
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Thông tin dự án</p>
+            </div>
+        </nav>
+        <div class="container-fluid" style="border: 1px solid;">
+            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">ID :</span>
+                    <p style="margin-top:10px;margin-left: 20px;">xzca</p>
+                </div>
+                <div class="input-group" style="width: 500px;">
+                    <span class="input-group-addon">ProjectName :</span>
+                    <input id="proname" type="text" class="form-control" name="projectname" placeholder="Tên dự án">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">ProjectType :</span>
+                    <select id="protype" class="form-control" name="projecttype" style="width: 200px;"><option></option></select>
+                    <span class="input-group-addon">Price :</span>
+                    <input id="price" type="text" class="form-control" name="price" placeholder="Giá" style="width: 200px;">
+                </div>
+                <div class="input-group" style="width: 580px;">
+                    <span class="input-group-addon">Avatar :</span>
+                    <input id="avatar" type="file" class="form-control" name="avatar" placeholder="Avatar">
+                    <span class="input-group-addon">UnitPrice :</span>
+                    <select id="unitprice" class="form-control" name="unitprice" style="width: 180px;"><option>VND</option><option>USD</option></select>
+                </div>
+                <div class="input-group" style="width: 500px">
+                    <span class="input-group-addon">Area :</span>
+                    <input id="area" type="text" class="form-control" name="area" placeholder="Diện tích">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Images :</span>
+                    <input id="image" type="file" class="form-control" name="image" placeholder="Hình ảnh">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Content :</span>
+                    <textarea id="content" type="text" class="form-control" name="content" placeholder="Nội dung"></textarea>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">BedRoom :</span>
+                    <select id="badroom" class="form-control" name="bebroom" style="width: 180px;">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <span class="input-group-addon">BethRoom :</span>
+                    <select id="bathroom" class="form-control" name="bethroom" style="width: 180px;">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">PackingPlace :</span>
+                    <select id="packingplace" class="form-control" name="packingplace" style="width: 180px;">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">User :</span>
+                    <p style="margin-top:10px;margin-left: 20px;">xzca</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Craeted at :</span>
+                    <p style="margin-top:10px;margin-left: 20px;">xzca</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Tiện tích</p>
+            </div>
+        </nav>
+        <div class="container-fluid" style="border: 1px solid;">
+            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">Ban công :</span>
+                    <input id="bancong" type="radio" class="form-control-radio" name="bancong" placeholder="Co"> Có
+                    <input id="bancong" type="radio" class="form-control-radio" name="bancong" placeholder="Khong"> Không
+                    <span class="input-group-addon">Phòng giặc ủi :</span>
+                    <input id="giacui" type="radio" class="form-control-radio" name="giacui" placeholder="Co"> Có
+                    <input id="giacui" type="radio" class="form-control-radio" name="giacui" placeholder="Khong"> Không
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Chỗ đậu xe :</span>
+                    <input id="dauxe" type="radio" class="form-control-radio" name="dauxe" placeholder="Co"> Có
+                    <input id="dauxe" type="radio" class="form-control-radio" name="dauxe" placeholder="Khong"> Không
+                    <span class="input-group-addon">Hồ bơi :</span>
+                    <input id="hoboi" type="radio" class="form-control-radio" name="hoboi" placeholder="Co"> Có
+                    <input id="hoboi" type="radio" class="form-control-radio" name="hoboi" placeholder="Khong"> Không
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Thang máy :</span>
+                    <input id="thangmay" type="radio" class="form-control-radio" name="thangmay" placeholder="Co"> Có
+                    <input id="thangmay" type="radio" class="form-control-radio" name="thangmay" placeholder="Khong"> Không
+                    <span class="input-group-addon">Sàn gỗ :</span>
+                    <input id="sango" type="radio" class="form-control-radio" name="sango" placeholder="Co"> Có
+                    <input id="sango" type="radio" class="form-control-radio" name="sango" placeholder="Khong"> Không
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Vườn :</span>
+                    <input id="vuon" type="radio" class="form-control-radio" name="vuon" placeholder="Co"> Có
+                    <input id="vuon" type="radio" class="form-control-radio" name="vuon" placeholder="Khong"> Không
+                    <span class="input-group-addon">Bảo vệ :</span>
+                    <input id="baove" type="radio" class="form-control-radio" name="baove" placeholder="Co"> Có
+                    <input id="baove" type="radio" class="form-control-radio" name="baove" placeholder="Khong"> Không
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Phòng tập gym :</span>
+                    <input id="gym" type="radio" class="form-control-radio" name="gym" placeholder="Co"> Có
+                    <input id="gym" type="radio" class="form-control-radio" name="gym" placeholder="Khong"> Không
+                    <span class="input-group-addon">Thú cưng :</span>
+                    <input id="thucung" type="radio" class="form-control-radio" name="thucung" placeholder="Co"> Có
+                    <input id="thucung" type="radio" class="form-control-radio" name="thucung" placeholder="Khong"> Không
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Nhà bếp :</span>
+                    <input id="bep" type="radio" class="form-control-radio" name="bep" placeholder="Co"> Có
+                    <input id="bep" type="radio" class="form-control-radio" name="bep" placeholder="Khong"> Không
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

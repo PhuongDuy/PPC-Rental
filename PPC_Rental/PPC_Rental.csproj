@@ -300,6 +300,7 @@
     <Content Include="Views\Sale\Index.cshtml" />
     <Content Include="Views\Home\SearchBox.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Sale\EditProject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,7 +4,10 @@
     Layout = "~/Views/Shared/LayoutSale.cshtml";
 }
  @using PPC_Rental.Models;
+@model IEnumerable<PPC_Rental.Models.PROPERTY>
 
+<!DOCTYPE html>
+<html>
 <body style="background-color: #e0e0d1;">
     <div>
         <div class="col-md-1">
@@ -16,21 +19,37 @@
             <div class="col-md-3">
                 <select class="sale-select-option">
                     <option>Tên dự án</option>
+                    @foreach (PROPERTY name in Model)
+                    {
+                        <option>@name.PropertyName</option>
+                    }
                 </select>
             </div>
             <div class="col-md-2">
                 <select class="sale-select-option1">
                     <option>Loại</option>
+                    @foreach (var pt in Model)
+                    {
+                        <option>@pt.PROPERTY_TYPE.Description</option>
+                    }
                 </select>
             </div>
             <div class="col-md-2">
                 <select class="sale-select-option1">
                     <option>Quận</option>
+                    @foreach (var dt in Model)
+                    {
+                        <option>@dt.DISTRICT.DistrictName</option>
+                    }
                 </select>
             </div>
             <div class="col-md-2">
                 <select class="sale-select-option">
                     <option>Đường</option>
+                    @foreach (var st in Model)
+                    {
+                        <option>@st.STREET.StreetName</option>
+                    }
                 </select>
             </div>
             <div class="col-md-3 text-right" style="font-size:18px;">
@@ -39,7 +58,7 @@
                 <button type="button" style="font-size:18px;border-radius : 5px;">Add</button>
             </div>
         </div><!-- /.container-fluid -->
-       
+
     </nav>
     <div class="row">
         <div class="col-sm-12">
@@ -57,20 +76,36 @@
                 <tbody style="background-color:  white;">
                     @foreach (PROPERTY item in Model)
                     {
-                      <tr role="row" style="border: 1px solid;">
-                          <td style="border: 1px solid;">@Html.DisplayFor(modle => item.PropertyName)</td>
-                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.ID)</td>
-                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.PropertyType_ID)</td>
-                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.District_ID)</td>
-                          <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.Street_ID)</td>
-                          <td class="glyphicon glyphicon-pencil" style="margin-left: 45%;"></td>
-                      </tr>
+                        <tr role="row" style="border: 1px solid;">
+                            <td style="border: 1px solid;">@Html.DisplayFor(modle => item.PropertyName)</td>
+                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.ID)</td>
+                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.PROPERTY_TYPE.Description)</td>
+                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.DISTRICT.DistrictName)</td>
+                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.STREET.StreetName)</td>
+                            <td style="border: 1px solid;padding: 0;">
+                                <ul style="margin-left: 20%;margin-top: 10px;">
+                                    <li class="glyphicon glyphicon-eye-open" style="color: #595959;"></li> |
+                                    <li class="glyphicon glyphicon-pencil" style="color: #595959;"></li> |
+                                    <li class = "glyphicon glyphicon-remove" style="color: #595959;"></li>
+                                </ul>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
         </div>
     </div>
 </body>
-
+</html>
+<script type="text/javascript">
+    function DeleteConfirm() {
+        if (confirm("Bạn chắc chắn muốn xóa dự án này?"))
+            return true
+        else
+            return false
+    }
+    ForcusEvent = false;
+    checked = false;
+</script>
 
 

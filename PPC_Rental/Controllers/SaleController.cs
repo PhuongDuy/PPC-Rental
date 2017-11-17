@@ -16,5 +16,19 @@ namespace PPC_Rental.Controllers
             var viewlist = db.PROPERTies.ToList();
             return View(viewlist);
         }
+        
+        public ActionResult Delete(int id)
+        {
+            var de = db.PROPERTies.First(p => p.ID == id) ;
+            db.PROPERTies.Remove(de);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult EditProject()
+        {
+            return View();
+
+        }
     }
 }
