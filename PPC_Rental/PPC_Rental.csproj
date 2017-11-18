@@ -226,13 +226,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\background\background.png" />
     <Content Include="Images\footer\footer.jpg" />
+    <Content Include="Images\ImageSale\if_081_Pen_183209.png" />
     <Content Include="Images\ImageSale\if_edit_add_3219.png" />
     <Content Include="Images\ImageSale\if_folder-project_287298.png" />
     <Content Include="Images\ImageSale\if_Home Green_41298.png" />
     <Content Include="Images\ImageSale\if_kaddressbook_24061.png" />
     <Content Include="Images\ImageSale\if_malecostume_403022.png" />
+    <Content Include="Images\ImageSale\if_remove-01_186389.png" />
     <Content Include="Images\ImageSale\if_scroll left_36560.png" />
     <Content Include="Images\ImageSale\if_user7_49396.png" />
+    <Content Include="Images\ImageSale\if_view_126581.png" />
     <Content Include="Images\ImageSale\logo.png" />
     <Content Include="Images\IMG_1592-stamp.jpg" />
     <Content Include="Images\Logo\logocuabinh.png" />

@@ -3,11 +3,12 @@
     ViewBag.Title = "EditProject";
     Layout = "~/Views/Shared/LayoutSale.cshtml";
 }
-
+@using PPC_Rental.Models;
+@model IEnumerable<PPC_Rental.Models.PROPERTY>
 
 <!DOCTYPE html>
 <html>
-<body style="background-color: #e0e0d1;">
+<body>
     <div>
         <div class="col-md-1">
             <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
@@ -42,35 +43,35 @@
             </div>
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="col-sm-6">
+    <div class="col-md-6" style="margin-top: 0;">
         <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
             <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
                 <p style="margin-bottom: 0;color: white;font-size: 20px">Thông tin dự án</p>
             </div>
         </nav>
         <div class="container-fluid" style="border: 1px solid;">
-            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+            <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">ID :</span>
-                    <p style="margin-top:10px;margin-left: 20px;">xzca</p>
+                    <p style="margin-top:10px;margin-left: 20px;"></p>
                 </div>
-                <div class="input-group" style="width: 500px;">
+                <div class="input-group">
                     <span class="input-group-addon">ProjectName :</span>
                     <input id="proname" type="text" class="form-control" name="projectname" placeholder="Tên dự án">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">ProjectType :</span>
-                    <select id="protype" class="form-control" name="projecttype" style="width: 200px;"><option></option></select>
+                    <select id="protype" class="form-control" name="projecttype" style="width: 100px;"><option></option></select>
                     <span class="input-group-addon">Price :</span>
-                    <input id="price" type="text" class="form-control" name="price" placeholder="Giá" style="width: 200px;">
+                    <input id="price" type="text" class="form-control" name="price" placeholder="Giá">
                 </div>
-                <div class="input-group" style="width: 580px;">
+                <div class="input-group">
                     <span class="input-group-addon">Avatar :</span>
                     <input id="avatar" type="file" class="form-control" name="avatar" placeholder="Avatar">
                     <span class="input-group-addon">UnitPrice :</span>
-                    <select id="unitprice" class="form-control" name="unitprice" style="width: 180px;"><option>VND</option><option>USD</option></select>
+                    <select id="unitprice" class="form-control" name="unitprice" style="width: 80px;"><option></option></select>
                 </div>
-                <div class="input-group" style="width: 500px">
+                <div class="input-group">
                     <span class="input-group-addon">Area :</span>
                     <input id="area" type="text" class="form-control" name="area" placeholder="Diện tích">
                 </div>
@@ -84,7 +85,7 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">BedRoom :</span>
-                    <select id="badroom" class="form-control" name="bebroom" style="width: 180px;">
+                    <select id="badroom" class="form-control" name="bebroom">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -92,7 +93,7 @@
                         <option>5</option>
                     </select>
                     <span class="input-group-addon">BethRoom :</span>
-                    <select id="bathroom" class="form-control" name="bethroom" style="width: 180px;">
+                    <select id="bathroom" class="form-control" name="bethroom">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -102,7 +103,7 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">PackingPlace :</span>
-                    <select id="packingplace" class="form-control" name="packingplace" style="width: 180px;">
+                    <select id="packingplace" class="form-control" name="packingplace" style="width: 170px;">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -112,67 +113,56 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">User :</span>
-                    <p style="margin-top:10px;margin-left: 20px;">xzca</p>
+                    <p style="margin-top:10px;margin-left: 20px;"></p>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Craeted at :</span>
-                    <p style="margin-top:10px;margin-left: 20px;">xzca</p>
+                    <p style="margin-top:10px;margin-left: 20px;"></p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-md-6" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
         <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
             <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
                 <p style="margin-bottom: 0;color: white;font-size: 20px">Tiện tích</p>
             </div>
         </nav>
         <div class="container-fluid" style="border: 1px solid;">
-            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+            <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">Ban công :</span>
-                    <input id="bancong" type="radio" class="form-control-radio" name="bancong" placeholder="Co"> Có
-                    <input id="bancong" type="radio" class="form-control-radio" name="bancong" placeholder="Khong"> Không
+                    <input id="bancong" type="checkbox" class="form-control-radio" name="bancong" placeholder="Co"> Có
                     <span class="input-group-addon">Phòng giặc ủi :</span>
                     <input id="giacui" type="radio" class="form-control-radio" name="giacui" placeholder="Co"> Có
-                    <input id="giacui" type="radio" class="form-control-radio" name="giacui" placeholder="Khong"> Không
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Chỗ đậu xe :</span>
-                    <input id="dauxe" type="radio" class="form-control-radio" name="dauxe" placeholder="Co"> Có
-                    <input id="dauxe" type="radio" class="form-control-radio" name="dauxe" placeholder="Khong"> Không
+                    <input id="dauxe" type="checkbox" class="form-control-radio" name="dauxe" placeholder="Co"> Có
                     <span class="input-group-addon">Hồ bơi :</span>
-                    <input id="hoboi" type="radio" class="form-control-radio" name="hoboi" placeholder="Co"> Có
-                    <input id="hoboi" type="radio" class="form-control-radio" name="hoboi" placeholder="Khong"> Không
+                    <input id="hoboi" type="checkbox" class="form-control-radio" name="hoboi" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Thang máy :</span>
-                    <input id="thangmay" type="radio" class="form-control-radio" name="thangmay" placeholder="Co"> Có
-                    <input id="thangmay" type="radio" class="form-control-radio" name="thangmay" placeholder="Khong"> Không
+                    <input id="thangmay" type="checkbox" class="form-control-radio" name="thangmay" placeholder="Co"> Có
                     <span class="input-group-addon">Sàn gỗ :</span>
-                    <input id="sango" type="radio" class="form-control-radio" name="sango" placeholder="Co"> Có
-                    <input id="sango" type="radio" class="form-control-radio" name="sango" placeholder="Khong"> Không
+                    <input id="sango" type="checkbox" class="form-control-radio" name="sango" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Vườn :</span>
-                    <input id="vuon" type="radio" class="form-control-radio" name="vuon" placeholder="Co"> Có
-                    <input id="vuon" type="radio" class="form-control-radio" name="vuon" placeholder="Khong"> Không
+                    <input id="vuon" type="checkbox" class="form-control-radio" name="vuon" placeholder="Co"> Có
                     <span class="input-group-addon">Bảo vệ :</span>
-                    <input id="baove" type="radio" class="form-control-radio" name="baove" placeholder="Co"> Có
-                    <input id="baove" type="radio" class="form-control-radio" name="baove" placeholder="Khong"> Không
+                    <input id="baove" type="checkbox" class="form-control-radio" name="baove" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Phòng tập gym :</span>
-                    <input id="gym" type="radio" class="form-control-radio" name="gym" placeholder="Co"> Có
-                    <input id="gym" type="radio" class="form-control-radio" name="gym" placeholder="Khong"> Không
+                    <input id="gym" type="checkbox" class="form-control-radio" name="gym" placeholder="Co"> Có
                     <span class="input-group-addon">Thú cưng :</span>
-                    <input id="thucung" type="radio" class="form-control-radio" name="thucung" placeholder="Co"> Có
-                    <input id="thucung" type="radio" class="form-control-radio" name="thucung" placeholder="Khong"> Không
+                    <input id="thucung" type="checkbox" class="form-control-radio" name="thucung" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Nhà bếp :</span>
-                    <input id="bep" type="radio" class="form-control-radio" name="bep" placeholder="Co"> Có
-                    <input id="bep" type="radio" class="form-control-radio" name="bep" placeholder="Khong"> Không
+                    <input id="bep" type="checkbox" class="form-control-radio" name="bep" placeholder="Co"> Có
                 </div>
             </div>
         </div>
@@ -183,16 +173,16 @@
             </div>
         </nav>
         <div class="container-fluid" style="border: 1px solid;">
-            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+            <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">City :</span>
-                    <p style="margin-top:10px;margin-left: 20px;">HCM</p>
+                    <p style="margin-top:10px;margin-left: 10px;">HCM</p>
                     <span class="input-group-addon">District :</span>
-                    <select id="district" class="form-control" name="district" style="width: 100px;"><option></option></select>
+                    <select id="district" class="form-control" name="district"><option></option></select>
                     <span class="input-group-addon">Ward :</span>
-                    <select id="ward" class="form-control" name="ward" style="width: 100px;"><option></option></select>
+                    <select id="ward" class="form-control" name="ward"><option></option></select>
                 </div>
-                <div class="input-group" style="width: 500px">
+                <div class="input-group">
                     <span class="input-group-addon">Street :</span>
                     <select id="street" class="form-control" name="street"><option></option></select>
                 </div>
@@ -205,16 +195,16 @@
             </div>
         </nav>
         <div class="container-fluid" style="border: 1px solid;">
-            <div style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+            <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">Sale :</span>
                     <p style="margin-top:10px;margin-left: 20px;"></p>
                     <span class="input-group-addon">Updated at :</span>
                     <p style="margin-top:10px;margin-left: 20px;"></p>
                 </div>
-                <div class="input-group" style="width: 500px">
+                <div class="input-group">
                     <span class="input-group-addon">Status :</span>
-                    <select id="status" class="form-control" name="status" style="width: 230px;"><option></option></select>
+                    <select id="status" class="form-control" name="status" style="width: 100px;"><option></option></select>
                     <span class="input-group-addon">Note :</span>
                     <input id="note" type="text" class="form-control" name="note" placeholder="....">
                 </div>

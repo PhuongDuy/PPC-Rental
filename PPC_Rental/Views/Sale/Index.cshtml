@@ -8,7 +8,7 @@
 
 <!DOCTYPE html>
 <html>
-<body style="background-color: #e0e0d1;">
+<body>
     <div>
         <div class="col-md-1">
             <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
@@ -16,7 +16,7 @@
     </div>
     <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;">
         <div class="container-fluid" style="margin-top: 10px">
-            <div class="col-md-3">
+            <div class="col-md-3" style="padding: 0;">
                 <select class="sale-select-option">
                     <option>Tên dự án</option>
                     @foreach (PROPERTY name in Model)
@@ -25,7 +25,7 @@
                     }
                 </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2" style="padding: 0;">
                 <select class="sale-select-option1">
                     <option>Loại</option>
                     @foreach (var pt in Model)
@@ -34,8 +34,8 @@
                     }
                 </select>
             </div>
-            <div class="col-md-2">
-                <select class="sale-select-option1">
+            <div class="col-md-2" style="padding: 0;">
+                <select class="sale-select-option1" style="margin-left: 0;">
                     <option>Quận</option>
                     @foreach (var dt in Model)
                     {
@@ -43,8 +43,8 @@
                     }
                 </select>
             </div>
-            <div class="col-md-2">
-                <select class="sale-select-option">
+            <div class="col-md-2" style="padding: 0;">
+                <select class="sale-select-option11">
                     <option>Đường</option>
                     @foreach (var st in Model)
                     {
@@ -61,7 +61,7 @@
 
     </nav>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-12">
             <table class="table" id="dataTable" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;border: 1px solid;border-radius: 5px;">
                 <thead>
                     <tr role="row">
@@ -83,10 +83,10 @@
                             <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.DISTRICT.DistrictName)</td>
                             <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.STREET.StreetName)</td>
                             <td style="border: 1px solid;padding: 0;">
-                                <ul style="margin-left: 20%;margin-top: 10px;">
-                                    <li class="glyphicon glyphicon-eye-open" style="color: #595959;">@Html.ActionLink("Detail","Detail",new { id = item.ID } )</li> |
-                                    <li class="glyphicon glyphicon-pencil" style="color: #595959;">@Html.ActionLink("Edit", "EditProject", new { id = item.ID })</li> |
-                                    <li class = "glyphicon glyphicon-remove" style="color: #595959;">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</li>
+                                <ul style="margin-top: 10px;">
+                                    <li class="glyphicon glyphicon-eye-open" style="color: #595959;font-size: 12px;">@Html.ActionLink("Detail","Detail",new { id = item.ID } )</li> |
+                                   <li class="glyphicon glyphicon-pencil" style="color: #595959;font-size: 12px;">@*@Html.ActionLink("Edit", "Edit", new { id = item.ID })*@</li> |
+                                    <li class="glyphicon glyphicon-remove" style="color: #595959;font-size: 12px;">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</li>
                                 </ul>
                             </td>
                         </tr>
@@ -98,7 +98,7 @@
 </body>
 </html>
 <script type="text/javascript">
-    function DeleteConfirm() {
+    function Delete() {
         if (confirm("Bạn chắc chắn muốn xóa dự án này?"))
             return true
         else

@@ -7,28 +7,31 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewlistofprojectagency">
+    <meta name="viewlistofprojectagency" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+
+
 </head>
-<body>
-    <div class="container-fluid navbar-fixed-top">
+<body style="padding: 0;background-color: #e0e0d1;">
+    <div class="container-fluid">
         <div class="col-md-2" style="background-color: #1f1f14;height:800px">
             <div>
                 <img src="~/Images/ImageSale/logo.png" alt="logo PPC Rental" style="width: 100%;height:auto;" />
             </div>
-            <hr />
+            <hr style="margin-bottom: 0;margin-top: 0;" />
             <div class="row">
                 <div class="col-md-6 text-center">
-                    <img src="~/Images/ImageSale/if_malecostume_403022.png" alt="Hinh avatar sale" />
+                    <img src="~/Images/ImageSale/if_malecostume_403022.png" alt="Hinh avatar sale" style="width: 100px;" />
                 </div>
-                <div class="col-md-6">
-                    <h2 style="text-align:center;padding-top:20%;color: aliceblue">Sale</h2>
+                <div class="col-md-6" style="padding: 0;">
+                    <h2 style="text-align:center;color: aliceblue">Sale</h2>
                     <div>
-                        <span style="font-size: 12px;color: aliceblue;">Account -</span> 
-                        <span style="font-size: 12px;color: aliceblue;"> Đăng xuất</span>
+                        <span style="font-size: 11px;color: aliceblue;">Account -</span> 
+                        <span style="font-size: 11px;color: aliceblue;"> Đăng xuất</span>
                     </div>
                 </div>
             </div>
@@ -47,7 +50,7 @@
                     <li>
                         <img src="~/Images/ImageSale/if_folder-project_287298.png" style="width :36px" /> Dự án
                         <ul style="padding-left: 60px;">
-                            <li style="font-size:16px"> Quản lý dự án</li>
+                            <li style="font-size:16px;background-color: aliceblue;color:black;"> Quản lý dự án</li>
                             <li style="font-size:16px"> Duyệt dự án</li>
                             <li style="font-size:16px"> Phí thanh toán</li>
                         </ul>
@@ -56,7 +59,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10" style="height: 800px;">
             <div>
                 @RenderBody()
 
