@@ -13,10 +13,15 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/Content/sb-admin.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap1.css" rel="stylesheet" />
 
 
 </head>
-<body style="padding: 0;background-color: #e0e0d1;">
+<body style="padding: 0;background-color: #e0e0d1;margin-left: -15px;margin-right: -15px;">
     <div class="container-fluid">
         <div class="col-md-2" style="background-color: #1f1f14;height:800px">
             <div>
@@ -27,7 +32,7 @@
                 <div class="col-md-6 text-center">
                     <img src="~/Images/ImageSale/if_malecostume_403022.png" alt="Hinh avatar sale" style="width: 100px;" />
                 </div>
-                <div class="col-md-6" style="padding: 0;">
+                <div class="col-md-6" style="padding-top: 20px;padding-left:5px;padding-right: 5px;">
                     <h2 style="text-align:center;color: aliceblue">Sale</h2>
                     <div>
                         <span style="font-size: 11px;color: aliceblue;">Account -</span> 
@@ -38,8 +43,8 @@
             <hr />
             <div class="container">
                 <ul style="padding-left: 0;">
-                    <li><img src="~/Images/ImageSale/if_Home Green_41298.png" style="width: 38px" /> Trang chủ</li>
-                    <li>
+                    <li style="font-size: 20px"><img src="~/Images/ImageSale/if_Home Green_41298.png" style="width: 38px" /> Trang chủ</li>
+                    <li style="font-size: 20px">
                         <img src="~/Images/ImageSale/if_user7_49396.png" style="width :36px" /> Agency
                         <ul style="padding-left: 60px;">
                             <li style="font-size:16px"> Quản lý tài khoản</li>
@@ -47,7 +52,7 @@
                         </ul>
                     </li>
 
-                    <li>
+                    <li style="font-size: 20px">
                         <img src="~/Images/ImageSale/if_folder-project_287298.png" style="width :36px" /> Dự án
                         <ul style="padding-left: 60px;">
                             <li style="font-size:16px;background-color: aliceblue;color:black;"> Quản lý dự án</li>
@@ -55,7 +60,7 @@
                             <li style="font-size:16px"> Phí thanh toán</li>
                         </ul>
                     </li>
-                    <li><img src="~/Images/ImageSale/if_kaddressbook_24061.png" style="width :36px" /> Hỗ trợ</li>
+                    <li style="font-size: 20px"><img src="~/Images/ImageSale/if_kaddressbook_24061.png" style="width :36px" /> Hỗ trợ</li>
                 </ul>
             </div>
         </div>
@@ -67,11 +72,15 @@
 
             </div>
         </div>
+        <script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+        <script src="~/Scripts/jquery.easing.min.js"></script>
+        <script src="~/Scripts/jquery.dataTables.js"></script>
+        <script src="~/Scripts/dataTables.bootstrap4.js"></script>
+        <script src="~/Scripts/sb-admin.min.js"></script>
+        <script src="~/Scripts/sb-admin-datatables.min.js"></script>
     </div>
 
-
-
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

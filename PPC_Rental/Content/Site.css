@@ -40,33 +40,54 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-.nav-tabs{
-    margin-top:5%;
+input.input-validation-error {
+    border: 1px solid #b94a48;
 }
-.col-md-6{
-    margin-top:5%;
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
 }
-.col-md-6>h3{
-    margin-top:5%;
+
+.validation-summary-errors {
+    color: #b94a48;
 }
-.col-md-6>input{
-    margin-top:2%;
+
+.validation-summary-valid {
+    display: none;
 }
-.col-md-6>textarea{
-    margin-top:2%;
+
+.nav-tabs {
+    margin-top: 5%;
 }
-.col-md-6>button{
-    margin-top:2%;
-   
+
+.col-md-6 {
+    margin-top: 5%;
 }
+
+    .col-md-6 > h3 {
+        margin-top: 5%;
+    }
+
+    .col-md-6 > input {
+        margin-top: 2%;
+    }
+
+    .col-md-6 > textarea {
+        margin-top: 2%;
+    }
+
+    .col-md-6 > button {
+        margin-top: 2%;
+    }
+
 .sale-select-option {
     width: 250px;
     font-size: 22px;
     opacity: 0.5;
-    margin-left: 20px;
     padding-left: 10px;
     border-radius: 5px;
 }
+
 .sale-select-option11 {
     font-size: 22px;
     opacity: 0.5;
@@ -85,20 +106,21 @@ input[type="checkbox"].input-validation-error {
 li {
     list-style: none;
     cursor: pointer;
-    font-size: 20px;
     color: aliceblue;
 }
+
 .sale-table-head {
     text-align: center;
     background-color: antiquewhite;
     font-size: 16px;
 }
+
 .form-control {
-    max-width : 413px;
+    max-width: 450px;
     max-height: 200px;
 }
+
 .form-control-radio {
-    width : 40px;
+    width: 40px;
     margin: 8px 0 0;
 }
-

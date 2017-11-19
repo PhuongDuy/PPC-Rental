@@ -3,97 +3,149 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutSale.cshtml";
 }
- @using PPC_Rental.Models;
+@using PPC_Rental.Models;
 @model IEnumerable<PPC_Rental.Models.PROPERTY>
 
 <!DOCTYPE html>
 <html>
 <body>
-    <div>
+    <div >
         <div class="col-md-1">
             <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
-        </div><h1>Danh sách dự án</h1>
+        </div><h1 style="margin-top: 10px;">Danh sách dự án</h1>
     </div>
-    <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;">
-        <div class="container-fluid" style="margin-top: 10px">
-            <div class="col-md-3" style="padding: 0;">
-                <select class="sale-select-option">
-                    <option>Tên dự án</option>
-                    @foreach (PROPERTY name in Model)
-                    {
-                        <option>@name.PropertyName</option>
-                    }
-                </select>
-            </div>
-            <div class="col-md-2" style="padding: 0;">
-                <select class="sale-select-option1">
-                    <option>Loại</option>
-                    @foreach (var pt in Model)
-                    {
-                        <option>@pt.PROPERTY_TYPE.Description</option>
-                    }
-                </select>
-            </div>
-            <div class="col-md-2" style="padding: 0;">
-                <select class="sale-select-option1" style="margin-left: 0;">
-                    <option>Quận</option>
-                    @foreach (var dt in Model)
-                    {
-                        <option>@dt.DISTRICT.DistrictName</option>
-                    }
-                </select>
-            </div>
-            <div class="col-md-2" style="padding: 0;">
-                <select class="sale-select-option11">
-                    <option>Đường</option>
-                    @foreach (var st in Model)
-                    {
-                        <option>@st.STREET.StreetName</option>
-                    }
-                </select>
-            </div>
-            <div class="col-md-3 text-right" style="font-size:18px;">
-                <button type="submit" style="border-radius : 5px;margin-right: 20px;"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
-                <img src="~/Images/ImageSale/if_edit_add_3219.png" style="width: 18px;" />
-                <button type="button" style="font-size:18px;border-radius : 5px;">Add</button>
-            </div>
-        </div><!-- /.container-fluid -->
-
-    </nav>
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table" id="dataTable" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;border: 1px solid;border-radius: 5px;">
-                <thead>
-                    <tr role="row">
-                        <th class="sale-table-head" style="width:380px;border: 1px solid">Tên dự án</th>
-                        <th class="sale-table-head" style="width: 200px;border: 1px solid">Mã dự án</th>
-                        <th class="sale-table-head" style="width: 120px;border: 1px solid ">Loại dự án</th>
-                        <th class="sale-table-head" style="width: 200px;border: 1px solid">Quận</th>
-                        <th class="sale-table-head" style="width: 400px;border: 1px solid">Đường</th>
-                        <th class="sale-table-head" style="width: 300px;border: 1px solid">Công cụ</th>
-                    </tr>
-                </thead>
-                <tbody style="background-color:  white;">
-                    @foreach (PROPERTY item in Model)
-                    {
-                        <tr role="row" style="border: 1px solid;">
-                            <td style="border: 1px solid;">@Html.DisplayFor(modle => item.PropertyName)</td>
-                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.ID)</td>
-                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.PROPERTY_TYPE.Description)</td>
-                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.DISTRICT.DistrictName)</td>
-                            <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.STREET.StreetName)</td>
-                            <td style="border: 1px solid;padding: 0;">
-                                <ul style="margin-top: 10px;">
-                                    <li class="glyphicon glyphicon-eye-open" style="color: #595959;font-size: 12px;">@Html.ActionLink("Detail","Detail",new { id = item.ID } )</li> |
-                                   <li class="glyphicon glyphicon-pencil" style="color: #595959;font-size: 12px;">@*@Html.ActionLink("Edit", "Edit", new { id = item.ID })*@</li> |
-                                    <li class="glyphicon glyphicon-remove" style="color: #595959;font-size: 12px;">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+    <div class="card mb-3" style="margin-top: 10px;">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Data Table
         </div>
+        <div class="card-body" style="padding:0;">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên dự án</th>
+                            <th>Mã dự án</th>
+                            <th>Loại dự án</th>
+                            <th>Quận</th>
+                            <th>Đường</th>
+                            <th>Công cụ</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên dự án</th>
+                            <th>Mã dự án</th>
+                            <th>Loại dự án</th>
+                            <th>Quận</th>
+                            <th>Đường</th>
+                            <th>Công cụ</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (PROPERTY item in Model)
+                        {
+                            <tr @*role="row" style="border: 1px solid;"*@>
+                                <td @*style="border: 1px solid;"*@>@Html.DisplayFor(modle => item.PropertyName)</td>
+                                <td @*style="text-align:center;border: 1px solid;"*@>@Html.DisplayFor(modle => item.ID)</td>
+                                <td @*style="text-align:center;border: 1px solid;"*@>@Html.DisplayFor(modle => item.PROPERTY_TYPE.Description)</td>
+                                <td @*style="text-align:center;border: 1px solid;"*@>@Html.DisplayFor(modle => item.DISTRICT.DistrictName)</td>
+                                <td @*style="text-align:center;border: 1px solid;"*@>@Html.DisplayFor(modle => item.STREET.StreetName)</td>
+                                <td @*style="border: 1px solid;padding: 0;"*@>
+                                    @*<ul @*style="margin-top: 10px;"*@
+                                        @*<li*@ @*class="glyphicon glyphicon-eye-open" style="color: #595959;font-size: 12px;"*@@Html.ActionLink("Detail", "Detail", new { id = item.ID })@*</li>*@ |
+                                        @*<li*@ @*class="glyphicon glyphicon-pencil" style="color: #595959;font-size: 12px;"*@@Html.ActionLink("Edit", "EditProject", new { id = item.ID })@*</li>*@ |
+                                        @*<li*@ @*class="glyphicon glyphicon-remove" style="color: #595959;font-size: 12px;"*@@Html.ActionLink("Delete", "Delete", new { id = item.ID })@*</li>*@
+                                    @*</ul>*@
+                                </td>
+                            </tr>
+                        }
+                        @*<nav class="navbar navbar-default" role="navigation" style="border: 1px solid;">
+                                <div class="container-fluid" style="margin-top: 10px">
+                                    <div class="col-md-3" style="padding: 0;">
+                                        <select class="sale-select-option">
+                                            <option>Tên dự án</option>
+                                            @foreach (PROPERTY name in Model)
+                                            {
+                                                <option>@name.PropertyName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2" style="padding: 0;">
+                                        <select class="sale-select-option1">
+                                            <option>Loại</option>
+                                            @foreach (var pt in Model)
+                                            {
+                                                <option>@pt.PROPERTY_TYPE.Description</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2" style="padding: 0;">
+                                        <select class="sale-select-option1" style="margin-left: 0;">
+                                            <option>Quận</option>
+                                            @foreach (var dt in Model)
+                                            {
+                                                <option>@dt.DISTRICT.DistrictName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2" style="padding: 0;">
+                                        <select class="sale-select-option11">
+                                            <option>Đường</option>
+                                            @foreach (var st in Model)
+                                            {
+                                                <option>@st.STREET.StreetName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 text-right" style="font-size:18px;">
+                                        <button type="submit" style="border-radius : 5px;margin-right: 20px;"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
+                                        <img src="~/Images/ImageSale/if_edit_add_3219.png" style="width: 18px;" />
+                                        <button type="button" style="font-size:18px;border-radius : 5px;">Add</button>
+                                    </div>
+                                </div> /.container-fluid
+
+                            </nav>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table" id="dataTable" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;border: 1px solid;border-radius: 5px;">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sale-table-head" style="width:380px;border: 1px solid">Tên dự án</th>
+                                                <th class="sale-table-head" style="width: 200px;border: 1px solid">Mã dự án</th>
+                                                <th class="sale-table-head" style="width: 120px;border: 1px solid ">Loại dự án</th>
+                                                <th class="sale-table-head" style="width: 200px;border: 1px solid">Quận</th>
+                                                <th class="sale-table-head" style="width: 400px;border: 1px solid">Đường</th>
+                                                <th class="sale-table-head" style="width: 300px;border: 1px solid">Công cụ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="background-color:  white;">
+                                            @foreach (PROPERTY item in Model)
+                                            {
+                                                <tr role="row" style="border: 1px solid;">
+                                                    <td style="border: 1px solid;">@Html.DisplayFor(modle => item.PropertyName)</td>
+                                                    <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.ID)</td>
+                                                    <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.PROPERTY_TYPE.Description)</td>
+                                                    <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.DISTRICT.DistrictName)</td>
+                                                    <td style="text-align:center;border: 1px solid;">@Html.DisplayFor(modle => item.STREET.StreetName)</td>
+                                                    <td style="border: 1px solid;padding: 0;">
+                                                        <ul style="margin-top: 10px;">
+                                                            <li class="glyphicon glyphicon-eye-open" style="color: #595959;font-size: 12px;">@Html.ActionLink("Detail","Detail",new { id = item.ID } )</li> |
+                                                           <li class="glyphicon glyphicon-pencil" style="color: #595959;font-size: 12px;">@Html.ActionLink("Edit", "Edit", new { id = item.ID })</li> |
+                                                            <li class="glyphicon glyphicon-remove" style="color: #595959;font-size: 12px;">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>*@
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
     </div>
 </body>
 </html>

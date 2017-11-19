@@ -13,7 +13,7 @@ namespace PPC_Rental.Controllers
         // GET: Sale
         public ActionResult Index()
         {
-            var viewlist = db.PROPERTies.ToList();
+            var viewlist = db.PROPERTies.OrderByDescending(x => x.ID).ToList();
             return View(viewlist);
         }
         
@@ -25,19 +25,18 @@ namespace PPC_Rental.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult EditProject(int id = 0)
+        [HttpGet]
+        public ActionResult EditProject(int id)
         {
-            /*var editproject = db.PROPERTies.Find(id);
-            if (editproject == null)
-                return RedirectToAction("Index");*/
-            return View(/*editproject*/);
+            var editproject = db.PROPERTies.FirstOrDefault(x => x.ID == id);
+            return View(editproject);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditProject(PROPERTY model)
+        public ActionResult EditProject(int id,PROPERTY model)
         {
-            PROPERTY pro = db.PROPERTies.Find(model.ID);
+            PROPERTY pro = db.PROPERTies.FirstOrDefault(x => x.ID == id);
             pro.PropertyName = model.PropertyName;
             pro.Avatar = model.Avatar;
             pro.Images = model.Images;
@@ -60,17 +59,17 @@ namespace PPC_Rental.Controllers
             pro.Updated_at = model.Updated_at;
             pro.Sale_ID = model.Sale_ID;
 
-            db.Entry(model).State = System.Data.Entity.EntityState.Modified;
-            try
-            {
+            //db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+            //try
+            //{
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            catch (Exception e)
-            {
-                ViewBag.Error = e.Message;
-                return View(model);
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    ViewBag.Error = e.Message;
+            //    return View(model);
+            //}
 
         }
     }

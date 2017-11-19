@@ -3,8 +3,8 @@
     ViewBag.Title = "EditProject";
     Layout = "~/Views/Shared/LayoutSale.cshtml";
 }
-@using PPC_Rental.Models;
-@model IEnumerable<PPC_Rental.Models.PROPERTY>
+@model PPC_Rental.Models.PROPERTY
+
 
 <!DOCTYPE html>
 <html>
@@ -12,36 +12,36 @@
     <div>
         <div class="col-md-1">
             <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
-        </div><h1>Danh sách dự án \ Edit</h1>
+        </div><h1 style="margin-top: 10px;">Danh sách dự án \ Edit</h1>
     </div>
-    <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;">
-        <div class="container-fluid" style="margin-top: 10px">
-            <div class="col-md-3">
+    <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin-top: 10px;">
+        <div class="container-fluid">
+            <div class="col-md-3" style="padding: 0;">
                 <select class="sale-select-option">
                     <option>Tên dự án</option>
                 </select>
             </div>
-            <div class="col-md-2">
-                <select class="sale-select-option1">
+            <div class="col-md-2" >
+                <select class="sale-select-option1" style="width: 100px;">
                     <option>Loại</option>
                 </select>
             </div>
             <div class="col-md-2">
-                <select class="sale-select-option1">
+                <select class="sale-select-option1" style="width: 100px;margin: 0;">
                     <option>Quận</option>
                 </select>
             </div>
             <div class="col-md-2">
-                <select class="sale-select-option">
+                <select class="sale-select-option" style="width: 200px;">
                     <option>Đường</option>
                 </select>
             </div>
             <div class="col-md-3 text-right" style="font-size:18px;">
-                <button type="submit" style="border-radius : 5px;margin-right: 20px;"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
+                <button type="submit" style="border-radius : 5px;"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
                 <img src="~/Images/ImageSale/if_edit_add_3219.png" style="width: 18px;" />
                 <button type="button" style="font-size:18px;border-radius : 5px;">Add</button>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </nav>
     <div class="col-md-6" style="margin-top: 0;">
         <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
@@ -49,19 +49,19 @@
                 <p style="margin-bottom: 0;color: white;font-size: 20px">Thông tin dự án</p>
             </div>
         </nav>
-        <div class="container-fluid" style="border: 1px solid;">
+        <div style="border: 1px solid;">
             <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">ID :</span>
-                    <p style="margin-top:10px;margin-left: 20px;"></p>
+                    <p style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.ID)</p>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">ProjectName :</span>
-                    <input id="proname" type="text" class="form-control" name="projectname" placeholder="Tên dự án">
+                    <input id="proname" type="text" class="form-control" name="projectname" placeholder="Tên dự án">@Html.ValueFor(m => m.PropertyName)
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">ProjectType :</span>
-                    <select id="protype" class="form-control" name="projecttype" style="width: 100px;"><option></option></select>
+                    <select id="protype" class="form-control" name="projecttype"><option></option></select>
                     <span class="input-group-addon">Price :</span>
                     <input id="price" type="text" class="form-control" name="price" placeholder="Giá">
                 </div>
@@ -69,7 +69,7 @@
                     <span class="input-group-addon">Avatar :</span>
                     <input id="avatar" type="file" class="form-control" name="avatar" placeholder="Avatar">
                     <span class="input-group-addon">UnitPrice :</span>
-                    <select id="unitprice" class="form-control" name="unitprice" style="width: 80px;"><option></option></select>
+                    <select id="unitprice" class="form-control" name="unitprice"><option></option></select>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Area :</span>
@@ -128,36 +128,36 @@
                 <p style="margin-bottom: 0;color: white;font-size: 20px">Tiện tích</p>
             </div>
         </nav>
-        <div class="container-fluid" style="border: 1px solid;">
+        <div style="border: 1px solid;">
             <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">Ban công :</span>
                     <input id="bancong" type="checkbox" class="form-control-radio" name="bancong" placeholder="Co"> Có
-                    <span class="input-group-addon">Phòng giặc ủi :</span>
-                    <input id="giacui" type="radio" class="form-control-radio" name="giacui" placeholder="Co"> Có
+                    <span class="input-group-addon" style="margin-left: 20%;">Phòng giặc ủi :</span>
+                    <input id="giacui" type="checkbox" class="form-control-radio" name="giacui" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Chỗ đậu xe :</span>
                     <input id="dauxe" type="checkbox" class="form-control-radio" name="dauxe" placeholder="Co"> Có
-                    <span class="input-group-addon">Hồ bơi :</span>
+                    <span class="input-group-addon" style="margin-left: 20%;">Hồ bơi :</span>
                     <input id="hoboi" type="checkbox" class="form-control-radio" name="hoboi" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Thang máy :</span>
                     <input id="thangmay" type="checkbox" class="form-control-radio" name="thangmay" placeholder="Co"> Có
-                    <span class="input-group-addon">Sàn gỗ :</span>
+                    <span class="input-group-addon" style="margin-left: 20%;">Sàn gỗ :</span>
                     <input id="sango" type="checkbox" class="form-control-radio" name="sango" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Vườn :</span>
                     <input id="vuon" type="checkbox" class="form-control-radio" name="vuon" placeholder="Co"> Có
-                    <span class="input-group-addon">Bảo vệ :</span>
+                    <span class="input-group-addon" style="margin-left: 25%;">Bảo vệ :</span>
                     <input id="baove" type="checkbox" class="form-control-radio" name="baove" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Phòng tập gym :</span>
                     <input id="gym" type="checkbox" class="form-control-radio" name="gym" placeholder="Co"> Có
-                    <span class="input-group-addon">Thú cưng :</span>
+                    <span class="input-group-addon" style="margin-left: 15%;">Thú cưng :</span>
                     <input id="thucung" type="checkbox" class="form-control-radio" name="thucung" placeholder="Co"> Có
                 </div>
                 <div class="input-group">
@@ -172,11 +172,11 @@
                 <p style="margin-bottom: 0;color: white;font-size: 20px">Địa chỉ</p>
             </div>
         </nav>
-        <div class="container-fluid" style="border: 1px solid;">
+        <div style="border: 1px solid;">
             <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">City :</span>
-                    <p style="margin-top:10px;margin-left: 10px;">HCM</p>
+                    <p style="margin-top:10px;margin-left: 10px;margin-right: 10px;">HCM</p>
                     <span class="input-group-addon">District :</span>
                     <select id="district" class="form-control" name="district"><option></option></select>
                     <span class="input-group-addon">Ward :</span>
@@ -194,13 +194,13 @@
                 <p style="margin-bottom: 0;color: white;font-size: 20px">Quản lý :</p>
             </div>
         </nav>
-        <div class="container-fluid" style="border: 1px solid;">
+        <div style="border: 1px solid;">
             <div style="padding: 10px;">
                 <div class="input-group">
                     <span class="input-group-addon">Sale :</span>
-                    <p style="margin-top:10px;margin-left: 20px;"></p>
+                    <p style="margin-top:10px;margin-left: 20px;margin-right: 20px;"></p>
                     <span class="input-group-addon">Updated at :</span>
-                    <p style="margin-top:10px;margin-left: 20px;"></p>
+                    <p style="margin-top:10px;margin-left: 20px;margin-right: 20px;"></p>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Status :</span>
