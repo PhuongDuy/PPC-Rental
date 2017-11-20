@@ -8,114 +8,147 @@
 
 <div>
     <ul class="nav nav-tabs" style="font-size:25px;">
-        <li role="presentation" class="active"><a href=""><span class="glyphicon glyphicon-home"></span> Thông tin dự án</a></li>
-        <li role="presentation"><a href="~/viewDetail/Support/"><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
+        @*<li role="presentation" class="active"><a href=""></a></li>
+            <li role="presentation"><a href="~/viewDetail/Support/"></a></li>*@
+
+        <li class="active"><a data-toggle="tab" href="#thongtinduan"><span class="glyphicon glyphicon-home"></span> Thông tin dự án</a></li>
+        <li><a data-toggle="tab" href="#lienhe"><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
     </ul>
+
+    <div class="tab-content">
+        <div id="thongtinduan" class="tab-pane fade in active">
+            <div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
+                Tên dự án : @Html.DisplayFor(model => model.PropertyName)
+            </div>
+            <div class="row" style="margin-top:5%;font-size:17px;">
+                <div class="col-md-6">Địa chỉ : @Html.DisplayFor(model => model.STREET.StreetName) @Html.DisplayFor(model => model.WARD.WardName) @Html.DisplayFor(model => model.DISTRICT.DistrictName)</div>
+                <div class="col-md-6" style="text-align:right;color:#f43f3f">@Html.DisplayFor(model => model.Price) USD</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="pill-content" style="margin-top:5%">@Html.DisplayFor(model => model.Content)</div>
+                <div class="alert alert-info" style="margin-top:2%">Địa chỉ</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Loại dự án : @Html.DisplayFor(model => model.PROPERTY_TYPE.CodeType)</p>
+                        <p>Quận huyện : @Html.DisplayFor(model => model.DISTRICT.DistrictName)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Tên dự án : @Html.DisplayFor(model => model.PropertyName)</p>
+                        <p>Phường, xã :@Html.DisplayFor(model => model.WARD.WardName) </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Đường: @Html.DisplayFor(model => model.STREET.StreetName)</p>
+                        <p>Thành Phố : Hồ Chí Minh</p>
+                    </div>
+                </div>
+                <div class="alert alert-info">Mô tả chi tiết</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Mã căn hộ : @Html.DisplayFor(model => model.ID)</p>
+                        <p>Phòng khách : Đang cập nhật  </p>
+                        <p>Số chỗ đậu xe : Đang cập nhật</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Giá : @Html.DisplayFor(model => model.Price)</p>
+                        <p>Phòng ngủ : @Html.DisplayFor(model => model.BedRoom)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Diện tích : @Html.DisplayFor(model => model.Area)</p>
+                        <p>Phòng tắm : @Html.DisplayFor(model => model.BedRoom)</p>
+                    </div>
+                </div>
+                <div class="alert alert-info">Các tiện ích</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Ban công : @Html.DisplayFor(model => model.PackingPlace)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Chỗ đậu xe : Đang cập nhật</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Thang máy : Đang cập nhật</p>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size:30px;font-weight:bold;color:#ea9e25;text-align:center;margin-top:10%">
+                <p>Phòng kinh doanh dự án</p>
+                <p><span class="glyphicon glyphicon-earphone"></span> 0916.356.789</p>
+            </div>
+            <div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
+                Các dự án khác
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="lienhe" class="tab-pane fade">
+            <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">Liên hệ</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Tên dự án @Html.DisplayFor(model => model.PropertyName)</h3>
+                    <p>Địa chỉ: @Html.DisplayFor(model => model.WARD.WardName) @Html.DisplayFor(model => model.STREET.StreetName) @Html.DisplayFor(model => model.DISTRICT.DistrictName)</p>
+                    <p>Điện thoại : @Html.DisplayFor(model => model.USER.Phone)</p>
+                    <p>Email : @Html.DisplayFor(model => model.USER.Email)</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Liên hệ chủ dự án</h3>
+                    <input type="text" class="form-control" placeholder="Họ và tên *" />
+                    <input type="text" class="form-control" placeholder="Điện thoại *" />
+                    <input type="text" class="form-control" placeholder="Email *" />
+                    <textarea class="form-control" placeholder="Nội dung *" rows="5"></textarea>
+                    <button class="btn btn-info">Gửi email</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
-<div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
-    Tên dự án : @Html.DisplayFor(model => model.PropertyName)
-</div>
-<div class="row" style="margin-top:5%;font-size:17px;">
-    <div class="col-md-6">Địa chỉ : @Html.DisplayFor(model => model.STREET.StreetName) @Html.DisplayFor(model => model.WARD.WardName) @Html.DisplayFor(model => model.DISTRICT.DistrictName)</div>
-    <div class="col-md-6" style="text-align:right;color:#f43f3f">@Html.DisplayFor(model => model.Price) USD</div>
-</div>
-<div class="row">
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-</div>
-<div class="content">
-    <div class="pill-content" style="margin-top:5%">@Html.DisplayFor(model => model.Content)</div>
-    <div class="alert alert-info" style="margin-top:2%">Địa chỉ</div>
-    <div class="row">
-        <div class="col-md-4">
-            <p>Loại dự án : @Html.DisplayFor(model => model.PROPERTY_TYPE.CodeType)</p>
-            <p>Quận huyện : @Html.DisplayFor(model => model.DISTRICT.DistrictName)</p>
-        </div>
-        <div class="col-md-4">
-            <p>Tên dự án : @Html.DisplayFor(model => model.PropertyName)</p>
-            <p>Phường, xã :@Html.DisplayFor(model => model.WARD.WardName) </p>
-        </div>
-        <div class="col-md-4">
-            <p>Đường: @Html.DisplayFor(model => model.STREET.StreetName)</p>
-            <p>Thành Phố : Hồ Chí Minh</p>
-        </div>
-    </div>
-    <div class="alert alert-info">Mô tả chi tiết</div>
-    <div class="row">
-        <div class="col-md-4">
-            <p>Mã căn hộ : @Html.DisplayFor(model => model.ID)</p>
-            <p>Phòng khách : Đang cập nhật  </p>
-            <p>Số chỗ đậu xe : Đang cập nhật</p>
-        </div>
-        <div class="col-md-4">
-            <p>Giá : @Html.DisplayFor(model => model.Price)</p>
-            <p>Phòng ngủ : @Html.DisplayFor(model => model.BedRoom)</p>
-        </div>
-        <div class="col-md-4">
-            <p>Diện tích : @Html.DisplayFor(model => model.Area)</p>
-            <p>Phòng tắm : @Html.DisplayFor(model => model.BedRoom)</p>
-        </div>
-    </div>
-    <div class="alert alert-info">Các tiện ích</div>
-    <div class="row">
-        <div class="col-md-4">
-            <p>Ban công : @Html.DisplayFor(model => model.PackingPlace)</p>
-        </div>
-        <div class="col-md-4">
-            <p>Chỗ đậu xe : Đang cập nhật</p>
-        </div>
-        <div class="col-md-4">
-            <p>Thang máy : Đang cập nhật</p>
-        </div>
-    </div>
-</div>
-<div style="font-size:30px;font-weight:bold;color:#ea9e25;text-align:center;margin-top:10%">
-    <p>Phòng kinh doanh dự án</p>
-    <p><span class="glyphicon glyphicon-earphone"></span> 0916.356.789</p>
-</div>
-<div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
-    Các dự án khác
-</div>
-<div class="row">
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
-        </a>
-    </div>
-</div>
+
+
+
+
 @*<div style="margin-top:2%">
         <div class="row">
             @{int count = 0; }
