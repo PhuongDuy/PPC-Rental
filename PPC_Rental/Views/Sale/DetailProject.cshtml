@@ -1,0 +1,253 @@
+﻿
+@{
+    ViewBag.Title = "DetailProject";
+    Layout = "~/Views/Shared/LayoutSale.cshtml";
+}
+@model PPC_Rental.Models.PROPERTY
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        <div class="col-md-1">
+            <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
+        </div><h1 style="margin-top: 10px;">Danh sách dự án \ Edit</h1>
+    </div>
+    <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin-top: 10px;">
+        <div class="container-fluid">
+            <div class="col-md-3" style="padding: 0;">
+                <select class="sale-select-option">
+                    <option>Tên dự án</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="sale-select-option1" style="width: 100px;">
+                    <option>Loại</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="sale-select-option1" style="width: 100px;margin: 0;">
+                    <option>Quận</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="sale-select-option" style="width: 200px;">
+                    <option>Đường</option>
+                </select>
+            </div>
+            <div class="col-md-3 text-right" style="font-size:18px;">
+                <button type="submit" style="border-radius : 5px;"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button>
+                <img src="~/Images/ImageSale/if_edit_add_3219.png" style="width: 18px;" />
+                <button type="button" style="font-size:18px;border-radius : 5px;">Add</button>
+            </div>
+        </div>
+    </nav>
+    <div class="col-md-6" style="margin-top: 0;">
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Thông tin dự án</p>
+            </div>
+        </nav>
+        <div style="border: 1px solid;">
+            <div style="padding: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">ID :</span>
+                    <p style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.ID)</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">ProjectName :</span>
+                    <input id="proname" type="text" class="form-control" name="projectname" value="@Html.ValueFor(m => m.PropertyName)" placeholder="Tên dự án">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">ProjectType :</span>
+                    <select id="protype" class="form-control" name="projecttype">
+                        <option>
+                            @Html.ValueFor(m => m.PROPERTY_TYPE.Description)
+                        </option>
+                        <option>House</option>
+                        <option>Office</option>
+                        <option>Villa</option>
+                        <option>Apartment</option>
+
+                    </select>
+                    <span class="input-group-addon">Price :</span>
+                    <input id="price" type="text" class="form-control" name="price" value="@Html.ValueFor(m => m.Price)" placeholder="Giá">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Avatar :</span>
+                    <input id="avatar" type="file" class="form-control" name="avatar" value="@Html.ValueFor(m => m.Avatar)">
+                    <span class="input-group-addon">UnitPrice :</span>
+                    <select id="unitprice" class="form-control" name="unitprice"><option>@Html.ValueFor(m => m.UnitPrice)</option></select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Area :</span>
+                    <input id="area" type="text" class="form-control" name="area" value="@Html.ValueFor(m => m.Area)" placeholder="Giá">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Images :</span>
+                    <input id="image" type="file" class="form-control" name="image" value="@Html.ValueFor(m => m.Images)">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Content :</span>
+                    <textarea id="content" type="text" class="form-control" name="content" placeholder="Nội dung">@Html.ValueFor(m => m.Content)</textarea>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">BedRoom :</span>
+                    <select id="badroom" class="form-control" name="bebroom">
+                        <option>@Html.ValueFor(m => m.BedRoom)</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+
+                    </select>
+                    <span class="input-group-addon">BethRoom :</span>
+                    <select id="bathroom" class="form-control" name="bethroom">
+                        <option>@Html.ValueFor(m => m.BathRoom)</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">PackingPlace :</span>
+                    <select id="packingplace" class="form-control" name="packingplace" style="width: 170px;">
+                        <option>@Html.ValueFor(m => m.PackingPlace)</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">User :</span>
+                    <p style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.USER.FullName)</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Craeted at :</span>
+                    <p style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.Created_at)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Tiện tích</p>
+            </div>
+        </nav>
+        <div style="border: 1px solid;">
+            <div style="padding: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">Ban công :</span>
+                    <input id="bancong" type="checkbox" class="form-control-radio" name="bancong" placeholder="Co">  Có
+                    <span class="input-group-addon" style="margin-left: 20%;">Phòng giặc ủi :</span>
+                    <input id="giacui" type="checkbox" class="form-control-radio" name="giacui" placeholder="Co"> Có
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Chỗ đậu xe :</span>
+                    <input id="dauxe" type="checkbox" class="form-control-radio" name="dauxe" placeholder="Co"> Có
+
+                    <span class="input-group-addon" style="margin-left: 20%;">Hồ bơi :</span>
+                    <input id="hoboi" type="checkbox" class="form-control-radio" name="hoboi" placeholder="Co"> Có
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Thang máy :</span>
+                    <input id="thangmay" type="checkbox" class="form-control-radio" name="thangmay" placeholder="Co"> Có
+                    <span class="input-group-addon" style="margin-left: 20%;">Sàn gỗ :</span>
+                    <input id="sango" type="checkbox" class="form-control-radio" name="sango" placeholder="Co"> Có
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Vườn :</span>
+                    <input id="vuon" type="checkbox" class="form-control-radio" name="vuon" placeholder="Co"> Có
+                    <span class="input-group-addon" style="margin-left: 25%;">Bảo vệ :</span>
+                    <input id="baove" type="checkbox" class="form-control-radio" name="baove" placeholder="Co"> Có
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Phòng tập gym :</span>
+                    <input id="gym" type="checkbox" class="form-control-radio" name="gym" placeholder="Co"> Có
+                    <span class="input-group-addon" style="margin-left: 15%;">Thú cưng :</span>
+                    <input id="thucung" type="checkbox" class="form-control-radio" name="thucung" placeholder="Co"> Có
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Nhà bếp :</span>
+                    <input id="bep" type="checkbox" class="form-control-radio" name="bep" placeholder="Co"> Có
+                </div>
+            </div>
+        </div>
+        <br />
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Địa chỉ</p>
+            </div>
+        </nav>
+        <div style="border: 1px solid;">
+            <div style="padding: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">City :</span>
+                    <p style="margin-top:10px;margin-left: 10px;margin-right: 10px;">HCM</p>
+                    <span class="input-group-addon">District :</span>
+                    <select id="district" class="form-control" name="district"><option>@Html.ValueFor(m => m.DISTRICT.DistrictName)</option></select>
+                    <span class="input-group-addon">Ward :</span>
+                    <select id="ward" class="form-control" name="ward"><option>@Html.ValueFor(m => m.WARD.WardName)</option></select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Street :</span>
+                    <select id="street" class="form-control" name="street"><option>@Html.ValueFor(m => m.STREET.StreetName)</option></select>
+                </div>
+            </div>
+        </div>
+        <br />
+        <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: deepskyblue">
+            <div class="container-fluid" style="margin-top: 10px;margin-bottom: 0;padding-left: 20px;">
+                <p style="margin-bottom: 0;color: white;font-size: 20px">Quản lý :</p>
+            </div>
+        </nav>
+        <div style="border: 1px solid;">
+            <div style="padding: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">Sale :</span>
+                    <p style="margin-top:10px;margin-left: 20px;margin-right: 20px;">@Html.ValueFor(m => m.USER1.FullName)</p>
+                    <span class="input-group-addon">Updated at :</span>
+                    <p style="margin-top:10px;margin-left: 20px;margin-right: 20px;">@Html.ValueFor(m => m.Updated_at)</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Status :</span>
+                    <select id="status" class="form-control" name="status" style="width: 100px;">
+                        <option>@Html.ValueFor(m => m.PROJECT_STATUS.Status_Name)</option>
+                        <option>Chưa duyệt</option>
+                        <option>Lưu nháp</option>
+                        <option>Đã duyệt</option>
+                        <option>Hết hạn</option>
+                    </select>
+                    <span class="input-group-addon">Note :</span>
+                    <input id="note" type="text" class="form-control" name="note" value="@Html.ValueFor(m => m.Note)" placeholder="...">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style="text-align:right;">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-2" style="margin-left: 0;">
+                    @Html.ActionLink("Back to list", "Index")
+                </div>
+                <div class="col-md-offset-2 col-md-10" style="margin-left: 0;">
+                    <input type="submit" value="Save" class="btn btn-default" style="width: 70px; font-size: 18px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

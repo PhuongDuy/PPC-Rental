@@ -16,25 +16,32 @@ namespace PPC_Rental.Controllers
             var viewlist = db.PROPERTies.OrderByDescending(x => x.ID).ToList();
             return View(viewlist);
         }
-        
+
         public ActionResult Delete(int id)
         {
-            var de = db.PROPERTies.First(p => p.ID == id) ;
+            var de = db.PROPERTies.First(p => p.ID == id);
             db.PROPERTies.Remove(de);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult EditProject(int id)
+        public ActionResult EditProject1(int id)
         {
             var editproject = db.PROPERTies.FirstOrDefault(x => x.ID == id);
+            ViewBag.editprotype = db.PROPERTY_TYPE.OrderByDescending(x => x.ID).ToList();
+            ViewBag.streeid = db.STREETs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.disid = db.DISTRICTs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.wardid = db.WARDs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.useid = db.USERs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.staid = db.PROJECT_STATUS.OrderByDescending(x => x.ID).ToList();
+            ViewBag.saleid = db.USERs.OrderByDescending(x => x.ID).ToList();
             return View(editproject);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditProject(int id,PROPERTY model)
+        public ActionResult EditProject1(int id, PROPERTY model/* string propertyname =""*/)
         {
             PROPERTY pro = db.PROPERTies.FirstOrDefault(x => x.ID == id);
             pro.PropertyName = model.PropertyName;
@@ -58,12 +65,15 @@ namespace PPC_Rental.Controllers
             pro.Note = model.Note;
             pro.Updated_at = model.Updated_at;
             pro.Sale_ID = model.Sale_ID;
+            pro.PROPERTY_FEATURE = model.PROPERTY_FEATURE;
+
 
             //db.Entry(model).State = System.Data.Entity.EntityState.Modified;
             //try
             //{
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            db.PROPERTies.Add(pro);
+            db.SaveChanges();
+            return RedirectToAction("Index");
             //}
             //catch (Exception e)
             //{
@@ -71,6 +81,12 @@ namespace PPC_Rental.Controllers
             //    return View(model);
             //}
 
+        }
+     
+        public ActionResult DetailProject(int id)
+        {
+            var editproject = db.PROPERTies.FirstOrDefault(x => x.ID == id);
+            return View(editproject);
         }
     }
 }
