@@ -82,7 +82,7 @@ namespace PPC_Rental.Controllers
             //}
 
         }
-     
+
         public ActionResult DetailProject(int id)
         {
             var editproject = db.PROPERTies.FirstOrDefault(x => x.ID == id);
