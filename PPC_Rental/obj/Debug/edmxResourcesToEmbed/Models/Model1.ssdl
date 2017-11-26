@@ -59,6 +59,14 @@
     <Property Name="Property_ID" Type="int" />
     <Property Name="Feature_ID" Type="int" />
   </EntityType>
+  <EntityType Name="PROPERTY_IMAGE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Property_ID" Type="int" />
+    <Property Name="Image" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="PROPERTY_TYPE">
     <Key>
       <PropertyRef Name="ID" />
@@ -141,6 +149,18 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PROPERTY_FEATURE">
+        <PropertyRef Name="Property_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROPERTY_IMAGE_PROPERTY">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="PROPERTY_IMAGE" Type="Self.PROPERTY_IMAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PROPERTY_IMAGE">
         <PropertyRef Name="Property_ID" />
       </Dependent>
     </ReferentialConstraint>
@@ -247,6 +267,7 @@
     <EntitySet Name="PROJECT_STATUS" EntityType="Self.PROJECT_STATUS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROPERTY" EntityType="Self.PROPERTY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROPERTY_FEATURE" EntityType="Self.PROPERTY_FEATURE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROPERTY_IMAGE" EntityType="Self.PROPERTY_IMAGE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROPERTY_TYPE" EntityType="Self.PROPERTY_TYPE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="STREET" EntityType="Self.STREET" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -263,6 +284,10 @@
     <AssociationSet Name="FK_PROPERTY_FEATURE_PROPERTY" Association="Self.FK_PROPERTY_FEATURE_PROPERTY">
       <End Role="PROPERTY" EntitySet="PROPERTY" />
       <End Role="PROPERTY_FEATURE" EntitySet="PROPERTY_FEATURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROPERTY_IMAGE_PROPERTY" Association="Self.FK_PROPERTY_IMAGE_PROPERTY">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="PROPERTY_IMAGE" EntitySet="PROPERTY_IMAGE" />
     </AssociationSet>
     <AssociationSet Name="FK_PROPERTY_PROJECT_STATUS" Association="Self.FK_PROPERTY_PROJECT_STATUS">
       <End Role="PROJECT_STATUS" EntitySet="PROJECT_STATUS" />

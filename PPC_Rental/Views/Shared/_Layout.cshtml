@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     
+    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/stylemoi.css")
+    @Scripts.Render("~/Scripts/scriptmoi.js")
+    
+
 
 </head>
 <body>
@@ -79,7 +84,7 @@
                     <li><a href="#">Tin tức</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" style="padding-top:22px;font-size:20px">
-                    <li><a class="btn btn-info" href="#" style="margin-right:30px;border-radius:30px;width:200px;"><span class="glyphicon glyphicon-home" style="margin-right:2px;"></span><span class="glyphicon glyphicon-pencil" style="margin-right:2px;"></span> Đăng tin</a></li>
+                    <li><a class="btn btn-info" href="Home/postProject" style="margin-right:30px;border-radius:30px;width:200px;"><span class="glyphicon glyphicon-home" style="margin-right:2px;"></span><span class="glyphicon glyphicon-pencil" style="margin-right:2px;"></span> Đăng tin</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -184,9 +189,41 @@
     </div>
 
 
-
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
+    <script src="~/Scripts/js_select2/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.select2cbx').select2();
+            $("#Street_ID").empty();
+            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+                $("#Street_ID").select2({ data: data });
+            });
+
+            $('#Ward_ID').empty();
+            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+                $('#Ward_ID').select2({ data: data });
+            });
+        });
+
+        $("#District_ID").on('change', function () {
+            $("#Street_ID").empty();
+            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+                $("#Street_ID").select2({ data: data });
+            });
+
+            $('#Ward_ID').empty();
+            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+                $('#Ward_ID').select2({ data: data });
+            });
+        });
+
+        
+    </script>
+   
+
 </body>
 </html>

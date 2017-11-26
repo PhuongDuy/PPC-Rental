@@ -63,6 +63,7 @@
     <NavigationProperty Name="USER" Relationship="Self.FK_PROPERTY_USER" FromRole="PROPERTY" ToRole="USER" />
     <NavigationProperty Name="USER1" Relationship="Self.FK_PROPERTY_USER1" FromRole="PROPERTY" ToRole="USER" />
     <NavigationProperty Name="WARD" Relationship="Self.FK_PROPERTY_WARD" FromRole="PROPERTY" ToRole="WARD" />
+    <NavigationProperty Name="PROPERTY_IMAGE" Relationship="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY" FromRole="PROPERTY" ToRole="PROPERTY_IMAGE" />
   </EntityType>
   <EntityType Name="PROPERTY_FEATURE">
     <Key>
@@ -318,5 +319,31 @@
       <End Role="WARD" EntitySet="WARDs" />
       <End Role="PROPERTY" EntitySet="PROPERTies" />
     </AssociationSet>
+    <EntitySet Name="PROPERTY_IMAGE" EntityType="K21T1_Team4Model.PROPERTY_IMAGE" />
+    <AssociationSet Name="FK_PROPERTY_IMAGE_PROPERTY" Association="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY">
+      <End Role="PROPERTY" EntitySet="PROPERTies" />
+      <End Role="PROPERTY_IMAGE" EntitySet="PROPERTY_IMAGE" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="PROPERTY_IMAGE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Property_ID" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PROPERTY" Relationship="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY" FromRole="PROPERTY_IMAGE" ToRole="PROPERTY" />
+  </EntityType>
+  <Association Name="FK_PROPERTY_IMAGE_PROPERTY">
+    <End Type="K21T1_Team4Model.PROPERTY" Role="PROPERTY" Multiplicity="0..1" />
+    <End Type="K21T1_Team4Model.PROPERTY_IMAGE" Role="PROPERTY_IMAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PROPERTY_IMAGE">
+        <PropertyRef Name="Property_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

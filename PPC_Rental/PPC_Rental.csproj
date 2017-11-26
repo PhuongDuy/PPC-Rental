@@ -200,6 +200,9 @@
     <Compile Include="Models\PROPERTY_FEATURE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PROPERTY_IMAGE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PROPERTY_TYPE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -222,13 +225,16 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap1.css" />
+    <Content Include="Content\css_select2\select2.css" />
+    <Content Include="Content\css_select2\select2.min.css" />
     <Content Include="Content\dataTables.bootstrap4.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\sb-admin.css" />
+    <Content Include="Content\stylemoi.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Images\background\background.png" />
     <Content Include="Images\footer\footer.jpg" />
     <Content Include="Images\ImageSale\if_081_Pen_183209.png" />
@@ -266,6 +272,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\bootstrap-wysiwyg.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -283,6 +290,7 @@
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\wysiwyg.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -293,11 +301,71 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js_select2\i18n\af.js" />
+    <Content Include="Scripts\js_select2\i18n\ar.js" />
+    <Content Include="Scripts\js_select2\i18n\az.js" />
+    <Content Include="Scripts\js_select2\i18n\bg.js" />
+    <Content Include="Scripts\js_select2\i18n\bs.js" />
+    <Content Include="Scripts\js_select2\i18n\ca.js" />
+    <Content Include="Scripts\js_select2\i18n\cs.js" />
+    <Content Include="Scripts\js_select2\i18n\da.js" />
+    <Content Include="Scripts\js_select2\i18n\de.js" />
+    <Content Include="Scripts\js_select2\i18n\dsb.js" />
+    <Content Include="Scripts\js_select2\i18n\el.js" />
+    <Content Include="Scripts\js_select2\i18n\en.js" />
+    <Content Include="Scripts\js_select2\i18n\es.js" />
+    <Content Include="Scripts\js_select2\i18n\et.js" />
+    <Content Include="Scripts\js_select2\i18n\eu.js" />
+    <Content Include="Scripts\js_select2\i18n\fa.js" />
+    <Content Include="Scripts\js_select2\i18n\fi.js" />
+    <Content Include="Scripts\js_select2\i18n\fr.js" />
+    <Content Include="Scripts\js_select2\i18n\gl.js" />
+    <Content Include="Scripts\js_select2\i18n\he.js" />
+    <Content Include="Scripts\js_select2\i18n\hi.js" />
+    <Content Include="Scripts\js_select2\i18n\hr.js" />
+    <Content Include="Scripts\js_select2\i18n\hsb.js" />
+    <Content Include="Scripts\js_select2\i18n\hu.js" />
+    <Content Include="Scripts\js_select2\i18n\hy.js" />
+    <Content Include="Scripts\js_select2\i18n\id.js" />
+    <Content Include="Scripts\js_select2\i18n\is.js" />
+    <Content Include="Scripts\js_select2\i18n\it.js" />
+    <Content Include="Scripts\js_select2\i18n\ja.js" />
+    <Content Include="Scripts\js_select2\i18n\km.js" />
+    <Content Include="Scripts\js_select2\i18n\ko.js" />
+    <Content Include="Scripts\js_select2\i18n\lt.js" />
+    <Content Include="Scripts\js_select2\i18n\lv.js" />
+    <Content Include="Scripts\js_select2\i18n\mk.js" />
+    <Content Include="Scripts\js_select2\i18n\ms.js" />
+    <Content Include="Scripts\js_select2\i18n\nb.js" />
+    <Content Include="Scripts\js_select2\i18n\nl.js" />
+    <Content Include="Scripts\js_select2\i18n\pl.js" />
+    <Content Include="Scripts\js_select2\i18n\ps.js" />
+    <Content Include="Scripts\js_select2\i18n\pt-BR.js" />
+    <Content Include="Scripts\js_select2\i18n\pt.js" />
+    <Content Include="Scripts\js_select2\i18n\ro.js" />
+    <Content Include="Scripts\js_select2\i18n\ru.js" />
+    <Content Include="Scripts\js_select2\i18n\sk.js" />
+    <Content Include="Scripts\js_select2\i18n\sl.js" />
+    <Content Include="Scripts\js_select2\i18n\sr-Cyrl.js" />
+    <Content Include="Scripts\js_select2\i18n\sr.js" />
+    <Content Include="Scripts\js_select2\i18n\sv.js" />
+    <Content Include="Scripts\js_select2\i18n\th.js" />
+    <Content Include="Scripts\js_select2\i18n\tk.js" />
+    <Content Include="Scripts\js_select2\i18n\tr.js" />
+    <Content Include="Scripts\js_select2\i18n\uk.js" />
+    <Content Include="Scripts\js_select2\i18n\vi.js" />
+    <Content Include="Scripts\js_select2\i18n\zh-CN.js" />
+    <Content Include="Scripts\js_select2\i18n\zh-TW.js" />
+    <Content Include="Scripts\js_select2\select2.full.js" />
+    <Content Include="Scripts\js_select2\select2.full.min.js" />
+    <Content Include="Scripts\js_select2\select2.js" />
+    <Content Include="Scripts\js_select2\select2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sb-admin-datatables.min.js" />
     <Content Include="Scripts\sb-admin.min.js" />
+    <Content Include="Scripts\scriptmoi.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -322,6 +390,7 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Sale\DetailProject.cshtml" />
     <Content Include="Views\Sale\EditProject1.cshtml" />
+    <Content Include="Views\Home\postProject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

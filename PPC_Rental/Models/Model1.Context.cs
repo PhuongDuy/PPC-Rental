@@ -35,5 +35,6 @@ namespace PPC_Rental.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USER> USERs { get; set; }
         public virtual DbSet<WARD> WARDs { get; set; }
+        public virtual DbSet<PROPERTY_IMAGE> PROPERTY_IMAGE { get; set; }
     }
 }

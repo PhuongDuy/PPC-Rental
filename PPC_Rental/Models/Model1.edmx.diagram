@@ -26,6 +26,8 @@
         <AssociationConnector Association="K21T1_Team4Model.FK_PROPERTY_USER" ManuallyRouted="false" />
         <AssociationConnector Association="K21T1_Team4Model.FK_PROPERTY_USER1" ManuallyRouted="false" />
         <AssociationConnector Association="K21T1_Team4Model.FK_PROPERTY_WARD" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="K21T1_Team4Model.PROPERTY_IMAGE" Width="1.5" PointX="7.5" PointY="14.5" />
+        <AssociationConnector Association="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

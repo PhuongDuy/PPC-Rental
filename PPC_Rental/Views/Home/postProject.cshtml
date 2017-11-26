@@ -1,0 +1,274 @@
+﻿@using PPC_Rental.Models;
+@model PPC_Rental.Models.PROPERTY
+@{ 
+    K21T1_Team4Entities1 db = new K21T1_Team4Entities1();
+
+}
+
+@{
+    ViewBag.Title = "postProject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Đăng Tin</h2>
+
+
+@using (Html.BeginForm("postProject","Home",FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-8">
+
+            <table style="width:100%">
+                <tr>
+                    <td>
+                        <label>Tiêu Đề:</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x =>x.PropertyName, new { @style= "margin-top:0", @class = "form-control" })
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Loại Hình:</label>
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(x=>x.PropertyType_ID,new SelectList(db.PROPERTY_TYPE,"ID","CodeType"),new { @style = "margin-top:0", @class = "form-control" })
+                    </td>
+                </tr>
+
+            </table>
+  
+        </div>
+
+        <div class="col-md-4">
+            <div><label style="font-size:16px">Avatar</label></div>
+            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="Avatar"></div></div>
+            @*<img src="~/Images/PIS_7432-Edit-stamp.jpg" style="width:100%" class="img-rounded" alt="Cinque Terre">*@
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <label>Nội dung:</label>
+        </div>
+        <div class="col-md-10">   
+            @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="col-md-6" style="padding-left:0">
+                <label>Quận huyện:</label>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(m => m.District_ID, new SelectList(db.DISTRICTs, "ID", "DistrictName"), new { @class = "form-control select2cbx" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="col-md-6">
+                <label>Phường Xã:</label>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(m => m.Ward_ID, new SelectList(db.WARDs, "ID", "WardName"),new { @class = "form-control " })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="col-md-6">
+                <label>Đường:</label>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(m => m.Street_ID, new SelectList(db.STREETs, "ID", "StreetName"), new { @class = "form-control select2cbx" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" style="padding-left:0">
+            <div class="col-md-4">
+                <label>Giá:</label>
+            </div>
+            <div class="col-md-8" style="padding-top:0; margin-top:0">
+                @Html.TextBoxFor(x=>x.Price,new { @class="form-control", @type="number"})
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-4" style="margin-top:0">
+                <label>Đơn Giá:</label>
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(x => x.UnitPrice, new List<SelectListItem> { new SelectListItem { Text = "VND", Value = "VND" }, new SelectListItem { Text = "USD", Value = "USD" } }, new { @class="form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" style="padding-left:0">
+            <div class="col-md-4">
+                <label>Diện Tích:</label>
+            </div>
+            <div class="col-md-8" style="padding-top:0; margin-top:0">
+                @Html.TextAreaFor(x => x.Area, new { @class="form-control"})
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4" style="padding-left:0;">
+            <div class="col-md-6">
+                <label>Số phòng ngủ:</label>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(x=>x.BedRoom, new List<SelectListItem>() { new SelectListItem { Text = "1", Value = "1" }, new SelectListItem { Text = "2", Value = "2" }, new SelectListItem { Text = "3", Value = "3" }, new SelectListItem { Text = "4", Value = "4" }, new SelectListItem { Text = "5", Value = "5" }, new SelectListItem { Text = "6", Value = "6" } }, new { @class = "form-control " })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-6">
+                <label>Số phòng tắm:</label>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(x => x.BathRoom, new List<SelectListItem>() { new SelectListItem { Text = "1", Value = "1" }, new SelectListItem { Text = "2", Value = "2" }, new SelectListItem { Text = "3", Value = "3" }, new SelectListItem { Text = "4", Value = "4" }, new SelectListItem { Text = "5", Value = "5" }, new SelectListItem { Text = "6", Value = "6" } }, new { @class = "form-control " })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-6">
+                <label>Chỗ đậu xe:</label>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownListFor(x => x.PackingPlace, new List<SelectListItem>() { new SelectListItem { Text = "1", Value = "1" }, new SelectListItem { Text = "2", Value = "2" }, new SelectListItem { Text = "3", Value = "3" }, new SelectListItem { Text = "4", Value = "4" }, new SelectListItem { Text = "5", Value = "5" }, new SelectListItem { Text = "6", Value = "6" } }, new { @class = "form-control " })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label>Tiện ích:</label>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Ban công" name="chk1">Ban công</label>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Phòng tập Gym" name="chk1">Phòng tập gym</label>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Hồ bơi" name="chk1">Hồ bơi</label>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Chỗ đậu xe" name="chk1">Chỗ đậu xe</label>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Nhà bếp" name="chk1">Nhà bếp</label>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Sàn gỗ" name="chk1">Sàn gỗ</label>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Thang máy" name="chk1">Thang máy</label>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Phòng giặc ủi" name="chk1">Phòng giặc ủi</label>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Bảo vệ" name="chk1">Bảo vệ</label>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Vườn" name="chk1">Vườn</label>
+                </div>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="Cho nuôi thú cưng" name="chk1">Cho nuôi thú cưng</label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <label>Hình ảnh:</label>    
+        </div>
+        <div class="col-md-8">
+            
+            <div class="row">
+                <div class="form-group col-sm-2 img12">
+                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                </div>
+                <div class="form-group col-sm-2 img12">
+                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                </div>
+                <div class="form-group col-sm-2 img12">
+                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                </div>
+                <div class="form-group col-sm-2 img12">
+                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                </div>
+                <div class="form-group col-sm-2 img12">
+                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    
+
+}
+
+<button type="button"class="btn btn-success">@Html.ActionLink("Cancel","Home","Index")</button>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+
+<script>
+    function readURL(input,img) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(img).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(".img-picker").click(function () {
+        $(this).children(".form-control").children("i").remove();
+        $(this).children(".form-control").children(".img222").remove();
+
+        $(this).children(".form-control").prepend("<img class='img-responsive img-rounded img222' style='position:absolute;top:0px;left:0px'/>");
+        $(this).children(".form-control").children(".img222").after("<a>Remove</a>")
+        $(this).find(".imgin").change(function () {
+
+            readURL(this, $(this).siblings(".img222"));
+        }); 
+        
+    });
+</script>
+
+
+
+
+
+

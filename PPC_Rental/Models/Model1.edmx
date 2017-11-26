@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="K21T1_Team4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="K21T1_Team4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DISTRICT">
           <Key>
             <PropertyRef Name="ID" />
@@ -63,6 +63,14 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Property_ID" Type="int" />
           <Property Name="Feature_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="PROPERTY_IMAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Property_ID" Type="int" />
+          <Property Name="Image" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="PROPERTY_TYPE">
           <Key>
@@ -146,6 +154,18 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="PROPERTY_FEATURE">
+              <PropertyRef Name="Property_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROPERTY_IMAGE_PROPERTY">
+          <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+          <End Role="PROPERTY_IMAGE" Type="Self.PROPERTY_IMAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPERTY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PROPERTY_IMAGE">
               <PropertyRef Name="Property_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -252,6 +272,7 @@
           <EntitySet Name="PROJECT_STATUS" EntityType="Self.PROJECT_STATUS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROPERTY" EntityType="Self.PROPERTY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROPERTY_FEATURE" EntityType="Self.PROPERTY_FEATURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROPERTY_IMAGE" EntityType="Self.PROPERTY_IMAGE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROPERTY_TYPE" EntityType="Self.PROPERTY_TYPE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STREET" EntityType="Self.STREET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -268,6 +289,10 @@
           <AssociationSet Name="FK_PROPERTY_FEATURE_PROPERTY" Association="Self.FK_PROPERTY_FEATURE_PROPERTY">
             <End Role="PROPERTY" EntitySet="PROPERTY" />
             <End Role="PROPERTY_FEATURE" EntitySet="PROPERTY_FEATURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROPERTY_IMAGE_PROPERTY" Association="Self.FK_PROPERTY_IMAGE_PROPERTY">
+            <End Role="PROPERTY" EntitySet="PROPERTY" />
+            <End Role="PROPERTY_IMAGE" EntitySet="PROPERTY_IMAGE" />
           </AssociationSet>
           <AssociationSet Name="FK_PROPERTY_PROJECT_STATUS" Association="Self.FK_PROPERTY_PROJECT_STATUS">
             <End Role="PROJECT_STATUS" EntitySet="PROJECT_STATUS" />
@@ -302,8 +327,7 @@
             <End Role="WARD" EntitySet="WARD" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="K21T1_Team4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -370,6 +394,7 @@
           <NavigationProperty Name="USER" Relationship="Self.FK_PROPERTY_USER" FromRole="PROPERTY" ToRole="USER" />
           <NavigationProperty Name="USER1" Relationship="Self.FK_PROPERTY_USER1" FromRole="PROPERTY" ToRole="USER" />
           <NavigationProperty Name="WARD" Relationship="Self.FK_PROPERTY_WARD" FromRole="PROPERTY" ToRole="WARD" />
+          <NavigationProperty Name="PROPERTY_IMAGE" Relationship="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY" FromRole="PROPERTY" ToRole="PROPERTY_IMAGE" />
         </EntityType>
         <EntityType Name="PROPERTY_FEATURE">
           <Key>
@@ -625,7 +650,33 @@
             <End Role="WARD" EntitySet="WARDs" />
             <End Role="PROPERTY" EntitySet="PROPERTies" />
           </AssociationSet>
+          <EntitySet Name="PROPERTY_IMAGE" EntityType="K21T1_Team4Model.PROPERTY_IMAGE" />
+          <AssociationSet Name="FK_PROPERTY_IMAGE_PROPERTY" Association="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY">
+            <End Role="PROPERTY" EntitySet="PROPERTies" />
+            <End Role="PROPERTY_IMAGE" EntitySet="PROPERTY_IMAGE" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="PROPERTY_IMAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Property_ID" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROPERTY" Relationship="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY" FromRole="PROPERTY_IMAGE" ToRole="PROPERTY" />
+        </EntityType>
+        <Association Name="FK_PROPERTY_IMAGE_PROPERTY">
+          <End Type="K21T1_Team4Model.PROPERTY" Role="PROPERTY" Multiplicity="0..1" />
+          <End Type="K21T1_Team4Model.PROPERTY_IMAGE" Role="PROPERTY_IMAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPERTY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PROPERTY_IMAGE">
+              <PropertyRef Name="Property_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -748,6 +799,15 @@
                 <ScalarProperty Name="WardName" ColumnName="WardName" />
                 <ScalarProperty Name="District_ID" ColumnName="District_ID" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROPERTY_IMAGE">
+            <EntityTypeMapping TypeName="K21T1_Team4Model.PROPERTY_IMAGE">
+              <MappingFragment StoreEntitySet="PROPERTY_IMAGE">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Property_ID" ColumnName="Property_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

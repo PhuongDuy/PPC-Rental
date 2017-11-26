@@ -18,6 +18,7 @@ namespace PPC_Rental.Models
         public PROPERTY()
         {
             this.PROPERTY_FEATURE = new HashSet<PROPERTY_FEATURE>();
+            this.PROPERTY_IMAGE = new HashSet<PROPERTY_IMAGE>();
         }
     
         public int ID { get; set; }
@@ -52,5 +53,7 @@ namespace PPC_Rental.Models
         public virtual USER USER { get; set; }
         public virtual USER USER1 { get; set; }
         public virtual WARD WARD { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PROPERTY_IMAGE> PROPERTY_IMAGE { get; set; }
     }
 }
