@@ -129,5 +129,16 @@ namespace PPC_Rental.Controllers
                 m.WARDs.Where(x => x.DISTRICT.ID == District_ID).Select(s => new { id = s.ID, text = s.WardName }).ToList(), JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Viewlistofproject()
+        {
+            var viewlist = m.PROPERTies.OrderByDescending(x => x.ID).ToList();
+            return View(viewlist);
+        }
+
+        public ActionResult Savedrafts()
+        {
+            var viewlist = m.PROPERTies.OrderByDescending(x => x.ID).ToList();
+            return View(viewlist);
+        }
     }
 }

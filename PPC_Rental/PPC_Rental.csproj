@@ -391,6 +391,8 @@
     <Content Include="Views\Sale\DetailProject.cshtml" />
     <Content Include="Views\Sale\EditProject1.cshtml" />
     <Content Include="Views\Home\postProject.cshtml" />
+    <Content Include="Views\Home\Viewlistofproject.cshtml" />
+    <Content Include="Views\Home\Savedrafts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
