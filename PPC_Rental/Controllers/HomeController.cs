@@ -71,14 +71,19 @@ namespace PPC_Rental.Controllers
         {
 
             //Avatar save file on webserver and sign value for model
-            string avatar = "";
-            if (Avatar.ContentLength > 0) {
-                var filename = Path.GetFileName(Avatar.FileName);
-                var path = Path.Combine(Server.MapPath("~/Images"), filename);
-                Avatar.SaveAs(path);
-                avatar = filename;
+            if(Avatar != null)
+            {
+                string avatar = "";
+                if (Avatar.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                    Avatar.SaveAs(path);
+                    avatar = filename;
+                }
+                e.Avatar = avatar;
             }
-            e.Avatar = avatar;
+            
             //Image save file on webserver and add new PROPERTY_IMAGE into table PROPERTY_IMAGE
             foreach (HttpPostedFileBase img in images)
             {
@@ -87,7 +92,7 @@ namespace PPC_Rental.Controllers
                     if (img.ContentLength > 0)
                     {
                         var filename = Path.GetFileName(img.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Images"), filename);
+                        var path = Path.Combine(Server.MapPath("~/Images/"), filename);
                         img.SaveAs(path);
                         PROPERTY_IMAGE ppti = new PROPERTY_IMAGE();
                         ppti.Image = filename;
@@ -102,13 +107,16 @@ namespace PPC_Rental.Controllers
             }
 
             //save PROPERTY_FEATURE into PROPERTY_FEATURE table foreach Feature
-            foreach (string fe in chk1)
-            {
-                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
-                profe.Feature_ID = m.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
-                profe.Property_ID = e.ID;
-                m.PROPERTY_FEATURE.Add(profe);
-            }
+                foreach (string fe in chk1)
+                {
+                    PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                    profe.Feature_ID = m.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                    profe.Property_ID = e.ID;
+                    m.PROPERTY_FEATURE.Add(profe);
+                }
+            e.Created_at = DateTime.Now;
+            e.Create_post = DateTime.Now;
+
 
             m.PROPERTies.Add(e);
             m.SaveChanges();

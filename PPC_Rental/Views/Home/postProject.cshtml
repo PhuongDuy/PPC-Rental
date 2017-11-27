@@ -71,7 +71,7 @@
                 <label>Phường Xã:</label>
             </div>
             <div class="col-md-6">
-                @Html.DropDownListFor(m => m.Ward_ID, new SelectList(db.WARDs, "ID", "WardName"),new { @class = "form-control " })
+                @Html.DropDownListFor(m => m.Ward_ID, new SelectList(new List<SelectList>(), "ID", "WardName"),new { @class = "form-control " })
             </div>
         </div>
 
@@ -80,7 +80,7 @@
                 <label>Đường:</label>
             </div>
             <div class="col-md-6">
-                @Html.DropDownListFor(m => m.Street_ID, new SelectList(db.STREETs, "ID", "StreetName"), new { @class = "form-control select2cbx" })
+                @Html.DropDownListFor(m => m.Street_ID, new SelectList(new List<SelectList>(), "ID", "StreetName"), new { @class = "form-control select2cbx" })
             </div>
         </div>
     </div>
