@@ -393,6 +393,7 @@
     <Content Include="Views\Home\postProject.cshtml" />
     <Content Include="Views\Home\Viewlistofproject.cshtml" />
     <Content Include="Views\Home\Savedrafts.cshtml" />
+    <Content Include="Views\Sale\AddProject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

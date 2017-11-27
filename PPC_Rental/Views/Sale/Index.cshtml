@@ -29,6 +29,7 @@
                             <th>Loại dự án</th>
                             <th>Quận</th>
                             <th>Đường</th>
+                            <th>Trạng thái</th>
                             <th>Công cụ</th>
                         </tr>
                     </thead>
@@ -39,6 +40,7 @@
                             <th>Loại dự án</th>
                             <th>Quận</th>
                             <th>Đường</th>
+                            <th>Trạng thái</th>
                             <th>Công cụ</th>
                         </tr>
                     </tfoot>
@@ -51,8 +53,10 @@
                                 <td>@Html.DisplayFor(modle => item.PROPERTY_TYPE.Description)</td>
                                 <td>@Html.DisplayFor(modle => item.DISTRICT.DistrictName)</td>
                                 <td>@Html.DisplayFor(modle => item.STREET.StreetName)</td>
+                                <th>@Html.DisplayFor(modle => item.PROJECT_STATUS.Status_Name)</th>
                                 <td>
                                     @Html.ActionLink("Detail", "DetailProject", new { id = item.ID })|
+                                    @Html.ActionLink("Add", "AddProject")|
                                     @Html.ActionLink("Edit", "EditProject1", new { id = item.ID })|
                                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                                 </td>
