@@ -1,27 +1,35 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    
-    
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/stylemoi.css")
     @Scripts.Render("~/Scripts/scriptmoi.js")
-    
+
 
 
 </head>
 <body>
     <div class="nav navbar-fixed-top" style="background-color:black">
-        <div class="navbar-form navbar-right">
-            <a class=" btn btn-default" href="/Home/Login">Đăng nhập</a>
-            <a class=" btn btn-default">Đăng Ký</a>
-        </div>
+        @if (Session["UserID"] == null)
+        {
+            @Html.Partial("_LoginPartial")
+        }
+        else
+        {
+            <div class="navbar-form navbar-right">
+                <a href="#">Xin chào @Session["FullName"]</a>
+                <a href="/Home/Logout/@Session["UserID"]">Log out</a>
+            </div>
+        }
     </div>
-    <div class="btn-default"    ></div>
+    <div class="btn-default"></div>
     <nav class="navbar">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -84,15 +92,15 @@
                     <li><a href="#">Tin tức</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" style="padding-top:22px;font-size:20px">
-                    <li><a class="btn btn-info" href="/Home/postProject" style="margin-right:30px;border-radius:30px;width:200px;"><span class="glyphicon glyphicon-home" style="margin-right:2px;"></span><span class="glyphicon glyphicon-pencil" style="margin-right:2px;"></span>Đăng Tin</a></li>
+                    <li><a class="btn btn-info" href="/Home/postProject" style="margin-right:30px;border-radius:30px;width:200px;"><span class="glyphicon glyphicon-home" style="margin-right:2px;"></span><span class="glyphicon glyphicon-pencil" style="margin-right:2px;"></span> Đăng tin</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <div style="background-image:url(/Images/background/background.png);height:auto;width:100%;">
         <div class="row" style="height:100;padding-top:200px;padding-left:30px;padding-bottom:10px;">
-            <div class="col-md-4"  style="margin-right:10px; margin-bottom:10px">
-                @Html.Action("SearchBox","Home")
+            <div class="col-md-4" style="margin-right:10px; margin-bottom:10px">
+                @Html.Action("SearchBox", "Home")
             </div>
 
 
@@ -118,7 +126,7 @@
                             <img src="~/Images/Slider/3.png" style="height:360px" />
                         </div>
                     </div>
-                    
+
 
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -189,7 +197,7 @@
     </div>
 
 
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
@@ -221,9 +229,9 @@
             });
         });
 
-        
+
     </script>
-   
+
 
 </body>
 </html>

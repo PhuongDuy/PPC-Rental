@@ -229,6 +229,7 @@
     <Content Include="Content\css_select2\select2.min.css" />
     <Content Include="Content\dataTables.bootstrap4.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Loginstyle.css" />
     <Content Include="Content\sb-admin.css" />
     <Content Include="Content\stylemoi.css" />
     <Content Include="favicon.ico" />
@@ -394,6 +395,8 @@
     <Content Include="Views\Home\Viewlistofproject.cshtml" />
     <Content Include="Views\Home\Savedrafts.cshtml" />
     <Content Include="Views\Sale\AddProject.cshtml" />
+    <Content Include="Views\Shared\_LayoutAgency.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

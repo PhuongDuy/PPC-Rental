@@ -148,5 +148,41 @@ namespace PPC_Rental.Controllers
             var viewlist = m.PROPERTies.OrderByDescending(x => x.ID).ToList();
             return View(viewlist);
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string email, string password)
+        {
+            var user = m.USERs.FirstOrDefault(x => x.Email == email);
+            if (user != null)
+            {
+                if (user.Password.Equals(password))
+                {
+                    Session["FullName"] = user.FullName;
+                    Session["UserID"] = user.ID;
+                    return RedirectToAction("Viewlistofproject");
+                }
+            }
+            else
+            {
+                ViewBag.mgs = "tài khoản không tồn tại";
+            }
+            return View();
+        }
+
+        public ActionResult Logout(int id)
+        {
+            var user = m.USERs.FirstOrDefault(x => x.ID == id);
+            if (user != null)
+            {
+                Session["FullName"] = null;
+                Session["userID"] = null;
+            }
+            return RedirectToAction("Login");
+        }
     }
 }
