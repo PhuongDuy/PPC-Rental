@@ -39,23 +39,29 @@ namespace PPC_Rental.Controllers
             ViewBag.streeid = db.STREETs.OrderByDescending(x => x.ID).ToList();
             ViewBag.disid = db.DISTRICTs.OrderByDescending(x => x.ID).ToList();
             ViewBag.wardid = db.WARDs.OrderByDescending(x => x.ID).ToList();
-            //ViewBag.useid = db.USERs.OrderByDescending(x => x.ID).ToList();
             ViewBag.staid = db.PROJECT_STATUS.OrderByDescending(x => x.ID).ToList();
-            //ViewBag.saleid = db.USERs.OrderByDescending(x => x.ID).ToList();
             return View(editproject);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProject1([Bind(Include = "ID,PropertyName,Avatar,Images,PropertyType_ID,Content,Street_ID,Ward_ID,District_ID,Price,UnitPrice,Area,BedRoom,BathRoom,PackingPlace,UserID,Created_at,Create_post,Status_ID,Note,Updated_at,Sale_ID")]PROPERTY model, HttpPostedFileBase Avatar)
+        public ActionResult EditProject1(PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1)
         {
-            if (Avatar.ContentLength > 0)
-            {
-                var filename = Path.GetFileName(Avatar.FileName);
-                var path = Path.Combine(Server.MapPath("~/Images"), filename);
-                Avatar.SaveAs(path);
-            }
             PROPERTY pro = db.PROPERTies.Find(model.ID);
+            if (Avatar != null)
+            {
+                string avatar = "";
+                if (Avatar.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                    Avatar.SaveAs(path);
+                    avatar = filename;
+                }
+                pro.Avatar = avatar;
+            }
+            
+
             pro.PropertyName = model.PropertyName;
             pro.Avatar = Avatar.FileName;
             pro.Images = model.Images;
@@ -71,8 +77,7 @@ namespace PPC_Rental.Controllers
             pro.BathRoom = model.BathRoom;
             pro.PackingPlace = model.PackingPlace;
             pro.UserID = model.UserID;
-            pro.Created_at = model.Created_at;
-            pro.Create_post = model.Create_post;
+            pro.Created_at = model.Created_at.Value;
             pro.Status_ID = model.Status_ID;
             pro.Note = model.Note;
             pro.Updated_at = DateTime.Now;
@@ -134,6 +139,14 @@ namespace PPC_Rental.Controllers
             return Json(
             db.STREETs.Where(s => s.District_ID == District_id)
             .Select(s => new { id = s.ID, text = s.StreetName }).ToList(),
+            JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public JsonResult GetWard(int District_id)
+        {
+            return Json(
+            db.WARDs.Where(s => s.District_ID == District_id)
+            .Select(s => new { id = s.ID, text = s.WardName }).ToList(),
             JsonRequestBehavior.AllowGet);
         }
     }

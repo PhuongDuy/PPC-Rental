@@ -1,8 +1,10 @@
-﻿@model PPC_Rental.Models.PROPERTY
+﻿@using PPC_Rental.Models;
+@model PPC_Rental.Models.PROPERTY
 
 @{
     ViewBag.Title = "AddProject";
     Layout = "~/Views/Shared/LayoutSale.cshtml";
+    var db = new K21T1_Team4Entities1();
 }
 
 <div>
@@ -160,15 +162,20 @@
                         <span class="input-group-addon">City :</span>
                         <p style="margin-top:10px;margin-left: 10px;margin-right: 10px;">HCM</p>
                         <span class="input-group-addon">District</span>
-                        <select id="District" class="form-control" name="District"><option></option></select>
-
+                        <div class=" col-md-5" style="height: 35px;width: 100px;">
+                            @Html.DropDownList("District_ID", new SelectList(db.DISTRICTs, "ID", "DistrictName"), new { @class = "form-control select2cbx" })
+                        </div>
                         <span class="input-group-addon">Ward</span>
-                        <select id="Ward" class="form-control" name="Ward"><option></option></select>
+                        <div class=" col-md-3" style="height: 35px;width: 100px;">
+                            @Html.DropDownList("Ward_ID", new SelectList(db.WARDs, "ID", "WardName"), new { @class = "form-control select2cbx" })
 
+                        </div>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Street</span>
-                        <select id="Street" class="form-control" name="Street"><option></option></select>
+                        <div class=" col-md-10" style="height: 35px">
+                            @Html.DropDownList("Street_ID", new SelectList(db.STREETs, "ID", "StreetName"), new { @class = "form-control select2cbx" })
+                        </div>
                     </div>
                 </div>
             </div>
