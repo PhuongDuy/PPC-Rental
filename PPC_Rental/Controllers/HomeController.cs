@@ -37,19 +37,19 @@ namespace PPC_Rental.Controllers
         }
 
         [HttpPost]
-        public ActionResult Search(string gia,string quanhuyen,string loaida, string phongtam,string phongngu,string baidauxe)
+        public ActionResult Search(string gia, string quanhuyen, string loaida, string phongtam, string phongngu, string baidauxe)
         {
-            
+
             IEnumerable<PPC_Rental.Models.PROPERTY> ls;
 
             if (gia == "Dưới 50000") {
                 ls = m.PROPERTies.ToList().Where(x => (x.Price < 50000 && gia != "Giá") || (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") || (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") || (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") || (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") || (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe"));
             }
-            else if(gia == "Từ 50000-100000")
+            else if (gia == "Từ 50000-100000")
             {
                 ls = m.PROPERTies.ToList().Where(x => (x.Price >= 50000 && x.Price < 100000 && gia != "Giá") || (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") || (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") || (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") || (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") || (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe"));
             }
-            else if(gia == "Từ 100000-150000") {
+            else if (gia == "Từ 100000-150000") {
                 ls = m.PROPERTies.ToList().Where(x => (x.Price >= 100000 && x.Price < 150000 && gia != "Giá") || (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") || (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") || (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") || (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") || (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe"));
             }
             else
@@ -71,7 +71,7 @@ namespace PPC_Rental.Controllers
         {
 
             //Avatar save file on webserver and sign value for model
-            if(Avatar != null)
+            if (Avatar != null)
             {
                 string avatar = "";
                 if (Avatar.ContentLength > 0)
@@ -83,11 +83,11 @@ namespace PPC_Rental.Controllers
                 }
                 e.Avatar = avatar;
             }
-            
+
             //Image save file on webserver and add new PROPERTY_IMAGE into table PROPERTY_IMAGE
             foreach (HttpPostedFileBase img in images)
             {
-                if(img != null)
+                if (img != null)
                 {
                     if (img.ContentLength > 0)
                     {
@@ -107,13 +107,13 @@ namespace PPC_Rental.Controllers
             }
 
             //save PROPERTY_FEATURE into PROPERTY_FEATURE table foreach Feature
-                foreach (string fe in chk1)
-                {
-                    PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
-                    profe.Feature_ID = m.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
-                    profe.Property_ID = e.ID;
-                    m.PROPERTY_FEATURE.Add(profe);
-                }
+            foreach (string fe in chk1)
+            {
+                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                profe.Feature_ID = m.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                profe.Property_ID = e.ID;
+                m.PROPERTY_FEATURE.Add(profe);
+            }
             e.Created_at = DateTime.Now;
             e.Create_post = DateTime.Now;
             e.Status_ID = 1;
@@ -127,7 +127,7 @@ namespace PPC_Rental.Controllers
         [HttpGet]
         public JsonResult requestStreets(int? District_ID) {
             return Json(
-                m.STREETs.Where(x => x.DISTRICT.ID == District_ID).Select(s => new { id = s.ID, text = s.StreetName }).ToList(), JsonRequestBehavior.AllowGet); 
+                m.STREETs.Where(x => x.DISTRICT.ID == District_ID).Select(s => new { id = s.ID, text = s.StreetName }).ToList(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -136,19 +136,7 @@ namespace PPC_Rental.Controllers
             return Json(
                 m.WARDs.Where(x => x.DISTRICT.ID == District_ID).Select(s => new { id = s.ID, text = s.WardName }).ToList(), JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult Viewlistofproject()
-        {
-            var viewlist = m.PROPERTies.OrderByDescending(x => x.ID).ToList();
-            return View(viewlist);
-        }
-
-        public ActionResult Savedrafts()
-        {
-            var viewlist = m.PROPERTies.OrderByDescending(x => x.ID).ToList();
-            return View(viewlist);
-        }
-
+        
         public ActionResult Login()
         {
             return View();
@@ -164,7 +152,14 @@ namespace PPC_Rental.Controllers
                 {
                     Session["FullName"] = user.FullName;
                     Session["UserID"] = user.ID;
+                    if (user.Role == "1")
+                    { 
                     return RedirectToAction("Viewlistofproject");
+                    }
+                    if(user.Role == "2")
+                    {
+                        return RedirectToAction("Index","Sale");
+                    }
                 }
             }
             else
@@ -180,9 +175,21 @@ namespace PPC_Rental.Controllers
             if (user != null)
             {
                 Session["FullName"] = null;
-                Session["userID"] = null;
+                Session["UserID"] = null;
             }
             return RedirectToAction("Login");
+        }
+        
+        public ActionResult Viewlistofproject(string status = "Đã duyệt")
+        {
+            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status /*&& p.USER.FullName == Session["FullName"].ToString()*/).ToList();
+            return View(viewlist);
+        }
+
+        public ActionResult Savedrafts(string status = "Lưu nháp")
+        {
+            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status /*|| p.UserID == int.Parse(Session["UserID"].ToString())*/).ToList();
+            return View(viewlist);
         }
     }
 }

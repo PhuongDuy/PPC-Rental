@@ -12,9 +12,9 @@ namespace PPC_Rental.Controllers
     {
         K21T1_Team4Entities1 db = new K21T1_Team4Entities1();
         // GET: Sale
-        public ActionResult Index(/*string status = "Đã duyệt"*/)
+        public ActionResult Index()
         {
-            var viewlist = db.PROPERTies/*.Where(p => p.PROJECT_STATUS.Status_Name == status)*/.ToList();
+            var viewlist = db.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn").ToList();
             return View(viewlist);
         }
 
@@ -60,10 +60,15 @@ namespace PPC_Rental.Controllers
                 }
                 pro.Avatar = avatar;
             }
-            
+            foreach (string fe in chk1)
+            {
+                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                profe.Property_ID = pro.ID;
+                db.PROPERTY_FEATURE.Add(profe);
+            }
 
             pro.PropertyName = model.PropertyName;
-            pro.Avatar = Avatar.FileName;
             pro.Images = model.Images;
             pro.PropertyType_ID = model.PropertyType_ID;
             pro.Content = model.Content;
@@ -76,13 +81,11 @@ namespace PPC_Rental.Controllers
             pro.BedRoom = model.BedRoom;
             pro.BathRoom = model.BathRoom;
             pro.PackingPlace = model.PackingPlace;
-            pro.UserID = model.UserID;
-            pro.Created_at = model.Created_at.Value;
             pro.Status_ID = model.Status_ID;
             pro.Note = model.Note;
             pro.Updated_at = DateTime.Now;
-            pro.Sale_ID = model.Sale_ID;
-            pro.PROPERTY_FEATURE = model.PROPERTY_FEATURE;
+            pro.Sale_ID = int.Parse(Session["UserID"].ToString());
+           
 
             db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
@@ -134,18 +137,18 @@ namespace PPC_Rental.Controllers
             return RedirectToAction("Index");
         }
 
-        public JsonResult GetStreet(int District_id)
+        public JsonResult GetStreet(int? District_id)
         {
             return Json(
-            db.STREETs.Where(s => s.District_ID == District_id)
+            db.STREETs.Where(x => x.DISTRICT.ID == District_id)
             .Select(s => new { id = s.ID, text = s.StreetName }).ToList(),
             JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
-        public JsonResult GetWard(int District_id)
+        public JsonResult GetWard(int? District_id)
         {
             return Json(
-            db.WARDs.Where(s => s.District_ID == District_id)
+            db.WARDs.Where(x => x.DISTRICT.ID == District_id)
             .Select(s => new { id = s.ID, text = s.WardName }).ToList(),
             JsonRequestBehavior.AllowGet);
         }

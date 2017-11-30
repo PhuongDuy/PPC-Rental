@@ -107,6 +107,8 @@
                     <div class="input-group">
                         <span class="input-group-addon">Craeted at :</span>
                         <p name="Created_at" style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.Created_at)</p>
+                        <span class="input-group-addon" style="margin-left: 20px">Craeted post :</span>
+                        <p name="Created_at" style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.Create_post)</p>
                     </div>
                 </div>
             </div>
@@ -140,23 +142,20 @@
                         <p style="margin-top:10px;margin-left: 10px;margin-right: 10px;">HCM</p>
                         <span class="input-group-addon">District</span>
                         <div class=" col-md-5" style="height: 35px;width: 100px;">
-                            @*@Html.DropDownList("District_ID", new SelectList(db.DISTRICTs, "ID", "DistrictName"), new { @class = "form-control select2cbx" })*@
-                            @Html.DropDownList("District_ID", new SelectList(ViewBag.disid, "ID", "DistrictName", Model.DISTRICT), new { @class = "form-control select2cbx" })
-                            @Html.ValidationMessageFor(model => model.District_ID)
+                            @Html.DropDownListFor(m => m.District_ID, new SelectList(db.DISTRICTs, "ID", "DistrictName"), new { @class = "input-group select2cbx" })
+                           
                         </div>
                         <span class="input-group-addon">Ward</span>
                         <div class=" col-md-3" style="height: 35px;width: 100px;">
-                            @*@Html.DropDownList("Ward_ID", new SelectList(db.WARDs, "ID", "WardName", Model.WARD), new { @class = "form-control select2cbx" })*@
-                            @Html.DropDownList("Ward_ID", new SelectList(ViewBag.wardid, "ID", "WardName", Model.WARD), new { @class = "input-group select2cbx" })
-                            @Html.ValidationMessageFor(model => model.Ward_ID)
+                            @Html.DropDownListFor(m => m.Ward_ID, new SelectList(db.WARDs, "ID", "WardName"), new { @class = "input-group select2cbx" })
+                            
                         </div>
                     </div>
                     <div class="input-group" style="margin-top: 7px;">
                         <span class="input-group-addon">Street</span>
                         <div class=" col-md-10" style="height: 35px">
-                            @*@Html.DropDownList("Street_ID", new SelectList(db.STREETs, "ID", "StreetName"), new { @class = "form-control select2cbx" })*@
-                            @Html.DropDownListFor(m => m.Street_ID, new SelectList(ViewBag.streeid, "ID", "StreetName", Model.STREET), new { @class = "form-control select2cbx" })
-                            @Html.ValidationMessageFor(model => model.Street_ID)
+                            @Html.DropDownListFor(m => m.Street_ID, new SelectList(db.STREETs, "ID", "StreetName"), new { @class = "input-group select2cbx" })
+
                         </div>
                     </div>
                 </div>
@@ -203,41 +202,13 @@
     </div>
 
     @section Scripts {
-        <link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
-        <link href="~/Content/css_select2/select2.css" rel="stylesheet" />
-        <script src="~/Scripts/js_select2/select2.full.min.js"></script>
-        <script src="~/Scripts/js_select2/select2.full.js"></script>
-        <script src="~/Scripts/js_select2/select2.js"></script>
-        <script src="~/Scripts/js_select2/select2.min.js"></script>
-        <script src="~/Scripts/jquery.min.js"></script>
-
+       
         @foreach (var item2 in lsft)
         {
             <script>
                 $("#@item2.Feature_ID").attr('checked', true);
             </script>
         }
-
-        <script>
-
-            $(document).ready(function () {
-                $('.select2cbx').select2();
-            });
-
-            $('#Distrist_ID').on('change', function () {
-                $('#Street_ID').empty();
-                $.getJSON('GetStreet?District_id=' + $('#District_ID').val(),
-                    function (json) {
-                        $('#Street_ID').select2({ data: json });
-                    });
-                $('#Ward_ID').empty();
-                $.getJSON('GetStreet?District_id=' + $('#District_ID').val(),
-                    function (json) {
-                        $('#Street_ID').select2({ data: json });
-                    });
-            });
-        </script>
-
     }
 }
 
