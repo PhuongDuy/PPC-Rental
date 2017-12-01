@@ -191,5 +191,34 @@ namespace PPC_Rental.Controllers
             var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status /*|| p.UserID == int.Parse(Session["UserID"].ToString())*/).ToList();
             return View(viewlist);
         }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(USER user, string confirmpassword)
+        {
+            if (user.Password == confirmpassword)
+            {
+                var reg = new USER();
+                reg.FullName = user.FullName;
+                reg.Email = user.Email;
+                reg.Password = user.Password;
+                reg.Phone = user.Phone;
+                reg.Address = user.Address;
+                m.USERs.Add(reg);
+                m.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View("Register");
+            }
+
+
+
+        }
     }
 }
