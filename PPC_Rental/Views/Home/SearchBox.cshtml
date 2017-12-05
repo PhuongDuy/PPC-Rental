@@ -1,85 +1,74 @@
 ﻿@using PPC_Rental.Models;
 @model K21T1_Team4Entities1
+<link href="~/Content/StyleSearch.css" rel="stylesheet" />
 
 
-<div class="panel-heading" style="height:20%;padding-top:20px; background-color:darkturquoise;font-size:20px;color:white;font-family:'Times New Roman'"><span class="glyphicon glyphicon-search"></span> Tìm kiếm </div>
-<div style="padding-left:10px;background-color:white;height:80%;width:100%;padding:5px;">
-    <form role="search" action="@Url.Action("Search","Home")" method="post">
-        <div class="row">
-            <div class="col-sm-6" style="margin-top:10px;font-size:17px">
-                <select style="width:140px"  name="gia">
-                    <option>Giá</option>
-                    <option>Dưới 50000</option>
-                    <option>Từ 50000-100000</option>
-                    <option>Từ 100000-150000</option>
-                    <option>Trên 150000</option>
+<form role="search" action="@Url.Action("Search","Home")" method="post">
+    <div class="row">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-search"></span> TÌM KIẾM THÔNG TIN DỰ ÁN</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group col-sm-3 col-xs-12">
+                <select class="form-control selectpicker">
+                    <option class="bs-title-option" value="">Giá</option>
+                    <option value="0">Dưới 50.000</option>
+                    <option value="1">Từ 50.000-100.000</option>
+                    <option value="2">Từ 100.000-150.000</option>
+                    <option value="3">Trên 150.000</option>
                 </select>
-            </div>
-            <div class="col-sm-6" style="margin-top:10px;font-size:17px">
-                <select style="width:140px" name="loaida">
-                    <option>Loại dự án</option>
+                <hr />
+                <select class="form-control selectpicker">
+                    <option class="bs-title-option" value="">Loại dự án</option>
                     @foreach (PROPERTY_TYPE pt in Model.PROPERTY_TYPE)
                     {
                         <option>@pt.Description</option>
                     }
                 </select>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-6" style="margin-top:10px;font-size:17px">
-                <select id="cbxQuanHuyen" style="width:140px" name="quanhuyen">
+            <div class="form-group col-sm-3 col-xs-12">
+                <select class="form-control selectpicker">
+                    <option class="bs-title-option" value="">Quận/ Huyện</option>
                     <option>Quận/Huyện</option>
                     @foreach (DISTRICT dt in Model.DISTRICTs)
                     {
                         <option>@dt.DistrictName</option>
                     }
                 </select>
-            </div>
-            <div class="col-sm-6" style="margin-top:10px;font-size:17px">
-                <select style="width:140px" name="baidauxe">
-                    <option>Bãi đậu xe</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6" style="margin-top:10px;font-size:17px">
-                <select style="width:140px" name="phongtam">
-                    <option>Phòng tắm</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+                <hr />
+                <select class="form-control selectpicker">
+                    <option class="bs-title-option" value="">Bãi đậu xe</option>
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
                 </select>
             </div>
 
-            <div class="col-sm-6" style="margin-top:10px;font-size:17px">
-                <select style="width:140px" name="phongngu">
-                    <option>Phòng ngủ</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+            <div class="form-group col-sm-3 col-xs-12">
+                <select class="form-control selectpicker">
+                    <option class="bs-title-option" value="">Phòng tắm</option>
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                    <option value="3">4</option>
+
+                </select>
+                <hr />
+                <select class="form-control selectpicker">
+                    <option class="bs-title-option" value="">Phòng ngủ</option>
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                    <option value="3">4</option>
                 </select>
             </div>
-        </div>
 
-        <div class="row">
-            
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <input type="submit" name="submit" value="Tìm kiếm" style="margin-top:10px;width:100%;height:40px;color:darkturquoise" />
+            <div class="form-group col-sm-3 col-xs-12">
+                <input type="text" class="form-control" placeholder="Nhập từ khóa" />
+                <hr />
+                <button type="submit" class="btn btn-primary form-control searchform">Search</button>
             </div>
         </div>
-    </form>
-</div>
-
-<script>
-   
-
-</script>
+    </div>
+</form>
