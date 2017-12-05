@@ -116,6 +116,7 @@ namespace PPC_Rental.Controllers
             }
             e.Created_at = DateTime.Now;
             e.Create_post = DateTime.Now;
+            e.UserID = int.Parse(Session["UserID"].ToString());
             e.Status_ID = 1;
 
             m.PROPERTies.Add(e);

@@ -14,8 +14,8 @@ namespace PPC_Rental.Controllers
         // GET: Sale
         public ActionResult Index()
         {
-            var viewlist = db.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn").ToList();
-            return View(viewlist);
+            var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn" ).ToList();
+            return View(viewlist.OrderByDescending(m => m.Create_post).ToList());
         }
 
         public ActionResult Delete(int id)
@@ -39,7 +39,6 @@ namespace PPC_Rental.Controllers
             ViewBag.streeid = db.STREETs.OrderByDescending(x => x.ID).ToList();
             ViewBag.disid = db.DISTRICTs.OrderByDescending(x => x.ID).ToList();
             ViewBag.wardid = db.WARDs.OrderByDescending(x => x.ID).ToList();
-            ViewBag.staid = db.PROJECT_STATUS.OrderByDescending(x => x.ID).ToList();
             return View(editproject);
         }
 
@@ -151,6 +150,12 @@ namespace PPC_Rental.Controllers
             db.WARDs.Where(x => x.DISTRICT.ID == District_id)
             .Select(s => new { id = s.ID, text = s.WardName }).ToList(),
             JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult duyetduan()
+        {
+            var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Chưa duyệt").ToList();
+            return View(viewlist);
         }
     }
 }

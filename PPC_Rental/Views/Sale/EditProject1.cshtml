@@ -176,10 +176,11 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Status</span>
-                        <div class="col-md-3">
-                            @Html.DropDownList("Status_ID", new SelectList(ViewBag.staid, "ID", "Status_Name", Model.PROJECT_STATUS), new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Status_ID)
-                        </div>
+                        <select id="Status" class="form-control" name="Status">
+                            <option>@Html.ValueFor(m => m.Status_ID.ToString())</option>
+                            <option>Đã duyệt</option>
+                            <option>Hết hạn</option>
+                        </select>
                         <span class="input-group-addon">Note :</span>
                         <input id="note" type="text" class="form-control" name="note" value="@Html.ValueFor(m => m.Note)" placeholder="...">
                     </div>

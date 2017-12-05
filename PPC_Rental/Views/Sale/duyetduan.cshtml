@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "duyetduan";
     Layout = "~/Views/Shared/LayoutSale.cshtml";
 }
+
 @using PPC_Rental.Models;
 @model IEnumerable<PPC_Rental.Models.PROPERTY>
 
@@ -13,7 +14,7 @@
     <div>
         <div class="col-md-1">
             <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
-        </div><h1 style="margin-top: 10px;">Danh sách dự án</h1>
+        </div><h1 style="margin-top: 10px;">Danh sách dự án chưa duyệt</h1>
     </div>
     <div class="card mb-3" style="margin-top: 10px;">
         <div class="card-header">
@@ -58,10 +59,7 @@
                                 <td>@Html.DisplayFor(modle => item.STREET.StreetName)</td>
                                 <th>@Html.DisplayFor(modle => item.PROJECT_STATUS.Status_Name)</th>
                                 <td>
-                                    @Html.ActionLink("Detail", "DetailProject", new { id = item.ID })|
-                                    @Html.ActionLink("Add", "AddProject")|
-                                    @Html.ActionLink("Edit", "EditProject1", new { id = item.ID })|
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                    @Html.ActionLink("Duyệt", "", new { id = item.ID })
                                 </td>
                             </tr>
                         }
@@ -74,16 +72,3 @@
     </div>
 </body>
 </html>
-<script type="text/javascript">
-    function Delete() {
-        if (confirm("Bạn chắc chắn muốn xóa dự án này?"))
-            return true
-        else
-            return false
-    }
-    ForcusEvent = false;
-    checked = false;
-</script>
-
-
-
