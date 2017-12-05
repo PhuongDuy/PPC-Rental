@@ -1,7 +1,6 @@
 ﻿@using PPC_Rental.Models;
 @model PPC_Rental.Models.PROPERTY
 
-
 @{
     ViewBag.Title = "EditProject1";
     Layout = "~/Views/Shared/LayoutSale.cshtml";
@@ -124,7 +123,7 @@
                 {
                     <div class="input-group col-md-3" style="margin:7px;padding: 0;margin-left:20px">
                         <span class="input-group-addon">@item.FeatureName</span>
-                        <input runat="server" id="@item.ID" type="checkbox" class="form-control-radio" name="@item.FeatureName">
+                        <input runat="server"  value="@item.FeatureName" id="@item.ID" type="checkbox" class="form-control-radio" name="chk1">
                     </div>
                 }
 
@@ -143,20 +142,20 @@
                         <span class="input-group-addon">District</span>
                         <div class=" col-md-5" style="height: 35px;width: 100px;">
                             @Html.DropDownListFor(m => m.District_ID, new SelectList(db.DISTRICTs, "ID", "DistrictName"), new { @class = "input-group select2cbx" })
-                           
+
                         </div>
                         <span class="input-group-addon">Ward</span>
                         <div class=" col-md-3" style="height: 35px;width: 100px;">
-                            @Html.DropDownListFor(m => m.Ward_ID, new SelectList(db.WARDs, "ID", "WardName"), new { @class = "input-group select2cbx" })
-                            
-                        </div>
+                            @Html.DropDownListFor(m => m.Ward_ID, new SelectList(new List<SelectList>()), new { @class = "input-group select2cbx" })
+
+</div>
                     </div>
                     <div class="input-group" style="margin-top: 7px;">
                         <span class="input-group-addon">Street</span>
                         <div class=" col-md-10" style="height: 35px">
-                            @Html.DropDownListFor(m => m.Street_ID, new SelectList(db.STREETs, "ID", "StreetName"), new { @class = "input-group select2cbx" })
+                            @Html.DropDownListFor(m => m.Street_ID, new SelectList(new List<SelectList>()), new { @class = "input-group select2cbx" })
 
-                        </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -176,11 +175,10 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Status</span>
-                        <select id="Status" class="form-control" name="Status">
-                            <option>@Html.ValueFor(m => m.Status_ID.ToString())</option>
-                            <option>Đã duyệt</option>
-                            <option>Hết hạn</option>
-                        </select>
+                        <div class="col-md-3">
+                            @Html.DropDownList("Status_ID", new SelectList(ViewBag.staid, "ID", "Status_Name", Model.PROJECT_STATUS), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Status_ID)
+                        </div>
                         <span class="input-group-addon">Note :</span>
                         <input id="note" type="text" class="form-control" name="note" value="@Html.ValueFor(m => m.Note)" placeholder="...">
                     </div>
@@ -203,7 +201,7 @@
     </div>
 
     @section Scripts {
-       
+
         @foreach (var item2 in lsft)
         {
             <script>

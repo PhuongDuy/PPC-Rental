@@ -14,7 +14,7 @@ namespace PPC_Rental.Controllers
         // GET: Sale
         public ActionResult Index()
         {
-            var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn" ).ToList();
+            var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn").ToList();
             return View(viewlist.OrderByDescending(m => m.Create_post).ToList());
         }
 
@@ -39,14 +39,19 @@ namespace PPC_Rental.Controllers
             ViewBag.streeid = db.STREETs.OrderByDescending(x => x.ID).ToList();
             ViewBag.disid = db.DISTRICTs.OrderByDescending(x => x.ID).ToList();
             ViewBag.wardid = db.WARDs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.staid = db.PROJECT_STATUS.OrderByDescending(x => x.ID).Where(p => p.Status_Name == "Đã duyệt" || p.Status_Name == "Hết hạn").ToList();
             return View(editproject);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProject1(PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1)
+        public ActionResult EditProject1( PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1)
         {
+            
             PROPERTY pro = db.PROPERTies.Find(model.ID);
+            var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            db.PROPERTY_FEATURE.RemoveRange(ftpr);
+            
             if (Avatar != null)
             {
                 string avatar = "";
@@ -59,7 +64,8 @@ namespace PPC_Rental.Controllers
                 }
                 pro.Avatar = avatar;
             }
-            foreach (string fe in chk1)
+
+            foreach (var fe in chk1)
             {
                 PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
                 profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
@@ -84,7 +90,6 @@ namespace PPC_Rental.Controllers
             pro.Note = model.Note;
             pro.Updated_at = DateTime.Now;
             pro.Sale_ID = int.Parse(Session["UserID"].ToString());
-           
 
             db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
@@ -157,5 +162,29 @@ namespace PPC_Rental.Controllers
             var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Chưa duyệt").ToList();
             return View(viewlist);
         }
+        [HttpGet]
+        public ActionResult ApprovalProject(int? id)
+        {
+            var duyet = db.PROPERTies.FirstOrDefault(x => x.ID == id);
+            if (duyet == null)
+            {
+                return HttpNotFound();
+            }
+            return View(duyet);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ApprovalProject(PROPERTY model)
+        {
+            PROPERTY pro = db.PROPERTies.Find(model.ID);
+            pro.Status_ID = 3;
+            pro.Sale_ID = int.Parse(Session["UserID"].ToString());
+            pro.Updated_at = DateTime.Now;
+
+            db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("duyetduan");
+        }
+
     }
 }

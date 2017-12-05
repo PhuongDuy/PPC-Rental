@@ -401,6 +401,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Sale\duyetduan.cshtml" />
+    <Content Include="Views\Sale\ApprovalProject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

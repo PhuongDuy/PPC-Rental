@@ -59,7 +59,7 @@ namespace PPC_Rental.Controllers
 
             return View(ls);
         }
-
+        
         public ActionResult postProject()
         {
             var model = new PROPERTY();

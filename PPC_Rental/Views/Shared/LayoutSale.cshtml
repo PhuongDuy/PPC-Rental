@@ -94,6 +94,12 @@
                             <span class="nav-link-text">Hỗ trợ</span>
                         </a>
                     </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tin tức">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="" data-parent="#exampleAccordion" style="font-size: large;color: aliceblue;">
+                            <i class="glyphicon glyphicon-globe"></i>
+                            <span class="nav-link-text">Tin tức</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -121,20 +127,28 @@
     <script>
             $(document).ready(function () {
                 $('.select2cbx').select2();
-               
+                $("#Street_ID").empty();
+                $.getJSON("../GetStreet?District_id=" + $('#District_ID').val(), function (data) {
+                    $("#Street_ID").select2({ data: data });
+                });
+
+                $('#Ward_ID').empty();
+                $.getJSON("../GetWard?District_id=" + $('#District_ID').val(), function (data) {
+                    $('#Ward_ID').select2({ data: data });
+                });
             });
 
-            //$("#District_ID").on('change', function () {
-            //    $("#Street_ID").empty();
-            //    $.getJSON("GetStreets?District_id=" + $('#District_ID').val(), function (data) {
-            //        $("#Street_ID").select2({ data: data });
-            //    });
+            $("#District_ID").on('change', function () {
+                $("#Street_ID").empty();
+                $.getJSON("../GetStreet?District_id=" + $('#District_ID').val(), function (data) {
+                    $("#Street_ID").select2({ data: data });
+                });
 
-            //    $('#Ward_ID').empty();
-            //    $.getJSON("GetWard?District_id=" + $('#District_ID').val(), function (data) {
-            //        $('#Ward_ID').select2({ data: data });
-            //    });
-            //});
+                $('#Ward_ID').empty();
+                $.getJSON("../GetWard?District_id=" + $('#District_ID').val(), function (data) {
+                    $('#Ward_ID').select2({ data: data });
+                });
+            });
         </script>
 </body>
 </html>

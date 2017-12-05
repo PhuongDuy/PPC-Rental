@@ -1,0 +1,179 @@
+﻿@using PPC_Rental.Models;
+@model PPC_Rental.Models.PROPERTY
+@{
+    ViewBag.Title = "ApprovalProject";
+    Layout = "~/Views/Shared/LayoutSale.cshtml";
+    var db = new K21T1_Team4Entities1();
+    var lsft = db.PROPERTY_FEATURE.Where(x => x.Property_ID == Model.ID).ToList();
+}
+@Scripts.Render("~/bundles/jqueryval")
+<div>
+    <div class="col-md-1">
+        <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
+    </div><h1 style="margin-top: 10px;">Duyệt dự án</h1>
+</div>
+<hr />
+@using (Html.BeginForm("ApprovalProject", "Sale", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+
+        <div class="col-md-6" style="margin-top: 0;">
+            <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: #323b3e">
+                <div class="container-fluid" style="margin-bottom: 0;padding-left: 20px;">
+                    <p style="margin-bottom: 0;color: white;font-size: 20px">Thông tin dự án</p>
+                </div>
+            </nav>
+            <div style="border: 1px solid;">
+                <div style="padding: 10px;">
+                    <div class="input-group">
+                        <span class="input-group-addon">ID :</span>
+                        <p style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.ID)</p>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">ProjectName :</span>
+                        <input id="proname" type="text" class="form-control" name="projectname" value="@Html.ValueFor(m => m.PropertyName)" placeholder="Tên dự án">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">ProjectType :</span>
+                        <select id="protype" class="form-control" name="projecttype">
+                            <option>
+                                @Html.ValueFor(m => m.PROPERTY_TYPE.Description)
+                            </option>
+                        </select>
+                        <span class="input-group-addon">Price :</span>
+                        <input id="price" type="text" class="form-control" name="price" value="@Html.ValueFor(m => m.Price)" placeholder="Giá">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Avatar :</span>
+                        <input id="avatar" type="image" class="form-control" name="avatar" value="@Html.ValueFor(m => m.Avatar)">
+                        <span class="input-group-addon">UnitPrice :</span>
+                        <select id="unitprice" class="form-control" name="unitprice"><option>@Html.ValueFor(m => m.UnitPrice)</option></select>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Area :</span>
+                        <input id="area" type="text" class="form-control" name="area" value="@Html.ValueFor(m => m.Area)" placeholder="Diện tích">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Images :</span>
+                        <input id="image" type="text" class="form-control" name="image" value="@Html.ValueFor(m => m.Images)">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Content :</span>
+                        <textarea style="min-height: 100px;" id="content" type="text" class="form-control" name="content" placeholder="Nội dung">@Html.ValueFor(m => m.Content)</textarea>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">BedRoom :</span>
+                        <select id="badroom" class="form-control" name="bebroom">
+                            <option>@Html.ValueFor(m => m.BedRoom)</option>
+                        </select>
+                        <span class="input-group-addon">BethRoom :</span>
+                        <select id="bathroom" class="form-control" name="bethroom">
+                            <option>@Html.ValueFor(m => m.BathRoom)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">PackingPlace :</span>
+                        <select id="packingplace" class="form-control" name="packingplace" style="width: 170px;">
+                            <option>@Html.ValueFor(m => m.PackingPlace)</option>
+                        </select>
+                    </div>
+
+                    <div class="container" style="padding: 0;">
+                        @foreach (var item in db.FEATUREs)
+                        {
+                            <div class="input-group col-md-3" style="padding: 0;">
+                                <span class="input-group-addon">@item.FeatureName</span>
+                                <input runat="server" id="@item.ID" type="checkbox" class="form-control-radio" name="@item.FeatureName">
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="margin-top: 0;padding-left: 10px;padding-right: 10px;">
+            <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: #323b3e">
+                <div class="container-fluid" style="margin-bottom: 0;padding-left: 20px;">
+                    <p style="margin-bottom: 0;color: white;font-size: 20px">Agency</p>
+                </div>
+            </nav>
+            <div style="border: 1px solid;padding: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon">User :</span>
+                    <p style="margin-top:10px;margin-left: 10px;margin-right:10px;">@Html.ValueFor(m => m.USER.FullName)</p>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon">Craeted at :</span>
+                    <p style="margin-top:10px;margin-left: 10px;margin-right:10px;">@Html.ValueFor(m => m.Created_at)</p>
+                    <span class="input-group-addon">Craeted post :</span>
+                    <p style="margin-top:10px;margin-left: 10px;">@Html.ValueFor(m => m.Create_post)</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Email :</span>
+                    <p style="margin-top:10px;margin-left: 10px;margin-right:10px;">@Html.ValueFor(m => m.USER.Email)</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Phone :</span>
+                    <p style="margin-top:10px;margin-left: 10px;margin-right:10px;">@Html.ValueFor(m => m.USER.Phone)</p>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Address :</span>
+                    <p style="margin-top:10px;margin-left: 10px;margin-right:10px;">@Html.ValueFor(m => m.USER.Address)</p>
+                </div>
+
+            </div>
+
+
+            <br />
+            <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: #323b3e">
+                <div class="container-fluid" style="margin-bottom: 0;padding-left: 20px;">
+                    <p style="margin-bottom: 0;color: white;font-size: 20px">Địa chỉ</p>
+                </div>
+            </nav>
+            <div style="border: 1px solid;">
+                <div style="padding: 10px;">
+                    <div class="input-group">
+                        <span class="input-group-addon">City :</span>
+                        <p style="margin-top:10px;margin-left: 10px;margin-right: 10px;">HCM</p>
+                        <span class="input-group-addon">District :</span>
+                        <select id="district" class="form-control" name="district"><option>@Html.ValueFor(m => m.DISTRICT.DistrictName)</option></select>
+                        <span class="input-group-addon">Ward :</span>
+                        <select id="ward" class="form-control" name="ward"><option>@Html.ValueFor(m => m.WARD.WardName)</option></select>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">Street :</span>
+                        <select id="street" class="form-control" name="street"><option>@Html.ValueFor(m => m.STREET.StreetName)</option></select>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="container">
+                <div class="col-md-3">
+                    @Html.ActionLink("Back to list", "duyetduan")
+                </div>
+                <div class="col-md-8 form-group">
+                    <div style="text-align: right;">
+                        <input style="width:100px;font-size:16px;" type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+            @foreach (var item2 in lsft)
+            {
+                <script>
+                $("#@item2.Feature_ID").attr('checked', true);
+                </script>
+            }
+        }
+
+}
