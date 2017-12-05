@@ -1,0 +1,11 @@
+﻿.panel-heading{
+   background-color:#23dede;
+   border-top-left-radius:15px;
+   border-top-right-radius:15px;
+   margin-top:10px;
+   color:white;
+}
+.panel-body{
+    background-color:#f3ecec;
+}
+

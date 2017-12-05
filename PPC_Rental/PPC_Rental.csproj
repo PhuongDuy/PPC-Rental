@@ -225,13 +225,17 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap1.css" />
+    <Content Include="Content\contactstyle.css" />
     <Content Include="Content\css_select2\select2.css" />
     <Content Include="Content\css_select2\select2.min.css" />
     <Content Include="Content\dataTables.bootstrap4.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Loginstyle.css" />
+    <Content Include="Content\mystyle.css" />
     <Content Include="Content\sb-admin.css" />
+    <Content Include="Content\slider.css" />
     <Content Include="Content\stylemoi.css" />
+    <Content Include="Content\StyleSearch.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -259,9 +263,9 @@
     <Content Include="Images\PIS_7319-Edit-stamp.jpg" />
     <Content Include="Images\PIS_7389-Edit-stamp.jpg" />
     <Content Include="Images\PIS_7432-Edit-stamp.jpg" />
-    <Content Include="Images\Slider\1.png" />
-    <Content Include="Images\Slider\2.png" />
-    <Content Include="Images\Slider\3.png" />
+    <Content Include="Images\Slider\house_hut_boat_thickets_jungle_lake_privacy_green_summer_brightly_63280_1440x900.jpg" />
+    <Content Include="Images\Slider\house_ocean_island_palm_maldives_pool_jacuzzi_sofas_cushions_interior_73673_1440x900.jpg" />
+    <Content Include="Images\Slider\thun_switzerland_building_river_shore_118358_1440x900.jpg" />
     <Content Include="Images\sunshine-benthanh-cityhome-10-stamp.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -291,7 +295,9 @@
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\isotope.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\myscript.js" />
     <Content Include="Scripts\prefixfree-1.0.7.js" />
     <Content Include="Scripts\wysiwyg.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
