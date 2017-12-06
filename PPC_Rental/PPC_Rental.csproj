@@ -240,6 +240,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="Images\About\45246085.jpg" />
     <Content Include="Images\background\background.png" />
     <Content Include="Images\footer\footer.jpg" />
     <Content Include="Images\ImageSale\if_081_Pen_183209.png" />

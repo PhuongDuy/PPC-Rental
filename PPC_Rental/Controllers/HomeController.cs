@@ -199,24 +199,20 @@ namespace PPC_Rental.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(USER user, string confirmpassword)
+        public ActionResult Register(USER user, string confirmpassword, string email, string password, string fullname, string phone, string address, string role)
         {
-            if (user.Password == confirmpassword)
-            {
                 var reg = new USER();
                 reg.FullName = user.FullName;
                 reg.Email = user.Email;
                 reg.Password = user.Password;
                 reg.Phone = user.Phone;
                 reg.Address = user.Address;
+                reg.Role = user.Role;
                 m.USERs.Add(reg);
                 m.SaveChanges();
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
+         
                 return View("Register");
-            }
+          
 
 
 
