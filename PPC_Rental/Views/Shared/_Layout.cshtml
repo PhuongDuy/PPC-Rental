@@ -81,8 +81,18 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/Home/postProject"><span class="glyphicon glyphicon-pencil"></span> Đăng tin</a></li>
-                    <li><a href="/Home/Login">Login</a></li>
-                    <li><a href="/home/Register">Register</a></li>
+                    @if (Session["UserID"] == null)
+                    {
+                        <li><a href="/Home/Login">Login</a></li>
+                        <li><a href="/home/Register">Register</a></li>
+                    }
+                    else
+                    {
+                        <div class="navbar-form navbar-right">
+                            <a href="#"> @Session["FullName"]</a>
+                            <a href="/Home/Logout/@Session["UserID"]">Log out</a>
+                        </div>
+                    }
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
