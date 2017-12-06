@@ -1,9 +1,13 @@
 ﻿@model PPC_Rental.Models.USER
 
+
+
+
+
 @{
     ViewBag.Title = "Register";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    //Layout = null;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 <h2>Register</h2>
@@ -200,7 +204,10 @@
 
     </script>
     <script src="//load.sumome.com/" data-sumo-site-id="1cf2c3d548b156a57050bff06ee37284c67d0884b086bebd8e957ca1c34e99a1" async="async"></script>
-
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/stylemoi.css")
+    @Scripts.Render("~/Scripts/scriptmoi.js")
   
 </body>
 </html>
