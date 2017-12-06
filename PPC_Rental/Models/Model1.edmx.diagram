@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="K21T1_Team4Model.PROPERTY_FEATURE" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="K21T1_Team4Model.PROPERTY_TYPE" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="K21T1_Team4Model.STREET" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="K21T1_Team4Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="K21T1_Team4Model.USER" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
         <EntityTypeShape EntityType="K21T1_Team4Model.WARD" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
         <AssociationConnector Association="K21T1_Team4Model.FK_PROPERTY_DISTRICT" ManuallyRouted="false" />
@@ -28,6 +27,11 @@
         <AssociationConnector Association="K21T1_Team4Model.FK_PROPERTY_WARD" ManuallyRouted="false" />
         <EntityTypeShape EntityType="K21T1_Team4Model.PROPERTY_IMAGE" Width="1.5" PointX="7.5" PointY="14.5" />
         <AssociationConnector Association="K21T1_Team4Model.FK_PROPERTY_IMAGE_PROPERTY" />
+        <EntityTypeShape EntityType="K21T1_Team4Model.NEW" Width="1.5" PointX="5.625" PointY="19.875" />
+        <EntityTypeShape EntityType="K21T1_Team4Model.NEW_IMAGE" Width="1.5" PointX="7.875" PointY="20.25" />
+        <AssociationConnector Association="K21T1_Team4Model.FK_NEW_IMAGE_NEW" />
+        <AssociationConnector Association="K21T1_Team4Model.FK_NEW_USER" />
+        <EntityTypeShape EntityType="K21T1_Team4Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

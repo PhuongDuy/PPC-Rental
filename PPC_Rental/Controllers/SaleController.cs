@@ -12,6 +12,7 @@ namespace PPC_Rental.Controllers
     {
         K21T1_Team4Entities1 db = new K21T1_Team4Entities1();
         // GET: Sale
+        //[Authorize ]
         public ActionResult Index()
         {
             var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn").ToList();
@@ -186,5 +187,11 @@ namespace PPC_Rental.Controllers
             return RedirectToAction("duyetduan");
         }
 
+        [HttpGet]
+        public ActionResult News(int? id)
+        {
+            var news = db.NEWs.FirstOrDefault(x => x.ID == id);
+            return View(news);
+        }
     }
 }

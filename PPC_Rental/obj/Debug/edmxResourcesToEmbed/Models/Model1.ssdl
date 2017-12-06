@@ -16,6 +16,25 @@
     <Property Name="FeatureName" Type="nvarchar" MaxLength="50" />
     <Property Name="Status" Type="bit" />
   </EntityType>
+  <EntityType Name="NEW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Image" Type="varchar" MaxLength="200" />
+    <Property Name="Created_at" Type="date" />
+    <Property Name="Sale_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="NEW_IMAGE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="New_ID" Type="int" />
+    <Property Name="Image" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="PROJECT_STATUS">
     <Key>
       <PropertyRef Name="ID" />
@@ -117,6 +136,30 @@
     <Property Name="District_ID" Type="int" />
     <Property Name="Status" Type="bit" />
   </EntityType>
+  <Association Name="FK_NEW_IMAGE_NEW">
+    <End Role="NEW" Type="Self.NEW" Multiplicity="0..1" />
+    <End Role="NEW_IMAGE" Type="Self.NEW_IMAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NEW_IMAGE">
+        <PropertyRef Name="New_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NEW_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="NEW" Type="Self.NEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NEW">
+        <PropertyRef Name="Sale_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PROPERTY_DISTRICT">
     <End Role="DISTRICT" Type="Self.DISTRICT" Multiplicity="0..1" />
     <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="*" />
@@ -264,6 +307,8 @@
   <EntityContainer Name="K21T1_Team4ModelStoreContainer">
     <EntitySet Name="DISTRICT" EntityType="Self.DISTRICT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FEATURE" EntityType="Self.FEATURE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NEW" EntityType="Self.NEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NEW_IMAGE" EntityType="Self.NEW_IMAGE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROJECT_STATUS" EntityType="Self.PROJECT_STATUS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROPERTY" EntityType="Self.PROPERTY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROPERTY_FEATURE" EntityType="Self.PROPERTY_FEATURE" Schema="dbo" store:Type="Tables" />
@@ -273,6 +318,14 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WARD" EntityType="Self.WARD" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_NEW_IMAGE_NEW" Association="Self.FK_NEW_IMAGE_NEW">
+      <End Role="NEW" EntitySet="NEW" />
+      <End Role="NEW_IMAGE" EntitySet="NEW_IMAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NEW_USER" Association="Self.FK_NEW_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="NEW" EntitySet="NEW" />
+    </AssociationSet>
     <AssociationSet Name="FK_PROPERTY_DISTRICT" Association="Self.FK_PROPERTY_DISTRICT">
       <End Role="DISTRICT" EntitySet="DISTRICT" />
       <End Role="PROPERTY" EntitySet="PROPERTY" />

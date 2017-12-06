@@ -191,6 +191,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\NEW.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NEW_IMAGE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PROJECT_STATUS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -409,6 +415,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Sale\duyetduan.cshtml" />
     <Content Include="Views\Sale\ApprovalProject.cshtml" />
+    <Content Include="Views\Sale\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

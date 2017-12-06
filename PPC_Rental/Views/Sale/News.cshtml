@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/LayoutSale.cshtml";
+}
+
+@using PPC_Rental.Models;
+@model IEnumerable<PPC_Rental.Models.NEW>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        <div class="col-md-1">
+            <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
+        </div><h1 style="margin-top: 10px;">Danh sách tin tức</h1>
+    </div>
+    <div class="card mb-3" style="margin-top: 10px;">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Data Table
+        </div>
+        <div class="card-body" style="padding:0;">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Ngày đăng</th>
+                            <th>Tên tin tức</th>
+                            <th>Nội dung</th>
+                            <th>Người đăng</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Ngày đăng</th>
+                            <th>Tên tin tức</th>
+                            <th>Nội dung</th>
+                            <th>Người đăng</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (NEW item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(model => item.Created_at)</td>
+                                <td>@Html.DisplayFor(modle => item.Name)</td>
+                                <td>@Html.DisplayFor(modle => item.Content)</td>
+                                <td>@Html.DisplayFor(modle => item.USER.FullName)</td>
+                                <td>
+                                    @Html.ActionLink("Detail", "", new { id = item.ID })
+                                    @Html.ActionLink("Add", "", new { id = item.ID })
+                                    @Html.ActionLink("Edit", "", new { id = item.ID })
+                                    @Html.ActionLink("Delete", "", new { id = item.ID })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
+    </div>
+</body>
+</html>

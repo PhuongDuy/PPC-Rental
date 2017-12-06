@@ -218,7 +218,6 @@ C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\bin\Microsoft.Owin.Securit
 C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.csproj.CoreCompileInputs.cache
 C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.dll
 C:\Users\Duy\Desktop\ppc rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.pdb
