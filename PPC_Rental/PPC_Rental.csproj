@@ -416,6 +416,7 @@
     <Content Include="Views\Sale\duyetduan.cshtml" />
     <Content Include="Views\Sale\ApprovalProject.cshtml" />
     <Content Include="Views\Sale\News.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
