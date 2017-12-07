@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    TempData["eamailagency"] = Model.USER.Email;
+    
 }
 
 <div>
@@ -20,6 +21,7 @@
             <div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
                 Tên dự án : @Html.DisplayFor(model => model.PropertyName)
             </div>
+            <a href="~/Views/viewDetail/Index.cshtml">~/Views/viewDetail/Index.cshtml</a>
             <div class="row" style="margin-top:5%;font-size:17px;">
                 <div class="col-md-6">Địa chỉ : @Html.DisplayFor(model => model.STREET.StreetName) @Html.DisplayFor(model => model.WARD.WardName) @Html.DisplayFor(model => model.DISTRICT.DistrictName)</div>
                 <div class="col-md-6" style="text-align:right;color:#f43f3f">@Html.DisplayFor(model => model.Price) USD</div>
@@ -133,11 +135,20 @@
                 </div>
                 <div class="col-md-6">
                     <h3>Liên hệ chủ dự án</h3>
-                    <input type="text" class="form-control" placeholder="Họ và tên *" />
-                    <input type="text" class="form-control" placeholder="Điện thoại *" />
-                    <input type="text" class="form-control" placeholder="Email *" />
-                    <textarea class="form-control" placeholder="Nội dung *" rows="5"></textarea>
-                    <button class="btn btn-info">Gửi email</button>
+                    @if (ViewBag != null)
+                    { 
+                    <h2>@ViewBag.Error</h2>
+                    }
+                    @using (@Html.BeginForm("Support", "viewDetail", FormMethod.Post)) {
+                    <input type = "text" class="form-control" placeholder="Họ và tên *" required name="nameUser" /><br />
+                    <input type="text" class="form-control" placeholder="Điện thoại *" required name="numberPhone" /><br />
+                    <input type="text" class="form-control" placeholder="Email *" required name="emailUser" /><br />
+                    <textarea class="form-control" placeholder="Nội dung *" rows="5" required name="message"></textarea><br />
+                    <button class="btn btn-info" type="submit">Gửi email</button>
+                   }
+                    
+                        
+                    
 
                 </div>
             </div>

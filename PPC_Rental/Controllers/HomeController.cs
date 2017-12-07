@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using PPC_Rental.Models;
 using System.IO;
+using System.Net.Mail;
+using System.Net;
 
 namespace PPC_Rental.Controllers
 {
@@ -28,6 +30,51 @@ namespace PPC_Rental.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Contact(string nameUser,string emailUser,string subject , string message)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var senderemail = new MailAddress(emailUser, "Hỗ trợ");//mail agency
+                    var receiveremail = new MailAddress("K21t1ppcrental@gmail.com", "Công ty PPC Rental"); //mail công ty
+
+                    var password = "k21t1team4";// mật khẩu địa chỉ mail   
+                    var sub =subject;
+                    var body = message;
+                    // nội dung tin nhắn
+
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(senderemail.Address, password)
+
+                    };
+
+                    using (var mess = new MailMessage(senderemail, receiveremail)
+                    {
+                        Subject = subject,
+                        Body = body
+                    }
+                    )
+                    {
+                        smtp.Send(mess);
+                    }
+                    return RedirectToAction("Index", "home");
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.Error= "There are some problem in sending email";
+            }
             return View();
         }
 

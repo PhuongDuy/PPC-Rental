@@ -15,19 +15,24 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="col-lg-5">
+                    @if (ViewBag != null)
+                    {
+                        <h2>@ViewBag.Error</h2>
+                    }
                     <form class="form-horizontal" action="/Home/Contact" method="post">
+
                         <input type="hidden">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Name" required />
+                            <input class="form-control" type="text" placeholder="Name" required name="nameUser" />
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="email" placeholder="Email" required />
+                            <input class="form-control" type="email" placeholder="Email" required name="emailUser" />
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Office" required />
+                            <input class="form-control" type="text" placeholder="Office" required name="subject" />
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" required placeholder="Message" rows="8"></textarea>
+                            <textarea class="form-control" type="text" required placeholder="Message" rows="8" name="message"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="search-form btn pull-right">Send message</button>
