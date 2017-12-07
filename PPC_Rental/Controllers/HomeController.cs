@@ -39,12 +39,12 @@ namespace PPC_Rental.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var senderemail = new MailAddress(emailUser, "Hỗ trợ");//mail agency
-                    var receiveremail = new MailAddress("K21t1ppcrental@gmail.com", "Công ty PPC Rental"); //mail công ty
+                    var senderemail = new MailAddress("ppcrentalteam04@gmail.com", "Hỗ trợ");//mail agency
+                    var receiveremail = new MailAddress("k21t1ppcrental@gmail.com", "Công ty PPC Rental"); //mail công ty
 
-                    var password = "k21t1team4";// mật khẩu địa chỉ mail   
+                    var password = "K21t1team04";// mật khẩu địa chỉ mail   
                     var sub =subject;
-                    var body = message;
+                    var body ="Tên: "+ nameUser + " Email: "+emailUser +" Tiêu đề: "+subject + " Nội dung: " + message;
                     // nội dung tin nhắn
 
 
@@ -259,10 +259,12 @@ namespace PPC_Rental.Controllers
                 m.SaveChanges();
          
                 return View("Register");
-          
+        }
 
-
-
+        public ActionResult News()
+        {
+            var p = m.NEWs.ToList();
+            return View(p);
         }
     }
 }

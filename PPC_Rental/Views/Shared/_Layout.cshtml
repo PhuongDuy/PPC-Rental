@@ -75,14 +75,27 @@
                         </ul>
                     </li>
                     <li><a href="/Home/Contact">Liên hệ</a></li>
-                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="/Home/News">Tin tức</a></li>
                     <li><a href="/Home/About">About</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/Home/postProject"><span class="glyphicon glyphicon-pencil"></span> Đăng tin</a></li>
-                    <li><a href="/Home/Login">Login</a></li>
-                    <li><a href="/home/Register">Register</a></li>
+                    @if (Session["UserID"] == null)
+                    {
+                        <li><a href="/Home/Login">Login</a></li>
+                        <li><a href="/home/Register">Register</a></li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="#"> @Session["FullName"]</a>
+                        </li>
+                        <li>
+                            <a href="/Home/Logout/@Session["UserID"]">Log out</a>
+                        </li>
+
+                    }
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -182,8 +195,14 @@
                 <p>Giấy phép ĐKKD số 0312632653 do Sở Kế hoạch và Đầu tư TPHCM cấp ngày 1/11/2017</p>
             </div>
 
+<<<<<<< HEAD
         </footer>
     </div>
+=======
+        <div class="container body-content">
+            @Html.Action("searchbox", "home")
+        </div>
+>>>>>>> 43a30d618546804a9c5bb43658586b9b639e30e3
 
 
 

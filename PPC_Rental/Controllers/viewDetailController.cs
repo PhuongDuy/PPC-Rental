@@ -23,6 +23,7 @@ namespace PPC_Rental.Controllers
         public ActionResult Support(string nameUser,string numberPhone, string emailUser,string message)
         {
             string emailAgency = TempData["eamailagency"].ToString();//  
+            //int proID = int.Parse(TempData["proID"].ToString());
             try
             {
                 if (ModelState.IsValid)
@@ -57,6 +58,7 @@ namespace PPC_Rental.Controllers
                     {
                         smtp.Send(mess);
                     }
+                    
                     return RedirectToAction("Index", "home");
                 }
             }
