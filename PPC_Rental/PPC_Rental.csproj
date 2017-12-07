@@ -262,6 +262,11 @@
     <Content Include="Images\ImageSale\logo.png" />
     <Content Include="Images\IMG_1592-stamp.jpg" />
     <Content Include="Images\Logo\logocuabinh.png" />
+    <Content Include="Images\News\bat-dong-san-nghi-duong.jpg" />
+    <Content Include="Images\News\BDS nghi duong.jpg" />
+    <Content Include="Images\News\Charmington iris.jpg" />
+    <Content Include="Images\News\cn1-9bcf.jpg" />
+    <Content Include="Images\News\luxury home quận 7 pmh.jpg" />
     <Content Include="Images\PIS3280-Edit-stamp.jpg" />
     <Content Include="Images\PIS3611.jpg" />
     <Content Include="Images\PIS_4622-Edit.jpg" />
@@ -416,6 +421,7 @@
     <Content Include="Views\Sale\ApprovalProject.cshtml" />
     <Content Include="Views\Sale\News.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

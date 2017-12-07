@@ -88,10 +88,13 @@
                     }
                     else
                     {
-                        <div class="navbar-form navbar-right">
+                        <li>
                             <a href="#"> @Session["FullName"]</a>
+                        </li>
+                        <li>
                             <a href="/Home/Logout/@Session["UserID"]">Log out</a>
-                        </div>
+                        </li>
+
                     }
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -135,7 +138,7 @@
         </div>
 
         <div class="container body-content">
-            @Html.Action("searchbox","home")
+            @Html.Action("searchbox", "home")
         </div>
 
 

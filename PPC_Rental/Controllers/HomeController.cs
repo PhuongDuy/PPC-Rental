@@ -212,10 +212,12 @@ namespace PPC_Rental.Controllers
                 m.SaveChanges();
          
                 return View("Register");
-          
+        }
 
-
-
+        public ActionResult News()
+        {
+            var p = m.NEWs.ToList();
+            return View(p);
         }
     }
 }
