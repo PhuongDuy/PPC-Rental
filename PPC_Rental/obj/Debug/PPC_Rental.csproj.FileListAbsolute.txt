@@ -53,3 +53,4 @@ C:\Users\Duy\Desktop\PPC Rental\PPC-Rental\PPC_Rental\bin\Microsoft.Owin.Securit
 C:\Users\Duy\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.csproj.CoreCompileInputs.cache
 C:\Users\Duy\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.dll
 C:\Users\Duy\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.pdb
+C:\Users\Duy\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.csprojResolveAssemblyReference.cache

@@ -107,37 +107,40 @@ namespace PPC_Rental.Controllers
         [HttpGet]
         public ActionResult AddProject()
         {
-            return View();
+            var model = new PROPERTY();
+            return View(model);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProject(PROPERTY model)
+        public ActionResult AddProject(PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1)
         {
-            var pro = new PROPERTY();
-            pro.PropertyName = model.PropertyName;
-            pro.Avatar = model.Avatar;
-            pro.Images = model.Images;
-            pro.PropertyType_ID = model.PropertyType_ID;
-            pro.Content = model.Content;
-            pro.Street_ID = model.Street_ID;
-            pro.Ward_ID = model.Ward_ID;
-            pro.District_ID = model.District_ID;
-            pro.Price = model.Price;
-            pro.UnitPrice = model.UnitPrice;
-            pro.Area = model.Area;
-            pro.BedRoom = model.BedRoom;
-            pro.BathRoom = model.BathRoom;
-            pro.PackingPlace = model.PackingPlace;
-            pro.UserID = model.UserID;
-            pro.Created_at = DateTime.Now;
-            pro.Create_post = DateTime.Now;
-            pro.Status_ID = model.Status_ID;
-            pro.Note = model.Note;
-            pro.Updated_at = DateTime.Now;
-            pro.Sale_ID = model.Sale_ID;
-            pro.PROPERTY_FEATURE = model.PROPERTY_FEATURE;
-            db.PROPERTies.Add(pro);
+            if (Avatar != null)
+            {
+                string avatar = "";
+                if (Avatar.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                    Avatar.SaveAs(path);
+                    avatar = filename;
+                }
+                model.Avatar = avatar;
+            }
+
+            foreach (var fe in chk1)
+            {
+                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                profe.Property_ID = model.ID;
+                db.PROPERTY_FEATURE.Add(profe);
+            }
+
+            model.Created_at = DateTime.Now;
+            model.Create_post = DateTime.Now;
+            model.UserID = int.Parse(Session["UserID"].ToString());
+            model.Status_ID = 1;
+            db.PROPERTies.Add(model);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -188,9 +191,9 @@ namespace PPC_Rental.Controllers
         }
 
         [HttpGet]
-        public ActionResult News(int? id)
+        public ActionResult News()
         {
-            var news = db.NEWs.FirstOrDefault(x => x.ID == id);
+            var news = db.NEWs.ToList();
             return View(news);
         }
     }

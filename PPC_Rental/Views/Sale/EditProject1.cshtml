@@ -107,7 +107,7 @@
                         <span class="input-group-addon">Craeted at :</span>
                         <p name="Created_at" style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.Created_at)</p>
                         <span class="input-group-addon" style="margin-left: 20px">Craeted post :</span>
-                        <p name="Created_at" style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.Create_post)</p>
+                        <p name="Create_post" style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.Create_post)</p>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                 {
                     <div class="input-group col-md-3" style="margin:7px;padding: 0;margin-left:20px">
                         <span class="input-group-addon">@item.FeatureName</span>
-                        <input runat="server"  value="@item.FeatureName" id="@item.ID" type="checkbox" class="form-control-radio" name="chk1">
+                        <input runat="server" value="@item.FeatureName" id="@item.ID" type="checkbox" class="form-control-radio" name="chk1">
                     </div>
                 }
 
@@ -148,14 +148,14 @@
                         <div class=" col-md-3" style="height: 35px;width: 100px;">
                             @Html.DropDownListFor(m => m.Ward_ID, new SelectList(new List<SelectList>()), new { @class = "input-group select2cbx" })
 
-</div>
+                        </div>
                     </div>
                     <div class="input-group" style="margin-top: 7px;">
                         <span class="input-group-addon">Street</span>
                         <div class=" col-md-10" style="height: 35px">
                             @Html.DropDownListFor(m => m.Street_ID, new SelectList(new List<SelectList>()), new { @class = "input-group select2cbx" })
 
-</div>
+                        </div>
                     </div>
                 </div>
             </div>
