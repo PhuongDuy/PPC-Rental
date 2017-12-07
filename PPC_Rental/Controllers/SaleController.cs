@@ -8,25 +8,42 @@ using System.IO;
 
 namespace PPC_Rental.Controllers
 {
+    //[Authorize]
     public class SaleController : Controller
     {
         K21T1_Team4Entities1 db = new K21T1_Team4Entities1();
         // GET: Sale
-        //[Authorize ]
         public ActionResult Index()
         {
             var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn").ToList();
             return View(viewlist.OrderByDescending(m => m.Create_post).ToList());
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(PROPERTY model)
         {
-            var de = db.PROPERTies.First(p => p.ID == id);
-            db.PROPERTies.Remove(de);
+            PROPERTY pro = db.PROPERTies.Find(model.ID);
+            var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            db.PROPERTY_FEATURE.RemoveRange(ftpr);
+            db.PROPERTies.Remove(pro);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult Delete1(PROPERTY model)
+        {
+            PROPERTY pro = db.PROPERTies.Find(model.ID);
+            var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            db.PROPERTY_FEATURE.RemoveRange(ftpr);
+            db.PROPERTies.Remove(pro);
+            db.SaveChanges();
+            return RedirectToAction("duyetduan");
+        }
+        public ActionResult Delete2(NEW model)
+        {
+            NEW pro = db.NEWs.Find(model.ID);
+            db.NEWs.Remove(pro);
+            db.SaveChanges();
+            return RedirectToAction("News");
+        }
 
         public ActionResult EditProject1(int? id)
         {

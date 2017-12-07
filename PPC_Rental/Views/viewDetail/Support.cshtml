@@ -11,20 +11,30 @@
     </ul>
 </div>
 <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">Liên hệ</div>
-<div class="row" >
-    <div class="col-md-6" >
-        <h3>Tên dự án @Html.DisplayFor(model=>model.PropertyName)</h3>
-        <p>Địa chỉ: @Html.DisplayFor(model=>model.WARD.WardName) @Html.DisplayFor(model=> model.STREET.StreetName) @Html.DisplayFor(model=>model.DISTRICT.DistrictName)</p>
-        <p>Điện thoại : @Html.DisplayFor(model=>model.USER.Phone)</p>
-        <p>Email : @Html.DisplayFor(model=>model.USER.Email)</p>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Tên dự án @Html.DisplayFor(model => model.PropertyName)</h3>
+        <p>
+            Địa chỉ: @Html.DisplayFor(model => model.WARD.WardName)
+            @Html.DisplayFor(model => model.STREET.StreetName)
+            @Html.DisplayFor(model => model.DISTRICT.DistrictName)
+        </p>
+        <p>Điện thoại : @Html.DisplayFor(model => model.USER.Phone)</p>
+        <p>Email : @Html.DisplayFor(model => model.USER.Email)</p>
     </div>
     <div class="col-md-6">
-        <h3 >Liên hệ chủ dự án</h3>
-        <input type="text" class="form-control" placeholder="Họ và tên *"/>
-        <input type="text" class="form-control" placeholder="Điện thoại *"/>
-        <input type="text" class="form-control" placeholder="Email *" />
-        <textarea class="form-control" placeholder="Nội dung *" rows="5"></textarea>
-        <button class="btn btn-info">Gửi email</button>
+        <h3>Liên hệ chủ dự án</h3>
+        @if (ViewBag != null)
+        {
+            <h2>@ViewBag.Error</h2>
+        }
+        <form method="post" action="support">
+            <input type="text" class="form-control" placeholder="Họ và tên *" required name="nameUser" /><br />
+            <input type="text" class="form-control" placeholder="Điện thoại *" required name="numberPhone" /><br />
+            <input type="text" class="form-control" placeholder="Email *" required name="emailUser" /><br />
+            <textarea class="form-control" placeholder="Nội dung *" rows="5" required name="message"></textarea><br />
+            <button class="btn btn-info" type="submit">Gửi email</button>
+        </form>
 
     </div>
 </div>

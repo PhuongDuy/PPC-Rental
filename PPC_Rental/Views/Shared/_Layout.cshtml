@@ -34,7 +34,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="~/Home/Index">Home <span class="sr-only">(current)</span></a></li>
+                    <li @*class="active"*@><a href="~/Home/Index">Home <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">Các dự án nổi bật</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Loại dự án <span class="caret"></span></a>
@@ -74,15 +74,28 @@
                             <li><a href="#">Huyện Hóc Môn</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Liên hệ</a></li>
-                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="/Home/Contact">Liên hệ</a></li>
+                    <li><a href="/Home/News">Tin tức</a></li>
                     <li><a href="/Home/About">About</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/Home/postProject"><span class="glyphicon glyphicon-pencil"></span> Đăng tin</a></li>
-                    <li><a href="/Home/Login">Login</a></li>
-                    <li><a href="/home/Register">Register</a></li>
+                    @if (Session["UserID"] == null)
+                    {
+                        <li><a href="/Home/Login">Login</a></li>
+                        <li><a href="/home/Register">Register</a></li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="#"> @Session["FullName"]</a>
+                        </li>
+                        <li>
+                            <a href="/Home/Logout/@Session["UserID"]">Log out</a>
+                        </li>
+
+                    }
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -98,7 +111,7 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="height:500px">
                 <div class="item active">
                     <img src="~/Images/Slider/house_hut_boat_thickets_jungle_lake_privacy_green_summer_brightly_63280_1440x900.jpg" style="width:100%" />
                 </div>
@@ -123,102 +136,106 @@
 
 
         </div>
+    </div>
 
-        <div class="container body-content">
-            @Html.Action("searchbox","home")
-        </div>
-
-
-
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer style="background-image:url(/Images//footer/footer.jpg);color:white">
-                <table style="width:100%">
-                    <tr>
-                        <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN</td>
-                        <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN-QUẬN 9</td>
-                        <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN-QUẬN BÌNH CHÁNH</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="glyphicon glyphicon-map-marker"></span> 45 Nguyễn Khắc Nhu, Quận 1, TP.HCM
-                        </td>
-                        <td>
-                            <span class="glyphicon glyphicon-map-marker"></span> 430 Liên Phường, Quận 9, TP.HCM
-                        </td>
-                        <td>
-                            <span class="glyphicon glyphicon-map-marker"></span> 497 Khu dân cư Phong Phú 4, Bình Chánh, TP.HCM
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.2135 - Hotline: 0937.737.773
-                        </td>
-                        <td>
-                            <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.3535 - Hotline: 0935.533.335
-                        </td>
-                        <td>
-                            <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.3142 - Hotline: 0909.090.090
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
-                        </td>
-                        <td>
-                            <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
-                        </td>
-                        <td>
-                            <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
-                        </td>
-                    </tr>
-
-                </table>
-                <br />
-                <div style="text-align:center">
-                    <p>&copy;@DateTime.Now.Year Copyright by PPC-RENTAL Sài Gòn, Developed by PPC RENTAL Sài Gòn</p>
-                    <p>Giấy phép ĐKKD số 0312632653 do Sở Kế hoạch và Đầu tư TPHCM cấp ngày 1/11/2017</p>
-                </div>
-
-            </footer>
-        </div>
+    <div class="container body-content">
+        @Html.Action("searchbox", "home")
+    </div>
 
 
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-        <link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
-        <script src="~/Scripts/js_select2/select2.full.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('.select2cbx').select2();
-                $("#Street_ID").empty();
-                $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
-                    $("#Street_ID").select2({ data: data });
-                });
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="background-image:url(/Images//footer/footer.jpg);color:white">
+            <table style="width:100%">
+                <tr>
+                    <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN</td>
+                    <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN-QUẬN 9</td>
+                    <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN-QUẬN BÌNH CHÁNH</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-map-marker"></span> 45 Nguyễn Khắc Nhu, Quận 1, TP.HCM
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-map-marker"></span> 430 Liên Phường, Quận 9, TP.HCM
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-map-marker"></span> 497 Khu dân cư Phong Phú 4, Bình Chánh, TP.HCM
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.2135 - Hotline: 0937.737.773
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.3535 - Hotline: 0935.533.335
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.3142 - Hotline: 0909.090.090
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
+                    </td>
+                </tr>
 
-                $('#Ward_ID').empty();
-                $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
-                    $('#Ward_ID').select2({ data: data });
-                });
+            </table>
+            <br />
+            <div style="text-align:center">
+                <p>&copy;@DateTime.Now.Year Copyright by PPC-RENTAL Sài Gòn, Developed by PPC RENTAL Sài Gòn</p>
+                <p>Giấy phép ĐKKD số 0312632653 do Sở Kế hoạch và Đầu tư TPHCM cấp ngày 1/11/2017</p>
+            </div>
+
+
+        </footer>
+    </div>
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
+    <script src="~/Scripts/js_select2/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.select2cbx').select2();
+            $("#Street_ID").empty();
+            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+                $("#Street_ID").select2({ data: data });
             });
 
-            $("#District_ID").on('change', function () {
-                $("#Street_ID").empty();
-                $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
-                    $("#Street_ID").select2({ data: data });
-                });
+            $('#Ward_ID').empty();
+            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+                $('#Ward_ID').select2({ data: data });
+            });
+        });
 
-                $('#Ward_ID').empty();
-                $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
-                    $('#Ward_ID').select2({ data: data });
-                });
+        $("#District_ID").on('change', function () {
+            $("#Street_ID").empty();
+            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+                $("#Street_ID").select2({ data: data });
             });
 
+            $('#Ward_ID').empty();
+            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+                $('#Ward_ID').select2({ data: data });
+            });
+        });
 
-        </script>
+
+    </script>
 
 
 </body>
