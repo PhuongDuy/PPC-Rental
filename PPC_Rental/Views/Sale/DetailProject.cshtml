@@ -46,6 +46,9 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Avatar :</span>
+                    @*<div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input id="avatar" name="avatar" type="file" class="imgin" value="@Html.ValueFor(m => m.Avatar)"></div></div>
+                        </div>*@
                     <input id="avatar" type="image" class="form-control" name="avatar" value="@Html.ValueFor(m => m.Avatar)">
                     <span class="input-group-addon">UnitPrice :</span>
                     <select id="unitprice" class="form-control" name="unitprice"><option>@Html.ValueFor(m => m.UnitPrice)</option></select>
@@ -56,7 +59,38 @@
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Images :</span>
-                    <input id="image" type="text" class="form-control" name="image" value="@Html.ValueFor(m => m.Images)">
+                    <div class="container">
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                        <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                            <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">Content :</span>
@@ -162,12 +196,12 @@
 </html>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-@foreach (var item2 in lsft)
-{
-    <script>
+    @foreach (var item2 in lsft)
+    {
+        <script>
                 $("#@item2.Feature_ID").attr('checked', true);
-    </script>
-}
+        </script>
+    }
 }
 
 

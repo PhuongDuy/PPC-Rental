@@ -63,12 +63,14 @@ namespace PPC_Rental.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProject1( PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1)
+        public ActionResult EditProject1( PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1, List<HttpPostedFileBase> images)
         {
             
             PROPERTY pro = db.PROPERTies.Find(model.ID);
             var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            var imag = db.PROPERTY_IMAGE.Where(x => x.Property_ID == model.ID).ToList();
             db.PROPERTY_FEATURE.RemoveRange(ftpr);
+            db.PROPERTY_IMAGE.RemoveRange(imag);            
             
             if (Avatar != null)
             {
@@ -82,37 +84,55 @@ namespace PPC_Rental.Controllers
                 }
                 pro.Avatar = avatar;
             }
-
-            foreach (var fe in chk1)
+            foreach (HttpPostedFileBase img in images)
             {
-                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
-                profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
-                profe.Property_ID = pro.ID;
-                db.PROPERTY_FEATURE.Add(profe);
+                if (img != null)
+                {
+                    if (img.ContentLength > 0)
+                    {
+                        var filename = Path.GetFileName(img.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                        img.SaveAs(path);
+                        PROPERTY_IMAGE ppti = new PROPERTY_IMAGE();
+                        ppti.Image = filename;
+                        ppti.Property_ID = model.ID;
+                        db.PROPERTY_IMAGE.Add(ppti);
+                    }
+                }
+                else
+                {
+                    break;
+                }
             }
+                foreach (var fe in chk1)
+                {
+                    PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                    profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                    profe.Property_ID = pro.ID;
+                    db.PROPERTY_FEATURE.Add(profe);
+                }
 
-            pro.PropertyName = model.PropertyName;
-            pro.Images = model.Images;
-            pro.PropertyType_ID = model.PropertyType_ID;
-            pro.Content = model.Content;
-            pro.Street_ID = model.Street_ID;
-            pro.Ward_ID = model.Ward_ID;
-            pro.District_ID = model.District_ID;
-            pro.Price = model.Price;
-            pro.UnitPrice = model.UnitPrice;
-            pro.Area = model.Area;
-            pro.BedRoom = model.BedRoom;
-            pro.BathRoom = model.BathRoom;
-            pro.PackingPlace = model.PackingPlace;
-            pro.Status_ID = model.Status_ID;
-            pro.Note = model.Note;
-            pro.Updated_at = DateTime.Now;
-            pro.Sale_ID = int.Parse(Session["UserID"].ToString());
+                pro.PropertyName = model.PropertyName;
+                pro.Images = model.Images;
+                pro.PropertyType_ID = model.PropertyType_ID;
+                pro.Content = model.Content;
+                pro.Street_ID = model.Street_ID;
+                pro.Ward_ID = model.Ward_ID;
+                pro.District_ID = model.District_ID;
+                pro.Price = model.Price;
+                pro.UnitPrice = model.UnitPrice;
+                pro.Area = model.Area;
+                pro.BedRoom = model.BedRoom;
+                pro.BathRoom = model.BathRoom;
+                pro.PackingPlace = model.PackingPlace;
+                pro.Status_ID = model.Status_ID;
+                pro.Note = model.Note;
+                pro.Updated_at = DateTime.Now;
+                pro.Sale_ID = int.Parse(Session["UserID"].ToString());
 
-            db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-
+                db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
         }
 
         public ActionResult DetailProject(int id)
@@ -130,7 +150,7 @@ namespace PPC_Rental.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProject(PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1)
+        public ActionResult AddProject(PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1, List<HttpPostedFileBase> images)
         {
             if (Avatar != null)
             {
@@ -152,9 +172,30 @@ namespace PPC_Rental.Controllers
                 profe.Property_ID = model.ID;
                 db.PROPERTY_FEATURE.Add(profe);
             }
+            foreach (HttpPostedFileBase img in images)
+            {
+                if (img != null)
+                {
+                    if (img.ContentLength > 0)
+                    {
+                        var filename = Path.GetFileName(img.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                        img.SaveAs(path);
+                        PROPERTY_IMAGE ppti = new PROPERTY_IMAGE();
+                        ppti.Image = filename;
+                        ppti.Property_ID = model.ID;
+                        db.PROPERTY_IMAGE.Add(ppti);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
 
             model.Created_at = DateTime.Now;
             model.Create_post = DateTime.Now;
+            
             model.UserID = int.Parse(Session["UserID"].ToString());
             model.Status_ID = 1;
             db.PROPERTies.Add(model);
