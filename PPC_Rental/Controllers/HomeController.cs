@@ -21,9 +21,8 @@ namespace PPC_Rental.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var p = m.ABOUTs.ToList();
+            return View(p);
         }
 
         public ActionResult Contact()
@@ -365,6 +364,12 @@ namespace PPC_Rental.Controllers
         public ActionResult News()
         {
             var p = m.NEWs.ToList();
+            return View(p);
+        }
+
+        public ActionResult Newdetail(int id)
+        {
+            var p = m.NEWs.ToList().Where(x => x.ID == id);
             return View(p);
         }
     }

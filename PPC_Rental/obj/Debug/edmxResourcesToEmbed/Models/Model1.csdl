@@ -325,6 +325,7 @@
       <End Role="NEW" EntitySet="NEWs" />
     </AssociationSet>
     <EntitySet Name="sysdiagrams" EntityType="K21T1_Team4Model.sysdiagram" />
+    <EntitySet Name="ABOUTs" EntityType="K21T1_Team4Model.ABOUT" />
   </EntityContainer>
   <EntityType Name="PROPERTY_IMAGE">
     <Key>
@@ -402,5 +403,16 @@
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ABOUT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="About_us" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Our_Team" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CEO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Decription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
