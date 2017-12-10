@@ -29,6 +29,7 @@
                             <th>Tên tin tức</th>
                             <th>Nội dung</th>
                             <th>Người đăng</th>
+                            <th>Công cụ</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -37,6 +38,7 @@
                             <th>Tên tin tức</th>
                             <th>Nội dung</th>
                             <th>Người đăng</th>
+                            <th>Công cụ</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -45,13 +47,13 @@
                             <tr>
                                 <td>@Html.DisplayFor(model => item.Created_at)</td>
                                 <td>@Html.DisplayFor(modle => item.Name)</td>
-                                <td>@Html.DisplayFor(modle => item.Content)</td>
+                                <td>@item.Content.Substring(0,90)...</td>
                                 <td>@Html.DisplayFor(modle => item.USER.FullName)</td>
                                 <td>
-                                    @Html.ActionLink("Detail", "", new { id = item.ID })
-                                    @Html.ActionLink("Add", "", new { id = item.ID })
-                                    @Html.ActionLink("Edit", "", new { id = item.ID })
-                                    @Html.ActionLink("Delete", "", new { id = item.ID })
+                                    @Html.ActionLink("Detail", "", new { id = item.ID }) |
+                                    @Html.ActionLink("Add", "", new { id = item.ID }) |
+                                    @Html.ActionLink("Edit", "", new { id = item.ID }) |
+                                    @Html.ActionLink("Delete", "Delete2", new { id = item.ID })
                                 </td>
                             </tr>
                         }

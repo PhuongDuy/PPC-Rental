@@ -331,13 +331,13 @@ namespace PPC_Rental.Controllers
         
         public ActionResult Viewlistofproject(string status = "Đã duyệt")
         {
-            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status /*&& p.USER.FullName == Session["FullName"].ToString()*/).ToList();
+            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status).ToList();
             return View(viewlist);
         }
 
         public ActionResult Savedrafts(string status = "Lưu nháp")
         {
-            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status /*|| p.UserID == int.Parse(Session["UserID"].ToString())*/).ToList();
+            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status).ToList();
             return View(viewlist);
         }
         [HttpGet]

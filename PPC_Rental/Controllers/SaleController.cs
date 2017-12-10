@@ -8,25 +8,42 @@ using System.IO;
 
 namespace PPC_Rental.Controllers
 {
+    //[Authorize]
     public class SaleController : Controller
     {
         K21T1_Team4Entities1 db = new K21T1_Team4Entities1();
         // GET: Sale
-        //[Authorize ]
         public ActionResult Index()
         {
             var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn").ToList();
             return View(viewlist.OrderByDescending(m => m.Create_post).ToList());
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(PROPERTY model)
         {
-            var de = db.PROPERTies.First(p => p.ID == id);
-            db.PROPERTies.Remove(de);
+            PROPERTY pro = db.PROPERTies.Find(model.ID);
+            var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            db.PROPERTY_FEATURE.RemoveRange(ftpr);
+            db.PROPERTies.Remove(pro);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult Delete1(PROPERTY model)
+        {
+            PROPERTY pro = db.PROPERTies.Find(model.ID);
+            var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            db.PROPERTY_FEATURE.RemoveRange(ftpr);
+            db.PROPERTies.Remove(pro);
+            db.SaveChanges();
+            return RedirectToAction("duyetduan");
+        }
+        public ActionResult Delete2(NEW model)
+        {
+            NEW pro = db.NEWs.Find(model.ID);
+            db.NEWs.Remove(pro);
+            db.SaveChanges();
+            return RedirectToAction("News");
+        }
 
         public ActionResult EditProject1(int? id)
         {
@@ -46,12 +63,14 @@ namespace PPC_Rental.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProject1( PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1)
+        public ActionResult EditProject1( PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1, List<HttpPostedFileBase> images)
         {
             
             PROPERTY pro = db.PROPERTies.Find(model.ID);
             var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            var imag = db.PROPERTY_IMAGE.Where(x => x.Property_ID == model.ID).ToList();
             db.PROPERTY_FEATURE.RemoveRange(ftpr);
+            db.PROPERTY_IMAGE.RemoveRange(imag);            
             
             if (Avatar != null)
             {
@@ -65,37 +84,55 @@ namespace PPC_Rental.Controllers
                 }
                 pro.Avatar = avatar;
             }
-
-            foreach (var fe in chk1)
+            foreach (HttpPostedFileBase img in images)
             {
-                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
-                profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
-                profe.Property_ID = pro.ID;
-                db.PROPERTY_FEATURE.Add(profe);
+                if (img != null)
+                {
+                    if (img.ContentLength > 0)
+                    {
+                        var filename = Path.GetFileName(img.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                        img.SaveAs(path);
+                        PROPERTY_IMAGE ppti = new PROPERTY_IMAGE();
+                        ppti.Image = filename;
+                        ppti.Property_ID = model.ID;
+                        db.PROPERTY_IMAGE.Add(ppti);
+                    }
+                }
+                else
+                {
+                    break;
+                }
             }
+                foreach (var fe in chk1)
+                {
+                    PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                    profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                    profe.Property_ID = pro.ID;
+                    db.PROPERTY_FEATURE.Add(profe);
+                }
 
-            pro.PropertyName = model.PropertyName;
-            pro.Images = model.Images;
-            pro.PropertyType_ID = model.PropertyType_ID;
-            pro.Content = model.Content;
-            pro.Street_ID = model.Street_ID;
-            pro.Ward_ID = model.Ward_ID;
-            pro.District_ID = model.District_ID;
-            pro.Price = model.Price;
-            pro.UnitPrice = model.UnitPrice;
-            pro.Area = model.Area;
-            pro.BedRoom = model.BedRoom;
-            pro.BathRoom = model.BathRoom;
-            pro.PackingPlace = model.PackingPlace;
-            pro.Status_ID = model.Status_ID;
-            pro.Note = model.Note;
-            pro.Updated_at = DateTime.Now;
-            pro.Sale_ID = int.Parse(Session["UserID"].ToString());
+                pro.PropertyName = model.PropertyName;
+                pro.Images = model.Images;
+                pro.PropertyType_ID = model.PropertyType_ID;
+                pro.Content = model.Content;
+                pro.Street_ID = model.Street_ID;
+                pro.Ward_ID = model.Ward_ID;
+                pro.District_ID = model.District_ID;
+                pro.Price = model.Price;
+                pro.UnitPrice = model.UnitPrice;
+                pro.Area = model.Area;
+                pro.BedRoom = model.BedRoom;
+                pro.BathRoom = model.BathRoom;
+                pro.PackingPlace = model.PackingPlace;
+                pro.Status_ID = model.Status_ID;
+                pro.Note = model.Note;
+                pro.Updated_at = DateTime.Now;
+                pro.Sale_ID = int.Parse(Session["UserID"].ToString());
 
-            db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-
+                db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
         }
 
         public ActionResult DetailProject(int id)
@@ -107,37 +144,61 @@ namespace PPC_Rental.Controllers
         [HttpGet]
         public ActionResult AddProject()
         {
-            return View();
+            var model = new PROPERTY();
+            return View(model);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult AddProject(PROPERTY model)
+        public ActionResult AddProject(PROPERTY model, HttpPostedFileBase Avatar, List<string> chk1, List<HttpPostedFileBase> images)
         {
-            var pro = new PROPERTY();
-            pro.PropertyName = model.PropertyName;
-            pro.Avatar = model.Avatar;
-            pro.Images = model.Images;
-            pro.PropertyType_ID = model.PropertyType_ID;
-            pro.Content = model.Content;
-            pro.Street_ID = model.Street_ID;
-            pro.Ward_ID = model.Ward_ID;
-            pro.District_ID = model.District_ID;
-            pro.Price = model.Price;
-            pro.UnitPrice = model.UnitPrice;
-            pro.Area = model.Area;
-            pro.BedRoom = model.BedRoom;
-            pro.BathRoom = model.BathRoom;
-            pro.PackingPlace = model.PackingPlace;
-            pro.UserID = model.UserID;
-            pro.Created_at = DateTime.Now;
-            pro.Create_post = DateTime.Now;
-            pro.Status_ID = model.Status_ID;
-            pro.Note = model.Note;
-            pro.Updated_at = DateTime.Now;
-            pro.Sale_ID = model.Sale_ID;
-            pro.PROPERTY_FEATURE = model.PROPERTY_FEATURE;
-            db.PROPERTies.Add(pro);
+            if (Avatar != null)
+            {
+                string avatar = "";
+                if (Avatar.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                    Avatar.SaveAs(path);
+                    avatar = filename;
+                }
+                model.Avatar = avatar;
+            }
+
+            foreach (var fe in chk1)
+            {
+                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                profe.Feature_ID = db.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                profe.Property_ID = model.ID;
+                db.PROPERTY_FEATURE.Add(profe);
+            }
+            foreach (HttpPostedFileBase img in images)
+            {
+                if (img != null)
+                {
+                    if (img.ContentLength > 0)
+                    {
+                        var filename = Path.GetFileName(img.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                        img.SaveAs(path);
+                        PROPERTY_IMAGE ppti = new PROPERTY_IMAGE();
+                        ppti.Image = filename;
+                        ppti.Property_ID = model.ID;
+                        db.PROPERTY_IMAGE.Add(ppti);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            model.Created_at = DateTime.Now;
+            model.Create_post = DateTime.Now;
+            
+            model.UserID = int.Parse(Session["UserID"].ToString());
+            model.Status_ID = 1;
+            db.PROPERTies.Add(model);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -188,9 +249,9 @@ namespace PPC_Rental.Controllers
         }
 
         [HttpGet]
-        public ActionResult News(int? id)
+        public ActionResult News()
         {
-            var news = db.NEWs.FirstOrDefault(x => x.ID == id);
+            var news = db.NEWs.ToList();
             return View(news);
         }
     }

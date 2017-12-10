@@ -6,19 +6,21 @@
     Layout = "~/Views/Shared/LayoutSale.cshtml";
     var db = new K21T1_Team4Entities1();
 }
-
+@Scripts.Render("~/bundles/jqueryval")
 <div>
     <div class="col-md-1">
         <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
     </div><h1 style="margin-top: 10px;">Danh sách dự án \ Thêm dự án</h1>
 </div>
-@using (Html.BeginForm())
+@using (Html.BeginForm("AddProject", "Sale", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <hr />
         <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
 
         <div class="col-md-6" style="margin-top: 0;">
             <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: #323b3e">
@@ -30,7 +32,7 @@
                 <div style="padding: 10px;">
                     <div class="input-group">
                         <span class="input-group-addon">ID :</span>
-
+                        <p style="margin-top:10px;margin-left: 20px;">@Html.ValueFor(m => m.ID)</p>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">PropertyName</span>
@@ -39,12 +41,9 @@
                     </div>
                     <div class="input-group" style="width: 200px;">
                         <span class="input-group-addon">PropertyType</span>
-                        <select id="PropertyType_ID" class="form-control" name="PropertyType_ID">
-                            <option>House</option>
-                            <option>Office</option>
-                            <option>Villa</option>
-                            <option>Apartment</option>
-                        </select>
+                        <div class="input-group col-md-10">
+                            @Html.DropDownListFor(x => x.PropertyType_ID, new SelectList(db.PROPERTY_TYPE, "ID", "CodeType"), new { @style = "margin-top:0", @class = "form-control" })
+                        </div>
                         <span class="input-group-addon">Price :</span>
                         <input style="width: auto;" id="price" type="text" class="form-control" name="price" value="" placeholder="Giá">
                     </div>
@@ -52,7 +51,7 @@
                         <span class="input-group-addon">Avatar :</span>
                         <input id="avatar" type="file" class="form-control" name="avatar" value="">
                         <span class="input-group-addon">UnitPrice :</span>
-                        <select id="unitprice" class="form-control" name="unitprice"><option>USD</option></select>
+                        <select id="unitprice" class="form-control" name="unitprice"><option>VND</option><option>USD</option></select>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Area :</span>
@@ -60,7 +59,40 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Images :</span>
-                        <input id="image" type="file" class="form-control" name="image" value="">
+                        <div class="col-md-10" style="padding: 0;">
+                            <div class="container">
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Content :</span>
@@ -96,11 +128,13 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">User :</span>
-                        <input id="User" type="text" class="form-control" name="User" value="">
+                        <p name="UserID" style="margin-top:10px;margin-left: 20px;"></p>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Craeted at :</span>
-                        <p style="margin-top:10px;margin-left: 20px;"></p>
+                        <p name="Created_at" style="margin-top:10px;margin-left: 20px;"></p>
+                        <span class="input-group-addon" style="margin-left: 20px">Craeted post :</span>
+                        <p name="Create_post" style="margin-top:10px;margin-left: 20px;"></p>
                     </div>
                 </div>
             </div>
@@ -111,44 +145,15 @@
                     <p style="margin-bottom: 0;color: white;font-size: 20px">Tiện tích</p>
                 </div>
             </nav>
-            <div style="border: 1px solid;">
-                <div style="padding: 10px;">
-                    <div class="input-group">
-                        <span class="input-group-addon">Ban công :</span>
-                        <input id="bancong" type="checkbox" class="form-control-radio" name="bancong" placeholder="Co">  Có
-                        <span class="input-group-addon" style="margin-left: 20%;">Phòng giặc ủi :</span>
-                        <input id="giacui" type="checkbox" class="form-control-radio" name="giacui" placeholder="Co"> Có
+            <div class="container" style="border: 1px solid;padding: 0;">
+                @foreach (var item in db.FEATUREs)
+                {
+                    <div class="input-group col-md-3" style="margin:7px;padding: 0;margin-left:20px">
+                        <span class="input-group-addon">@item.FeatureName</span>
+                        <input runat="server" value="@item.FeatureName" id="@item.ID" type="checkbox" class="form-control-radio" name="chk1">
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">Chỗ đậu xe :</span>
-                        <input id="dauxe" type="checkbox" class="form-control-radio" name="dauxe" placeholder="Co"> Có
+                }
 
-                        <span class="input-group-addon" style="margin-left: 20%;">Hồ bơi :</span>
-                        <input id="hoboi" type="checkbox" class="form-control-radio" name="hoboi" placeholder="Co"> Có
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">Thang máy :</span>
-                        <input id="thangmay" type="checkbox" class="form-control-radio" name="thangmay" placeholder="Co"> Có
-                        <span class="input-group-addon" style="margin-left: 20%;">Sàn gỗ :</span>
-                        <input id="sango" type="checkbox" class="form-control-radio" name="sango" placeholder="Co"> Có
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">Vườn :</span>
-                        <input id="vuon" type="checkbox" class="form-control-radio" name="vuon" placeholder="Co"> Có
-                        <span class="input-group-addon" style="margin-left: 25%;">Bảo vệ :</span>
-                        <input id="baove" type="checkbox" class="form-control-radio" name="baove" placeholder="Co"> Có
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">Phòng tập gym :</span>
-                        <input id="gym" type="checkbox" class="form-control-radio" name="gym" placeholder="Co"> Có
-                        <span class="input-group-addon" style="margin-left: 15%;">Thú cưng :</span>
-                        <input id="thucung" type="checkbox" class="form-control-radio" name="thucung" placeholder="Co"> Có
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">Nhà bếp :</span>
-                        <input id="bep" type="checkbox" class="form-control-radio" name="bep" placeholder="Co"> Có
-                    </div>
-                </div>
             </div>
             <br />
             <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: #323b3e">
@@ -163,18 +168,20 @@
                         <p style="margin-top:10px;margin-left: 10px;margin-right: 10px;">HCM</p>
                         <span class="input-group-addon">District</span>
                         <div class=" col-md-5" style="height: 35px;width: 100px;">
-                            @Html.DropDownList("District_ID", new SelectList(db.DISTRICTs, "ID", "DistrictName"), new { @class = "form-control select2cbx" })
+                            @Html.DropDownListFor(m => m.District_ID, new SelectList(db.DISTRICTs, "ID", "DistrictName"), new { @class = "input-group select2cbx" })
+
                         </div>
                         <span class="input-group-addon">Ward</span>
                         <div class=" col-md-3" style="height: 35px;width: 100px;">
-                            @Html.DropDownList("Ward_ID", new SelectList(db.WARDs, "ID", "WardName"), new { @class = "form-control select2cbx" })
+                            @Html.DropDownListFor(m => m.Ward_ID, new SelectList(new List<SelectList>()), new { @class = "input-group select2cbx" })
 
                         </div>
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" style="margin-top: 7px;">
                         <span class="input-group-addon">Street</span>
                         <div class=" col-md-10" style="height: 35px">
-                            @Html.DropDownList("Street_ID", new SelectList(db.STREETs, "ID", "StreetName"), new { @class = "form-control select2cbx" })
+                            @Html.DropDownListFor(m => m.Street_ID, new SelectList(new List<SelectList>()), new { @class = "input-group select2cbx" })
+
                         </div>
                     </div>
                 </div>
@@ -182,44 +189,71 @@
             <br />
             <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: #323b3e">
                 <div class="container-fluid" style="margin-bottom: 0;padding-left: 20px;">
-                    <p style="margin-bottom: 0;color: white;font-size: 20px">Quản lý :</p>
+                    <p style="margin-bottom: 0;color: white;font-size: 20px">Quản lý</p>
                 </div>
             </nav>
             <div style="border: 1px solid;">
                 <div style="padding: 10px;">
                     <div class="input-group">
                         <span class="input-group-addon">Sale :</span>
-                        <p style="margin-top:10px;margin-left: 20px;margin-right: 20px;"></p>
-                        <span class="input-group-addon">Updated at :</span>
+                        <p name="Sale_ID" style="margin-top:10px;margin-left: 20px;margin-right: 20px;">@Html.ValueFor(m => m.USER1.FullName)</p>
+                        <span class="input-group-addon" style="margin-top: 7px;">Updated at :</span>
                         <p style="margin-top:10px;margin-left: 20px;margin-right: 20px;"></p>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Status</span>
-                        <select id="Status" class="form-control" name="Status" style="width: 170px;">
-                            <option>Hết hạn</option>
-                            <option>Đã duyệt</option>
-                            <option>Lưu nháp</option>
-                            <option>Chưa duyệt</option>
-                        </select>
+                        <div class=" input-group col-md-3">
+                            <select id="Status_ID" class="form-control" name="Status_ID">
+                                <option>Chưa duyệt</option>
+                            </select>
+                        </div>
                         <span class="input-group-addon">Note :</span>
                         <input id="note" type="text" class="form-control" name="note" value="" placeholder="...">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6" style="margin-top: 10px;">
+
+        <div class="col-md-1" style="margin-top: 10px;">
             <div>
                 @Html.ActionLink("Back to List", "Index")
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <div class="col-md-5" style="margin-top: 10px;text-align: right;">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input style="width:100px;font-size:16px;" type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
-}
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @section Scripts {
+        <script>
+            function readURL(input, img) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $(img).attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $(".img-picker").click(function () {
+                $(this).children(".form-control").children("i").remove();
+                $(this).children(".form-control").children(".img222").remove();
+
+                $(this).children(".form-control").prepend("<img class='img-responsive img-rounded img222' style='position:absolute;top:0px;left:0px'/>");
+                $(this).children(".form-control").children(".img222").after("<a>Remove</a>")
+                $(this).find(".imgin").change(function () {
+
+                    readURL(this, $(this).siblings(".img222"));
+                });
+
+            });
+        </script>
+    }
 }

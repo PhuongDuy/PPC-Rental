@@ -12,7 +12,6 @@
         <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
     </div><h1 style="margin-top: 10px;">Duyệt dự án</h1>
 </div>
-<hr />
 @using (Html.BeginForm("ApprovalProject", "Sale", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -62,7 +61,40 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Images :</span>
-                        <input id="image" type="text" class="form-control" name="image" value="@Html.ValueFor(m => m.Images)">
+                        <div class="col-md-10" style="padding: 0;">
+                            <div class="container">
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Content :</span>
@@ -160,20 +192,46 @@
                 </div>
                 <div class="col-md-8 form-group">
                     <div style="text-align: right;">
-                        <input style="width:100px;font-size:16px;" type="submit" value="Save" class="btn btn-default" />
+                        <input style="width:100px;font-size:16px;" type="submit" value="Duyệt" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-            @foreach (var item2 in lsft)
-            {
-                <script>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @foreach (var item2 in lsft)
+        {
+            <script>
                 $("#@item2.Feature_ID").attr('checked', true);
-                </script>
-            }
+            </script>
         }
+        <script>
+            function readURL(input, img) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $(img).attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $(".img-picker").click(function () {
+                $(this).children(".form-control").children("i").remove();
+                $(this).children(".form-control").children(".img222").remove();
+
+                $(this).children(".form-control").prepend("<img class='img-responsive img-rounded img222' style='position:absolute;top:0px;left:0px'/>");
+                $(this).children(".form-control").children(".img222").after("<a>Remove</a>")
+                $(this).find(".imgin").change(function () {
+
+                    readURL(this, $(this).siblings(".img222"));
+                });
+
+            });
+        </script>
+    }
 
 }
