@@ -23,6 +23,7 @@
                         <label>Tiêu Đề:</label>
                     </td>
                     <td>
+                        @Html.ValidationMessageFor(x =>x.PropertyName)
                         @Html.TextBoxFor(x =>x.PropertyName, new { @style= "margin-top:0", @class = "form-control" })
                     </td>
                 </tr>
@@ -42,6 +43,7 @@
 
         <div class="col-md-4">
             <div><label style="font-size:16px">Avatar</label></div>
+            @Html.ValidationMessage("Avatar")
             <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="Avatar"></div></div>
             @*<img src="~/Images/PIS_7432-Edit-stamp.jpg" style="width:100%" class="img-rounded" alt="Cinque Terre">*@
         </div>
@@ -52,6 +54,7 @@
             <label>Nội dung:</label>
         </div>
         <div class="col-md-10">   
+            @Html.ValidationMessageFor(x => x.Content)
             @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
         </div>
     </div>
@@ -91,6 +94,7 @@
                 <label>Giá:</label>
             </div>
             <div class="col-md-8" style="padding-top:0; margin-top:0">
+                @Html.ValidationMessageFor(x => x.Price)
                 @Html.TextBoxFor(x=>x.Price,new { @class="form-control", @type="number"})
             </div>
         </div>
@@ -110,6 +114,7 @@
                 <label>Diện Tích:</label>
             </div>
             <div class="col-md-8" style="padding-top:0; margin-top:0">
+                @Html.ValidationMessageFor(x => x.Area)
                 @Html.TextAreaFor(x => x.Area, new { @class="form-control"})
             </div>
         </div>
@@ -229,12 +234,15 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="button" class="btn btn-success">@Html.ActionLink("Cancel", "Home", "Index")</button>
+    <button type="submit" name="submitBtn" value="submit" style="float:right" class="btn btn-success">Submit</button>
+    @*<button type="submit" class="btn btn-success" name="submitBtn" value="savedraft">Lưu nháp</button>*@
+    <button type="submit" class="btn btn-success" style="float:right;margin-right:10px" formaction="saveDraftPost" formmethod="post">Lưu nháp</button>
     
-
 }
 
-<button type="button"class="btn btn-success">@Html.ActionLink("Cancel","Home","Index")</button>
+
+
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
@@ -253,18 +261,34 @@
         }
     }
 
-    $(".img-picker").click(function () {
-        $(this).children(".form-control").children("i").remove();
-        $(this).children(".form-control").children(".img222").remove();
-
-        $(this).children(".form-control").prepend("<img class='img-responsive img-rounded img222' style='position:absolute;top:0px;left:0px'/>");
-        $(this).children(".form-control").children(".img222").after("<a>Remove</a>")
-        $(this).find(".imgin").change(function () {
-
-            readURL(this, $(this).siblings(".img222"));
-        }); 
+    $(".imgin").click(function () {
         
+        //$(this).children("form-control").add("<button class='' style='font-weight: normal;'>Remove</button>")
+        $(this).change(function () {
+            $(this).siblings("i").remove();
+            $(this).siblings(".img222").remove();
+
+            $(this).parent(".form-control").prepend("<img class='img-responsive img-rounded img222' style='height:70% ;position:absolute;top:0px;left:0px'/>");
+
+
+            $(this).siblings(".img222").after("<button type='button' class='btn btn-danger' style='font-weight: bold; width:100%; height:30%; position:absolute;top:70%;left:0'>Remove</button>");
+            readURL(this, $(this).siblings(".img222"));
+            $(this).hide();
+            $(this).siblings(".btn").click(function () {
+                $(this).parent(".form-control").children(".img222").remove();
+                $(this).parent(".form-control").children(".imgin").show();
+                $(this).parent(".form-control").children(".imgin").val(null);
+                $(this).parent(".form-control").prepend("<i class='glyphicon glyphicon-plus'></i>");
+                $(this).parent(".form-control").children(".btn").remove();
+            });
+        });
+        
+
     });
+
+    
+
+    
 </script>
 
 
