@@ -8,5 +8,6 @@ namespace PPCRental.AcceptanceTests.Drivers.PPCRentalDetail
 {
     class PPCRentalDetailsDriver
     {
+
     }
 }
