@@ -23,6 +23,8 @@ namespace PPC_Rental.Controllers
         {
             PROPERTY pro = db.PROPERTies.Find(model.ID);
             var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            var image = db.PROPERTY_IMAGE.Where(x => x.Property_ID == model.ID).ToList();
+            db.PROPERTY_IMAGE.RemoveRange(image);
             db.PROPERTY_FEATURE.RemoveRange(ftpr);
             db.PROPERTies.Remove(pro);
             db.SaveChanges();
@@ -32,6 +34,8 @@ namespace PPC_Rental.Controllers
         {
             PROPERTY pro = db.PROPERTies.Find(model.ID);
             var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
+            var image = db.PROPERTY_IMAGE.Where(x => x.Property_ID == model.ID).ToList();
+            db.PROPERTY_IMAGE.RemoveRange(image);
             db.PROPERTY_FEATURE.RemoveRange(ftpr);
             db.PROPERTies.Remove(pro);
             db.SaveChanges();
