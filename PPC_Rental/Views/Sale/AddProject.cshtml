@@ -42,12 +42,7 @@
                     <div class="input-group" style="width: 200px;">
                         <span class="input-group-addon">PropertyType</span>
                         <div class="input-group col-md-10">
-                            <select id="PROPERTY_TYPE" class="form-control" name="PROPERTY_TYPE">
-                                <option>Apartment</option>
-                                <option>Villa</option>
-                                <option>Office</option>
-                                <option>House</option>
-                            </select>
+                            @Html.DropDownListFor(x => x.PropertyType_ID, new SelectList(db.PROPERTY_TYPE, "ID", "CodeType"), new { @style = "margin-top:0", @class = "form-control" })
                         </div>
                         <span class="input-group-addon">Price :</span>
                         <input style="width: auto;" id="price" type="text" class="form-control" name="price" value="" placeholder="Giá">
@@ -64,7 +59,40 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Images :</span>
-                        <input id="image" type="file" class="form-control" name="image" value="">
+                        <div class="col-md-10" style="padding: 0;">
+                            <div class="container">
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Content :</span>
@@ -199,4 +227,33 @@
             </div>
         </div>
     </div>
+
+    @section Scripts {
+        <script>
+            function readURL(input, img) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $(img).attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $(".img-picker").click(function () {
+                $(this).children(".form-control").children("i").remove();
+                $(this).children(".form-control").children(".img222").remove();
+
+                $(this).children(".form-control").prepend("<img class='img-responsive img-rounded img222' style='position:absolute;top:0px;left:0px'/>");
+                $(this).children(".form-control").children(".img222").after("<a>Remove</a>")
+                $(this).find(".imgin").change(function () {
+
+                    readURL(this, $(this).siblings(".img222"));
+                });
+
+            });
+        </script>
+    }
 }

@@ -150,5 +150,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ABOUTs">
+      <EntityTypeMapping TypeName="K21T1_Team4Model.ABOUT">
+        <MappingFragment StoreEntitySet="ABOUT">
+          <ScalarProperty Name="Decription" ColumnName="Decription" />
+          <ScalarProperty Name="CEO" ColumnName="CEO" />
+          <ScalarProperty Name="Our_Team" ColumnName="Our Team" />
+          <ScalarProperty Name="About_us" ColumnName="About us" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

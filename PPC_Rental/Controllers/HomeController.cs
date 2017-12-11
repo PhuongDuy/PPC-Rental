@@ -21,9 +21,8 @@ namespace PPC_Rental.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var p = m.ABOUTs.ToList();
+            return View(p);
         }
 
         public ActionResult Contact()
@@ -116,8 +115,21 @@ namespace PPC_Rental.Controllers
         [HttpPost]
         public ActionResult postProject(PROPERTY e, HttpPostedFileBase Avatar, List<string> chk1, List<HttpPostedFileBase> images)
         {
+            
 
+            if(Session["UserID"] == null)
+            {
+                return View("Login");
+            }
+            if(Avatar == null || !Avatar.ContentType.Contains("image"))
+            {
+                ModelState.AddModelError("Avatar", "chưa có Avatar");
+            }
             //Avatar save file on webserver and sign value for model
+            if(e.Content==null||e.PropertyName==null||e.Area==null||e.Price==0||Avatar==null)
+            {
+                return View();
+            }
             if (Avatar != null)
             {
                 string avatar = "";
@@ -154,12 +166,15 @@ namespace PPC_Rental.Controllers
             }
 
             //save PROPERTY_FEATURE into PROPERTY_FEATURE table foreach Feature
-            foreach (string fe in chk1)
+            if (chk1 !=null)
             {
-                PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
-                profe.Feature_ID = m.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
-                profe.Property_ID = e.ID;
-                m.PROPERTY_FEATURE.Add(profe);
+                foreach (string fe in chk1)
+                {
+                    PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                    profe.Feature_ID = m.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                    profe.Property_ID = e.ID;
+                    m.PROPERTY_FEATURE.Add(profe);
+                }
             }
             e.Created_at = DateTime.Now;
             e.Create_post = DateTime.Now;
@@ -172,6 +187,91 @@ namespace PPC_Rental.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult saveDraftPost(PROPERTY e, HttpPostedFileBase Avatar, List<string> chk1, List<HttpPostedFileBase> images)
+        {
+
+            if (Session["UserID"] == null)
+            {
+                return View("Login");
+            }
+            //Avatar save file on webserver and sign value for model
+
+            if (Avatar != null)
+            {
+                string avatar = "";
+                if (Avatar.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                    Avatar.SaveAs(path);
+                    avatar = filename;
+                }
+                e.Avatar = avatar;
+            }
+
+            //Image save file on webserver and add new PROPERTY_IMAGE into table PROPERTY_IMAGE
+            foreach (HttpPostedFileBase img in images)
+            {
+                if (img != null)
+                {
+                    if (img.ContentLength > 0)
+                    {
+                        var filename = Path.GetFileName(img.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Images/"), filename);
+                        img.SaveAs(path);
+                        PROPERTY_IMAGE ppti = new PROPERTY_IMAGE();
+                        ppti.Image = filename;
+                        ppti.Property_ID = e.ID;
+                        m.PROPERTY_IMAGE.Add(ppti);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            //save PROPERTY_FEATURE into PROPERTY_FEATURE table foreach Feature
+            if (chk1 != null)
+            {
+                foreach (string fe in chk1)
+                {
+                    PROPERTY_FEATURE profe = new PROPERTY_FEATURE();
+                    profe.Feature_ID = m.FEATUREs.SingleOrDefault(x => x.FeatureName == fe).ID;
+                    profe.Property_ID = e.ID;
+                    m.PROPERTY_FEATURE.Add(profe);
+                }
+            }
+            e.Created_at = DateTime.Now;
+            e.Create_post = DateTime.Now;
+            e.UserID = int.Parse(Session["UserID"].ToString());
+            e.Status_ID = 2;
+            if(e.PropertyName == null)
+            {
+                e.PropertyName = "NULL";
+            }
+            if(e.Content == null)
+            {
+                e.Content = "NULL";
+            }
+            if (e.Price == null)
+            {
+                e.Price = 0;
+            }
+            if(e.Area == null)
+            {
+                e.Area = "NULL";
+            }
+
+            m.PROPERTies.Add(e);
+            m.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
+
         [HttpGet]
         public JsonResult requestStreets(int? District_ID) {
             return Json(
@@ -230,13 +330,13 @@ namespace PPC_Rental.Controllers
         
         public ActionResult Viewlistofproject(string status = "Đã duyệt")
         {
-            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status /*&& p.USER.FullName == Session["FullName"].ToString()*/).ToList();
+            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status).ToList();
             return View(viewlist);
         }
 
         public ActionResult Savedrafts(string status = "Lưu nháp")
         {
-            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status /*|| p.UserID == int.Parse(Session["UserID"].ToString())*/).ToList();
+            var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status).ToList();
             return View(viewlist);
         }
         [HttpGet]
@@ -264,6 +364,12 @@ namespace PPC_Rental.Controllers
         public ActionResult News()
         {
             var p = m.NEWs.ToList();
+            return View(p);
+        }
+
+        public ActionResult Newdetail(int id)
+        {
+            var p = m.NEWs.ToList().Where(x => x.ID == id);
             return View(p);
         }
     }

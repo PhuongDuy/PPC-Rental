@@ -38,5 +38,6 @@ namespace PPC_Rental.Models
         public virtual DbSet<NEW> NEWs { get; set; }
         public virtual DbSet<NEW_IMAGE> NEW_IMAGE { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<ABOUT> ABOUTs { get; set; }
     }
 }
