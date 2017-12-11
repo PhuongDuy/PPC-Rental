@@ -1,0 +1,10 @@
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\bin\Debug\PPCRental.UITests.Selenium.dll.config
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\bin\Debug\PPCRental.UITests.Selenium.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\bin\Debug\PPCRental.UITests.Selenium.pdb
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.csprojResolveAssemblyReference.cache
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.csproj.CoreCompileInputs.cache
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.pdb

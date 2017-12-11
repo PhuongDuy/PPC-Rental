@@ -1,0 +1,10 @@
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.dll.config
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.pdb
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csprojResolveAssemblyReference.cache
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csproj.CoreCompileInputs.cache
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.dll
+C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.pdb
