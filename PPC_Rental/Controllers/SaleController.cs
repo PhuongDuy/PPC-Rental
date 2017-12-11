@@ -251,12 +251,60 @@ namespace PPC_Rental.Controllers
             db.SaveChanges();
             return RedirectToAction("duyetduan");
         }
-
-        [HttpGet]
+        
         public ActionResult News()
         {
             var news = db.NEWs.ToList();
             return View(news);
+        }
+
+        [HttpGet]
+        public ActionResult editnews(int id)
+        {
+            var news = db.NEWs.Find(id);
+            return View(news);
+        }
+        
+        [HttpPost]
+        public ActionResult editnews(NEW model)
+        {
+            NEW n = db.NEWs.Find(model.ID);
+            n.Name = model.Name;
+            n.Content = model.Content;
+            n.Image = model.Image;
+
+            db.Entry(n).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("News");
+        }
+
+        [HttpGet]
+        public ActionResult About()
+        {
+            var about = db.ABOUTs.ToList();
+            return View(about);
+        }
+        
+        [HttpGet]
+        public ActionResult editabout(int id)
+        {
+            ABOUT edit = db.ABOUTs.Find(id);
+            return View(edit);
+        }
+
+        [HttpPost]
+        public ActionResult editabout(ABOUT model)
+        {
+            ABOUT pro = db.ABOUTs.Find(model.ID);
+            pro.Title = model.Title;
+            pro.CEO = model.CEO;
+            pro.About_us = model.About_us;
+            pro.Our_Team = model.Our_Team;
+            pro.Decription = model.Decription;
+
+            db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("About");
         }
     }
 }
