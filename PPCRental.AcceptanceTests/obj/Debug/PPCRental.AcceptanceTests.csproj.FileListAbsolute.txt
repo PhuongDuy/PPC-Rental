@@ -1,4 +1,0 @@
-C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
-C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
-C:\Users\BinhTran\Desktop\PPC-Rental - Copy\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
-C:\Users\BinhTran\Desktop\PPC-Rental - Copy\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
