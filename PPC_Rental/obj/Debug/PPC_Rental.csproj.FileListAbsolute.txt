@@ -55,3 +55,5 @@ C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.cs
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.csproj.CoreCompileInputs.cache
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.dll
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPC_Rental\obj\Debug\PPC_Rental.pdb
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPC_Rental\bin\nunit.framework.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPC_Rental\bin\nunit.framework.xml
