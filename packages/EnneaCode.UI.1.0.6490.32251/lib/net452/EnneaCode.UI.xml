@@ -1,0 +1,666 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EnneaCode.UI</name>
+    </assembly>
+    <members>
+        <member name="T:EnneaCode.UI.ecCCButtonType1">
+            <summary>
+            表示显示矢量图标和文字的自定义按钮。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCButtonType1.OnInitialized(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.Data">
+            <summary>
+            获取或设置按钮要呈现的Geometry。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.DataProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.Stroke">
+            <summary>
+            获取或设置Geometry的描边。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.StrokeProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.StrokeThickness">
+            <summary>
+            获取或设置Geometry的描边粗细。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.StrokeThicknessProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.Fill">
+            <summary>
+            获取或设置Geometry的填充颜色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.FillProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.Text">
+            <summary>
+            获取或设置按钮的文本。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.TextProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.BorderBackground">
+            <summary>
+            获取或设置按钮边框的背景色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.BorderBackgroundProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.CornerRadius">
+            <summary>
+            获取或设置按钮边框的圆角半径。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.CornerRadiusProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.BorderThickness">
+            <summary>
+            获取或设置按钮边框的粗细。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.BorderThicknessProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.Apperance">
+            <summary>
+            获取或设置图标和文本的排布模式。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.ApperanceProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCButtonType1.IconDistance">
+            <summary>
+            获取或设置图标和文本的间距。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonType1.IconDistanceProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecCCButtonApperance">
+            <summary>
+            表示按钮控件图标和文本的排布模式。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonApperance.NoIcon">
+            <summary>
+            不显示图标。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonApperance.NoText">
+            <summary>
+            不显示文本。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonApperance.TextLeftIconRight">
+            <summary>
+            文本在图标左侧。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonApperance.TextRightIconLeft">
+            <summary>
+            文本在图标右侧。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonApperance.TextBottomIconTop">
+            <summary>
+            文本在图标下方。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCButtonApperance.TextTopIconBottom">
+            <summary>
+            文本在图标上方。
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecCCCheckBoxType1">
+            <summary>
+            仿手机样式的CheckBox。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCCheckBoxType1.OnChecked(System.Windows.RoutedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCCheckBoxType1.OnUnchecked(System.Windows.RoutedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Ani_PointerScale">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.Ani_PointerScaleProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Ani_PointerTranslate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.Ani_PointerTranslateProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Ani_PointerColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.Ani_PointerColorProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Ani_FillColorLeft">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.Ani_FillColorLeftProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Ani_FillColorRight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.Ani_FillColorRightProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Ani_StrokeColorLeft">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.Ani_StrokeColorLeftProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Ani_StrokeColorRight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.Ani_StrokeColorRightProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.CheckedColorLeft">
+            <summary>
+            获取或设置勾选时渐变背景左端颜色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.CheckedColorLeftProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.CheckedColorRight">
+            <summary>
+            获取或设置勾选时渐变背景右端颜色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.CheckedColorRightProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.CheckedColorPointer">
+            <summary>
+            获取或设置勾选时控制点颜色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.CheckedColorPointerProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.UncheckedColorFill">
+            <summary>
+            获取或设置不勾选时背景颜色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.UncheckedColorFillProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.UncheckedColorStroke">
+            <summary>
+            获取或设置不勾选时的描边颜色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.UncheckedColorStrokeProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.UncheckedColorPointer">
+            <summary>
+            获取或设置不勾选时控制点颜色。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.UncheckedColorPointerProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCCheckBoxType1.Distance">
+            <summary>
+            获取或设置文本与勾选框的距离。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCCheckBoxType1.DistanceProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCHintPasswordBox.Hint">
+            <summary>
+            获取或设置输入区域显示的提示文本。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCHintPasswordBox.HintProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCHintPasswordBox.HintForeground">
+            <summary>
+            获取或设置提示文本的画笔。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCHintPasswordBox.HintForegroundProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCHintPasswordBox.Password">
+            <summary>
+            获取或设置输入的密码。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCHintPasswordBox.PasswordProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCHintPasswordBox.PasswordChar">
+            <summary>
+            获取或设置密码掩码。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCHintPasswordBox.PasswordCharProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecCCHintTextBox">
+            <summary>
+            在输入区域提供提示文字的文本框。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCHintTextBox.#cctor">
+            <summary>
+            在输入区域提供提示文字的文本框。
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCHintTextBox.Hint">
+            <summary>
+            获取或设置输入区域显示的提示文本。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCHintTextBox.HintProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCHintTextBox.HintForeground">
+            <summary>
+            获取或设置提示文本的画笔。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCHintTextBox.HintForegroundProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCHintTextBox.Text">
+            <summary>
+            获取或设置输入的文本。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCHintTextBox.TextProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecCCLoadingType1">
+            <summary>
+            显示普通的加载动画。
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCLoadingType1.IsLoading">
+            <summary>
+            获取或设置加载动画是否启动。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCLoadingType1.IsLoadingProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCLoadingType1.StrokeThickness">
+            <summary>
+            获取或设置边缘的粗细。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCLoadingType1.StrokeThicknessProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCLoadingType1.Start">
+            <summary>
+            启动加载动画。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCLoadingType1.Stop">
+            <summary>
+            停止加载动画。
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecCCNumericTextBox">
+            <summary>
+            表示只能输入数字的文本框。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCNumericTextBox.OnMouseWheel(System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.Text">
+            <summary>
+            获取或设置数字文本框的文本。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.TextProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.AcceptNumType">
+            <summary>
+            获取或设置数字文本框所接受的数字类型。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.AcceptNumTypeProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.Value">
+            <summary>
+            获取或设置控件对应的数值。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.ValueProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.ValueInt">
+            <summary>
+            获取或设置控件对应的数值（Int形式）。
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.IsMouseWheelChange">
+            <summary>
+            获取或设置在控件上滚动滚轮时是否改变其值。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.IsMouseWheelChangeProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.MouseWheelChangeAmount">
+            <summary>
+            获取或设置在控件上滚动滚轮时改变的值的大小。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.MouseWheelChangeAmountProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.Minimum">
+            <summary>
+            获取或设置控件的最小值。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.MinimumProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.Maximum">
+            <summary>
+            获取或设置控件的最大值。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.MaximumProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCNumericTextBox.FormatString">
+            <summary>
+            获取或设置输出数字时的格式化字符串。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBox.FormatStringProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:EnneaCode.UI.ecCCNumericTextBox.ValueChanged">
+            <summary>
+            在控件的值改变时发生。
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecCCNumericTextBoxAcceptNumType">
+            <summary>
+            表示数字文本框所接受的数字类型。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBoxAcceptNumType.Int">
+            <summary>
+            接受Int类型数据。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCNumericTextBoxAcceptNumType.Double">
+            <summary>
+            接受Double类型数据。
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecCCScrollViewerSmooth">
+            <summary>
+            表示可平滑滚动的ScrollViewer。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCScrollViewerSmooth.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCScrollViewerSmooth.OnScrollChanged(System.Windows.Controls.ScrollChangedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCScrollViewerSmooth.OnPreviewMouseWheel(System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCScrollViewerSmooth.Offset">
+            <summary>
+            获取滚动偏移量。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCScrollViewerSmooth.OffsetProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCScrollViewerSmooth.ScrollDistance">
+            <summary>
+            获取或设置单次滚动距离。
+            </summary>
+        </member>
+        <member name="F:EnneaCode.UI.ecCCScrollViewerSmooth.ScrollDistanceProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCScrollViewerSmooth.OffsetDestination">
+            <summary>
+            获取或设置在当前滚动动画完成后的偏移量。
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.ecCCScrollViewerSmooth.ScrollAnimationTime">
+            <summary>
+            获取或设置一次滚动动画的时长。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCScrollViewerSmooth.ScrollUp">
+            <summary>
+            向上滚动。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecCCScrollViewerSmooth.ScrollDown">
+            <summary>
+            向下滚动。
+            </summary>
+        </member>
+        <member name="T:EnneaCode.UI.ecUIHelper">
+            <summary>
+            为UI提供一组静态方法。
+            </summary>
+        </member>
+        <member name="M:EnneaCode.UI.ecUIHelper.SelectedItemContent``1(System.Windows.Controls.ComboBox)">
+            <summary>
+            获取ComboBox的选择项目对应的Content值。
+            </summary>
+            <typeparam name="T">Tag的类型。</typeparam>
+            <param name="cb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EnneaCode.UI.ecUIHelper.SelectedItemTag``1(System.Windows.Controls.ComboBox)">
+            <summary>
+            获取ComboBox的选择项目对应的Tag值。
+            </summary>
+            <typeparam name="T">Tag的类型。</typeparam>
+            <param name="cb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EnneaCode.UI.ecUIHelper.SelectedItemTagToEnum``1(System.Windows.Controls.ComboBox)">
+            <summary>
+            获取ComboBox的选择项目对应的Tag值在对应Enum中的值。
+            </summary>
+            <typeparam name="TEnum">Tag的类型。</typeparam>
+            <param name="cb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EnneaCode.UI.ecUIHelper.SelectedItemUid(System.Windows.Controls.ComboBox)">
+            <summary>
+            获取ComboBox的选择项目对应的Uid值。
+            </summary>
+            <param name="cb"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EnneaCode.UI.Properties.Resources">
+            <summary>
+              强类型资源类，用于查找本地化字符串等。
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:EnneaCode.UI.Properties.Resources.Culture">
+            <summary>
+              覆盖当前线程的 CurrentUICulture 属性
+              使用此强类型的资源类的资源查找。
+            </summary>
+        </member>
+        <member name="T:ecUI">
+            <summary>
+            ecUI
+            </summary>
+        </member>
+        <member name="M:ecUI.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

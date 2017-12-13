@@ -1,8 +1,16 @@
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\PPCRental.AcceptanceTests.dll
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\PPCRental.AcceptanceTests.pdb
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\nunit.framework.dll
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\nunit.framework.xml
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.dll
-C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.pdb
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\PPCRental.AcceptanceTests.dll.config
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\PPCRental.AcceptanceTests.dll
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\PPCRental.AcceptanceTests.pdb
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\EntityFramework.dll
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\nunit.framework.dll
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\EntityFramework.xml
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\nunit.framework.xml
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.dll
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.pdb
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
