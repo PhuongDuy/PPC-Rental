@@ -315,6 +315,7 @@
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\fileimage.js" />
     <Content Include="Scripts\isotope.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\myscript.js" />
@@ -433,6 +434,8 @@
     <Content Include="Views\Home\Newdetail.cshtml" />
     <Content Include="Views\Sale\About.cshtml" />
     <Content Include="Views\Sale\editabout.cshtml" />
+    <Content Include="Views\Sale\editnews.cshtml" />
+    <Content Include="Views\Sale\addnews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

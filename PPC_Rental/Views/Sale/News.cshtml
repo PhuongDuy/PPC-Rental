@@ -27,6 +27,7 @@
                         <tr>
                             <th>Ngày đăng</th>
                             <th>Tên tin tức</th>
+                            <th>Hình ảnh</th>
                             <th>Nội dung</th>
                             <th>Người đăng</th>
                             <th>Công cụ</th>
@@ -36,6 +37,7 @@
                         <tr>
                             <th>Ngày đăng</th>
                             <th>Tên tin tức</th>
+                            <th>Hình ảnh</th>
                             <th>Nội dung</th>
                             <th>Người đăng</th>
                             <th>Công cụ</th>
@@ -47,12 +49,13 @@
                             <tr>
                                 <td>@Html.DisplayFor(model => item.Created_at)</td>
                                 <td>@Html.DisplayFor(modle => item.Name)</td>
-                                <td>@item.Content.Substring(0,90)...</td>
+                                <td><img src="~/Images/News/@item.Image" style="width: 50px;" /></td>
+                                <td>@item.Content.Substring(0,30)...</td>
                                 <td>@Html.DisplayFor(modle => item.USER.FullName)</td>
                                 <td>
                                     @Html.ActionLink("Detail", "", new { id = item.ID }) |
-                                    @Html.ActionLink("Add", "", new { id = item.ID }) |
-                                    @Html.ActionLink("Edit", "", new { id = item.ID }) |
+                                    @Html.ActionLink("Add", "addnews", new { id = item.ID }) |
+                                    @Html.ActionLink("Edit", "editnews", new { id = item.ID }) |
                                     @Html.ActionLink("Delete", "Delete2", new { id = item.ID })
                                 </td>
                             </tr>

@@ -9,6 +9,33 @@
     var lsft = db.PROPERTY_FEATURE.Where(x => x.Property_ID == Model.ID).ToList();
 }
 @Scripts.Render("~/bundles/jqueryval")
+<style>
+
+    .image-preview-input {
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+
+        .image-preview-input input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .image-preview-input-title {
+        margin-left: 2px;
+    }
+</style>
 <div>
     <div class="col-md-1">
         <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
@@ -52,9 +79,30 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Avatar :</span>
-                        <input id="avatar" type="file" class="form-control" name="avatar" value="@Html.ValueFor(m => m.Avatar)">
+                        <div class="container">
+                            <div>
+                                <div>
+                                    <!-- image-preview-filename input [CUT FROM HERE]-->
+                                    <div class="input-group image-preview">
+                                        <input type="text" class="form-control image-preview-filename" disabled="disabled" name="Avatar" value="@Html.ValueFor(m => m.Avatar)"> <!-- don't give a name === doesn't send on POST/GET -->
+                                        <span class="input-group-btn" style="width: auto;">
+                                            <!-- image-preview-clear button -->
+                                            <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                <span class="glyphicon glyphicon-remove"></span> Clear
+                                            </button>
+                                            <!-- image-preview-input -->
+                                            <div class="btn btn-default image-preview-input" style="padding-top: 8px;">
+                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                <span class="image-preview-input-title">Browse</span>
+                                                <input type="file" accept="image/png, image/jpeg, image/gif" name="Avatar" value="@Html.ValueFor(m => m.Avatar)" /> <!-- rename it -->
+                                            </div>
+                                        </span>
+                                    </div><!-- /input-group image-preview [TO HERE]-->
+                                </div>
+                            </div>
+                        </div>
                         <span class="input-group-addon">UnitPrice :</span>
-                        <select id="unitprice" class="form-control" name="unitprice"><option>@Html.ValueFor(m => m.UnitPrice)</option><option>USD</option></select>
+                        <select style="width:100px;" id="unitprice" class="form-control" name="unitprice"><option>@Html.ValueFor(m => m.UnitPrice)</option><option>USD</option></select>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Area :</span>
@@ -64,8 +112,32 @@
                         <span class="input-group-addon">Images :</span>
                         <div class="col-md-10" style="padding: 0;">
                             <div class="container">
+                                @foreach (var item in db.PROPERTY_IMAGE.Where(pi => pi.Property_ID == Model.ID)@*.Where(m => m.Property_ID ==)*@)
+                                {
                                 <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
+                                    <div class="img-picker">
+                                        <div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;">
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <input type="file" class="imgin" name="images" value="@item.Image">
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker">
+                                        <div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;">
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <input type="file" class="imgin" name="images">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                    <div class="img-picker">
+                                        <div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;">
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                            <input type="file" class="imgin" name="images">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
                                     <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
@@ -93,7 +165,7 @@
                                 </div>
                                 <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
                                     <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
+                                </div>*@
                             </div>
 
                         </div>
@@ -235,6 +307,7 @@
     </div>
 
     @section Scripts {
+        @Scripts.Render("~/Scripts/fileimage.js")
         @foreach (var item2 in lsft)
         {
             <script>
