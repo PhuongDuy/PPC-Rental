@@ -6,3 +6,11 @@ C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\o
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csproj.CoreCompileInputs.cache
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.dll
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.pdb
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.dll
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.pdb
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\nunit.framework.dll
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\nunit.framework.xml
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csprojResolveAssemblyReference.cache
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csproj.CoreCompileInputs.cache
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.dll
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.pdb

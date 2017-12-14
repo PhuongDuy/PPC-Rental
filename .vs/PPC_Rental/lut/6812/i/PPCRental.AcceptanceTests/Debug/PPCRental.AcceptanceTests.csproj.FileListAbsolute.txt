@@ -1,0 +1,1 @@
+D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.AcceptanceTests\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache

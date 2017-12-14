@@ -1,2 +1,4 @@
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
+D:\PPC-Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
