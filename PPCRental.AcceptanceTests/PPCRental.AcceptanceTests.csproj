@@ -63,7 +63,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
@@ -88,7 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Driver\Home\HomeDriver.cs" />
     <Compile Include="Driver\Login\LoginDriver.cs" />
+    <Compile Include="Driver\ViewDetails\DetailsDriver.cs" />
     <Compile Include="Driver\ViewDetails\ViewDetailsDriver.cs" />
     <Compile Include="Features\US03-ViewDetails.feature.cs">
       <AutoGen>True</AutoGen>
@@ -101,6 +104,7 @@
       <DependentUpon>US09-Login.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\LoginSteps.cs" />
     <Compile Include="StepDefinitions\ViewDetailsSteps.cs" />
     <Compile Include="Support\ActionResultExtensions.cs" />
     <Compile Include="Support\CatalogContext.cs" />

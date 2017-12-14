@@ -1,16 +1,15 @@
 ﻿Feature: US09-Login
 	In order to login
 	As a Agency
-	I want to login a Account
+	I want to Login a account
 
-
-@mytag
-Scenario: Sucessfull Login
-	Given I am at home page
-	And Navigate to Login page
+@web
+Scenario: Successful login 
+	Given I am at Home page	
+	And Navigate to login page
 	When I input the following information
-	| Field    | Value            |
-	| Email    | anhthy3103@gmail |
-	| Password | 123456           |
-	And I click on Login Button
-	Then I should see sucessfull message
+	| Field    | Value                |
+	| Email    | anhthy3103@gmail.com |
+	| Password | 123456               |
+	And I click on Dangnhap Button
+	Then I should see successfull message

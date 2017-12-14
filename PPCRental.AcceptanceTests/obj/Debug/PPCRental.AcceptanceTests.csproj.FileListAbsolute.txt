@@ -74,3 +74,4 @@ C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\bin\Debug\zh
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.dll
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.pdb
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache

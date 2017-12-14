@@ -45,7 +45,8 @@ namespace PPCRental.AcceptanceTests.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "US03-ViewDetails", "\tAs a potential customer\r\n\tI want to view the details of a properety\r\n\tSo that I " +
-                    "could choose the most suitable property", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "could choose the most suitable property", ProgrammingLanguage.CSharp, new string[] {
+                        "automated"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -85,7 +86,7 @@ namespace PPCRental.AcceptanceTests.Features
         
         public virtual void FeatureBackground()
         {
-#line 6
+#line 9
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "PropertyName",
@@ -95,10 +96,12 @@ namespace PPCRental.AcceptanceTests.Features
                         "Ward",
                         "Street",
                         "PackingPlace",
-                        "Bed Room",
+                        "Bedroom",
                         "Bathroom",
                         "Content",
-                        "UnitPrice"});
+                        "UnitPrice",
+                        "PropertyType_ID",
+                        "Area"});
             table1.AddRow(new string[] {
                         "PIS Serviced Apartment – Style 3",
                         "30000",
@@ -112,8 +115,10 @@ namespace PPCRental.AcceptanceTests.Features
                         "The well equipped kitchen is opened on a cozy living room and a dining area with " +
                             "table and chairs.. Behind the industrial glass wall you will find the bedroom ar" +
                             "ea with a double bed and a large closet.",
-                        "USD"});
-#line 7
+                        "USD",
+                        "3",
+                        "20m2"});
+#line 10
 testRunner.Given("the following projects", ((string)(null)), table1, "Given ");
 #line hidden
         }
@@ -122,15 +127,16 @@ testRunner.Given("the following projects", ((string)(null)), table1, "Given ");
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("The details of selected property should show")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "US03-ViewDetails")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("automated")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("automated")]
         public virtual void TheDetailsOfSelectedPropertyShouldShow()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The details of selected property should show", new string[] {
                         "automated"});
-#line 12
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 6
+#line 9
 this.FeatureBackground();
-#line 13
+#line 16
  testRunner.When("I open the details of \'PIS Serviced Apartment – Style 3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -141,10 +147,12 @@ this.FeatureBackground();
                         "Ward",
                         "Street",
                         "PackingPlace",
-                        "Bed Room",
+                        "Bedroom",
                         "Bathroom",
                         "Content",
-                        "UnitPrice"});
+                        "UnitPrice",
+                        "PropertyType_ID",
+                        "Area"});
             table2.AddRow(new string[] {
                         "PIS Serviced Apartment – Style 3",
                         "30000",
@@ -158,8 +166,10 @@ this.FeatureBackground();
                         "The well equipped kitchen is opened on a cozy living room and a dining area with " +
                             "table and chairs.. Behind the industrial glass wall you will find the bedroom ar" +
                             "ea with a double bed and a large closet.",
-                        "USD"});
-#line 14
+                        "USD",
+                        "3",
+                        "20m2"});
+#line 17
  testRunner.Then("I should see the following information", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
