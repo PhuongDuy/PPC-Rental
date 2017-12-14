@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,16 +7,19 @@ using PPC_Rental.Models;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using PagedList;
 
 namespace PPC_Rental.Controllers
 {
     public class HomeController : Controller
     {
         K21T1_Team4Entities1 m = new K21T1_Team4Entities1();
-        public ActionResult Index()
+        public ActionResult Index(int? page=1)
         {
-            var p = m.PROPERTies.ToList();
-            return View(p);
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            var properties = m.PROPERTies.ToList();
+            return View(properties.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult About()
@@ -88,29 +91,59 @@ namespace PPC_Rental.Controllers
 
             IEnumerable<PPC_Rental.Models.PROPERTY> ls;
 
-           if(searchtxt == null){
+            //if (searchtxt == "")
+            //{
+            //    if (gia == "Dưới 50.000")
+            //    {
+            //        ls = m.PROPERTies.Where(x => (x.Price < 50000 && gia != "Giá") && (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") && (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") && (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") && (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") && (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe")).ToList();
+            //    }
+            //    else if (gia == "Từ 50.000-100.000")
+            //    {
+            //        ls = m.PROPERTies.Where(x => (x.Price >= 50000 && x.Price < 100000) && (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") && (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") && (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") && (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") && (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe")).ToList();
+            //    }
+            //    else if (gia == "Từ 100.000-150.000")
+            //    {
+            //        ls = m.PROPERTies.Where(x => (x.Price >= 100000 && x.Price < 150000) && (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") && (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") && (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") && (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") && (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe")).ToList();
+            //    }
+            //    else
+            //    {
+            //        ls = m.PROPERTies.Where(x => (x.Price >= 150000 && gia != "Giá") && (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") && (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") && (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") && (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") && (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe")).ToList();
+            //    }
+            //}
+            //else {
+            //    ls = m.PROPERTies.Where(x => x.PropertyName.Trim().ToLower().Contains(searchtxt.Trim().ToLower()));
+            //}
 
-                if (gia == "Dưới 50000")
+
+            #region
+            var dicGia = new Dictionary<string, string> { { "Dưới 50.000", "0#50000" }, { "Từ 50.000-100.000", "50000#100000" }, { "Từ 100.000 - 150.000", "100000#150000" }, { "Trên 150.000", "150000#999999999" } };
+            if (searchtxt == "")
+            {
+                if (gia != "Giá")
                 {
-                    ls = m.PROPERTies.ToList().Where(x => (x.Price < 50000 && gia != "Giá") || (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") || (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") || (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") || (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") || (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe"));
-                }
-                else if (gia == "Từ 50000-100000")
-                {
-                    ls = m.PROPERTies.ToList().Where(x => (x.Price >= 50000 && x.Price < 100000 && gia != "Giá") || (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") || (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") || (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") || (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") || (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe"));
-                }
-                else if (gia == "Từ 100000-150000")
-                {
-                    ls = m.PROPERTies.ToList().Where(x => (x.Price >= 100000 && x.Price < 150000 && gia != "Giá") || (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") || (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") || (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") || (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") || (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe"));
+                    int first = int.Parse(dicGia[gia].Split('#')[0]);
+                    int second = int.Parse(dicGia[gia].Split('#')[1]);
+                    ls = m.PROPERTies.Where(x => x.Price >= first && x.Price <= second);
                 }
                 else
-                {
-                    ls = m.PROPERTies.ToList().Where(x => (x.Price >= 150000 && gia != "Giá") || (x.DISTRICT.DistrictName == quanhuyen && quanhuyen != "Quận/Huyện") || (x.PROPERTY_TYPE.CodeType == loaida && loaida != "Loại Dự Án") || (x.BathRoom.ToString() == phongtam && phongtam != "Phòng tắm") || (x.BedRoom.ToString() == phongngu && phongngu != "Phòng ngủ") || (x.PackingPlace.ToString() == baidauxe && baidauxe != "Bãi đậu xe"));
-                }
+                    ls = m.PROPERTies;
+                if (quanhuyen != "Quận/Huyện")
+                    ls = ls.Where(x => x.DISTRICT.DistrictName == quanhuyen);
+                if (loaida != "Loại Dự Án")
+                    ls = ls.Where(x => x.PROPERTY_TYPE.CodeType == loaida);
+                if (phongtam != "Phòng tắm")
+                    ls = ls.Where(x => x.BathRoom.ToString() == phongtam);
+                if (phongngu != "Phòng ngủ")
+                    ls = ls.Where(x => x.BedRoom.ToString() == phongngu);
+                if (baidauxe != "Bãi đậu xe")
+                    ls = ls.Where(x => x.PackingPlace.ToString() == baidauxe);
+                ls = ls.ToList();
             }
-            else {
-                ls = m.PROPERTies.ToList().Where(x => x.PropertyName.Trim().ToLower().Contains(searchtxt.Trim().ToLower()));
+            else
+            {
+                ls = m.PROPERTies.Where(x => x.PropertyName.Trim().ToLower().Contains(searchtxt.Trim().ToLower()));
             }
-
+            #endregion
             return View(ls);
         }
         
@@ -129,12 +162,12 @@ namespace PPC_Rental.Controllers
             {
                 return View("Login");
             }
-            if(Avatar == null || !Avatar.ContentType.Contains("image"))
+            if(Avatar == null && !Avatar.ContentType.Contains("image"))
             {
                 ModelState.AddModelError("Avatar", "chưa có Avatar");
             }
             //Avatar save file on webserver and sign value for model
-            if(e.Content==null||e.PropertyName==null||e.Area==null||e.Price==0||Avatar==null)
+            if(e.Content==null&&e.PropertyName==null&&e.Area==null&&e.Price==0&&Avatar==null)
             {
                 return View();
             }

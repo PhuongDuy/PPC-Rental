@@ -1,7 +1,8 @@
-﻿@model IEnumerable<PPC_Rental.Models.PROPERTY>
+﻿@model PagedList.IPagedList<PPC_Rental.Models.PROPERTY>
 @{
     ViewBag.Title = "Home Page";
 }
+@using PagedList.Mvc;
 
 <div>
     <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">DỰ ÁN NỔI BẬT</div>
@@ -11,16 +12,22 @@
 
             @{ foreach (var iteam in Model)
                 {
-                    <div class="col-sm-12 col-md-3">
+                    <div class="col-sm-12 col-md-3" style="margin-top:10px">
                         <div class="thumbnail">
-                            <img src="~/Images/@iteam.Avatar" />
+                            <div style="height:160px"><a href="viewdetail/index/@iteam.ID"><img class="img-responsive" src="~/Images/@iteam.Avatar" /></a></div>
                             <div class="caption">
+<<<<<<< HEAD
                                 <a href="~/viewDetail/Index/@iteam.ID" style="text-decoration:none;"><h3 class="h3ac" style="color:red">@iteam.PropertyName</h3></a>
-                                <p>@iteam.Content.Substring(0, 50)</p>
+                                <p>@iteam.Content.Substring(0, 30)</p>
+=======
+                                <div class="max-lines-nameProperty"><a href="/viewdetail/index/@iteam.ID" style="text-decoration:none"><h3 style="color:red;">@iteam.PropertyName</h3></a></div>
+                                <div style="height:80px"><p class="max-lines-content">@iteam.Content</p></div>
+                                <a href="viewdetail/index/@iteam.ID">Xem thêm</a>
+>>>>>>> d83789faa470108a3e430ba152e018c57de38c6e
                                 <hr />
-                                <p><span class="glyphicon glyphicon-map-marker"></span>@iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p>
+                                <div style="height:40px"><p><span class="glyphicon glyphicon-map-marker"></span>@iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p></div>
                                 <hr />
-                                <p>Giá bán <span style="float:right"> @iteam.Price</span></p>
+                                <div style="height:30px"><p>Giá bán <span style="float:right"> @iteam.Price</span></p></div>
                             </div>
                         </div>
                     </div>
@@ -31,6 +38,8 @@
             }
         </div>
     </div>
+    <div style="margin-left:40%">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+
     <div style="margin-top:2%">
         <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">BẤT ĐỘNG SẢN MỚI NHẤT</div>
 
@@ -76,23 +85,6 @@
 
 </div>
 
-<nav aria-label="Page navigation" style="margin-left:40%">
-    <ul class="pagination">
-        <li>
-            <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+
+<div style="margin-left:40%">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
 
