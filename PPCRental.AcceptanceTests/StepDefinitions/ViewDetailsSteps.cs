@@ -1,5 +1,6 @@
 ﻿using TechTalk.SpecFlow;
 using PPCRental.AcceptanceTests.Driver.ViewDetails;
+using System;
 
 namespace PPCRental.AcceptanceTests.StepDefinitions
 {
@@ -8,6 +9,7 @@ namespace PPCRental.AcceptanceTests.StepDefinitions
     {
         // private readonly Driver.ViewDetails.ViewDetailsDriver _detailsDriver;
         private readonly ViewDetailsDriver _detailsDriver;
+            
         public ViewDetails(ViewDetailsDriver driver)
         {
             _detailsDriver = driver;

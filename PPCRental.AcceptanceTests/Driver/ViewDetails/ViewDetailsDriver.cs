@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
-using PPCRental.AcceptanceTests.Support;
-using System.Web.Mvc;
-using PPC_Rental.Models;
+﻿using FluentAssertions;
 using PPC_Rental.Controllers;
+using PPC_Rental.Models;
+using PPCRental.AcceptanceTests.Support;
+using System.Linq;
+using System.Web.Mvc;
 using TechTalk.SpecFlow;
+using System;
 
 
 
@@ -28,23 +25,38 @@ namespace PPCRental.AcceptanceTests.Driver.ViewDetails
 
                 foreach (var item in projects.Rows)
                 {
-                    PROPERTY project = new PROPERTY
+                    var tPropertyType_ID = item["PropertyType_ID"].ToString();
+                    var tStreet_ID = item["Street"].ToString();
+                    var tDistrict_ID = item["District"].ToString();
+                    var tWard_ID = item["Ward"].ToString();
+
+                    var a = db.PROPERTY_TYPE.FirstOrDefault(d1 => d1.CodeType == tPropertyType_ID);
+                    var b = db.STREETs.FirstOrDefault(s => s.StreetName == tStreet_ID);
+                    var c = db.DISTRICTs.FirstOrDefault(d2 => d2.DistrictName == tDistrict_ID);
+                    var d3 = db.WARDs.FirstOrDefault(d2 => d2.WardName == tWard_ID);
+
+                    PROPERTY project = new PROPERTY()
                     {
+
                         PropertyName = item["PropertyName"].ToString(),
-                        PropertyType_ID = db.PROPERTY_TYPE.FirstOrDefault(d=>d.CodeType == item["PropertyType_ID"].ToString()).ID,
+                        PropertyType_ID = int.Parse(tPropertyType_ID),
+
+                        Street_ID = db.STREETs.FirstOrDefault(s => s.StreetName == tStreet_ID).ID,
+                        District_ID = db.DISTRICTs.FirstOrDefault(d => d.DistrictName == tDistrict_ID).ID,
+                        Ward_ID = db.WARDs.FirstOrDefault(d => d.WardName == tWard_ID).ID,
                         UnitPrice = item["UnitPrice"].ToString(),
                         Price = int.Parse(item["Price"].ToString()),
-                        Street_ID = db.STREETs.FirstOrDefault(s => s.StreetName == item["Street"].ToString()).ID,
-                        District_ID = db.DISTRICTs.FirstOrDefault(d => d.DistrictName == item["District"].ToString()).ID,
-                        Ward_ID = db.WARDs.FirstOrDefault(d => d.WardName == item["Ward"].ToString()).ID,
                         BathRoom = int.Parse(item["Bathroom"].ToString()),
                         BedRoom = int.Parse(item["Bedroom"].ToString()),
-                        PackingPlace = int.Parse(item["PackingPlace"].ToString()), 
-                        Content = item["Content"].ToString()
-                    
+                        PackingPlace = int.Parse(item["PackingPlace"].ToString()),
+                        Content = item["Content"].ToString(),
+                        Area = "20m2",
+                        
+
                     };
                     //project.STREET = db.STREETs.Find(project.Street_ID);
                     // project.STREET.StreetName
+                    //_context.ReferenceDetails.Add(projects.Header.Contains("ID") ? item["ID"] : project.PropertyName, project.PackingPlace, project.Price);
                     db.PROPERTies.Add(project);
                 }
                 db.SaveChanges();
@@ -59,6 +71,7 @@ namespace PPCRental.AcceptanceTests.Driver.ViewDetails
             //Act
             var actualProjectDetails = _result.Model<PROPERTY>();
             var db = new K21T1_Team4Entities1();
+            
 
             //Assert
             actualProjectDetails.Should().Match<PROPERTY>(
@@ -74,14 +87,17 @@ namespace PPCRental.AcceptanceTests.Driver.ViewDetails
                 && b.BedRoom == int.Parse(expectedProjectDetails["BedRoom"])
                 && b.PackingPlace == int.Parse(expectedProjectDetails["PackingPlace"])
                 && b.Price == int.Parse(expectedProjectDetails["Price"]));
+
+
             
         }
-        public void OpenPropertyDetails(string propertyId)
+        public void OpenPropertyDetails(string detailsID)
         {
-            var book = _context.ReferenceBooks.GetById(propertyId);
+            var details = _context.ReferenceDetails.GetById(detailsID);
             using (var controller = new viewDetailController())
             {
-                _result = controller.Index(book.ID);
+                //_result = controller.Index(int.Parse(bookID));
+                _result = controller.Index(details.ID);
             }
         }
     }

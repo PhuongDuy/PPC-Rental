@@ -5,10 +5,10 @@
     {
         public CatalogContext()
         {
-            ReferenceBooks = new ReferenceDetailsList();
+            ReferenceDetails = new ReferenceDetailsList();
             
         }
 
-        public ReferenceDetailsList ReferenceBooks { get; set; }
+        public ReferenceDetailsList ReferenceDetails { get; set; }
     }
 }
