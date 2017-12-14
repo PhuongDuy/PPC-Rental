@@ -12,6 +12,15 @@
     @Styles.Render("~/Content/stylemoi.css")
     @Scripts.Render("~/Scripts/scriptmoi.js")
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="footer, address, phone, icons" />
+
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    <link href="~/Content/footer-distributed-with-address-and-phones.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
 
 
 </head>
@@ -147,57 +156,51 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer style="background-image:url(/Images//footer/footer.jpg);color:white">
-            <table style="width:100%">
-                <tr>
-                    <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN</td>
-                    <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN-QUẬN 9</td>
-                    <td>SÀN GIAO DỊCH PPC RENTAL SÀI GÒN-QUẬN BÌNH CHÁNH</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="glyphicon glyphicon-map-marker"></span> 45 Nguyễn Khắc Nhu, Quận 1, TP.HCM
-                    </td>
-                    <td>
-                        <span class="glyphicon glyphicon-map-marker"></span> 430 Liên Phường, Quận 9, TP.HCM
-                    </td>
-                    <td>
-                        <span class="glyphicon glyphicon-map-marker"></span> 497 Khu dân cư Phong Phú 4, Bình Chánh, TP.HCM
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.2135 - Hotline: 0937.737.773
-                    </td>
-                    <td>
-                        <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.3535 - Hotline: 0935.533.335
-                    </td>
-                    <td>
-                        <span class="glyphicon glyphicon-earphone"></span> ĐT:(08)3514.3142 - Hotline: 0909.090.090
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
-                    </td>
-                    <td>
-                        <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
-                    </td>
-                    <td>
-                        <span class="glyphicon glyphicon-envelope"></span> vanlanguni.edu.vn
-                    </td>
-                </tr>
 
-            </table>
-            <br />
-            <div style="text-align:center">
-                <p>&copy;@DateTime.Now.Year Copyright by PPC-RENTAL Sài Gòn, Developed by PPC RENTAL Sài Gòn</p>
-                <p>Giấy phép ĐKKD số 0312632653 do Sở Kế hoạch và Đầu tư TPHCM cấp ngày 1/11/2017</p>
-            </div>
-
-        </footer>
     </div>
-
+    <footer class="footer-distributed">
+        <div class="footer-left">
+            <h3>Company<span>PPC-Rental</span></h3>
+            <p class="footer-links">
+                <a href="/home/index">Home</a>
+                ·
+                <a href="/home/about">About</a>
+                ·
+                <a href="/home/contact">Support</a>
+                ·
+                <a href="/home/news">Tin tức</a>
+            </p>
+            <p class="footer-company-name">PPC-Rental &copy; @DateTime.Now.Year</p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>45 Nguyễn Khắc Nhu</span> Quận 1, TP.HCM</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+1 555 123456</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">support@company.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Công ty bất động sản PPC Rental (PPC = Perfect Property Company) là Doanh nghiệp hoạt động chuyên nghiệp trong lĩnh vực môi giới và tiếp thị bất động sản trong nước cũng như quốc tế. PPC Rental tập trung vào hai lĩnh vực chính:
+                - Bất động sản
+                - Khu du lịch nghỉ dưỡng
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
 
 
 

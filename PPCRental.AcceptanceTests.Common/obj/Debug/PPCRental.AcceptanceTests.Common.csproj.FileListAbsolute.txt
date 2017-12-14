@@ -21,3 +21,11 @@ C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\
 C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csproj.CoreCompileInputs.cache
 C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.dll
 C:\Users\BinhTran\Desktop\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.pdb
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.dll
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.pdb
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\nunit.framework.dll
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\nunit.framework.xml
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csprojResolveAssemblyReference.cache
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csproj.CoreCompileInputs.cache
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.dll
+C:\Users\LeeSanHoon\Desktop\update\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.pdb
