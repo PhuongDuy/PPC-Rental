@@ -124,4 +124,26 @@ li {
     width: 40px;
     margin: 8px 0 0;
 }
+.max-lines-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: 17px; /* Cỡ chữ */
+    line-height: 1em; /* khoảng cách dòng */
+    max-height: 100px; /* Chiều cao tối đa */
+    -webkit-line-clamp: 4; /* Số dòng hiển thị */
+    -webkit-box-orient: vertical;
+}
+
+.max-lines-nameProperty {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: 25px; /* Cỡ chữ */
+    line-height: 1em; /* khoảng cách dòng */
+    max-height: 100px; /* Chiều cao tối đa */
+    -webkit-line-clamp: 3; /* Số dòng hiển thị */
+    -webkit-box-orient: vertical;
+    height: 200px;
+}
 

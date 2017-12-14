@@ -7,16 +7,19 @@ using PPC_Rental.Models;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using PagedList;
 
 namespace PPC_Rental.Controllers
 {
     public class HomeController : Controller
     {
         K21T1_Team4Entities1 m = new K21T1_Team4Entities1();
-        public ActionResult Index()
+        public ActionResult Index(int? page=1)
         {
-            var p = m.PROPERTies.ToList();
-            return View(p);
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            var properties = m.PROPERTies.ToList();
+            return View(properties.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult About()

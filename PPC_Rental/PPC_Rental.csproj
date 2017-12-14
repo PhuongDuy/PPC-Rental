@@ -54,6 +54,12 @@
     <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -243,9 +249,12 @@
     <Content Include="Content\css_select2\select2.css" />
     <Content Include="Content\css_select2\select2.min.css" />
     <Content Include="Content\dataTables.bootstrap4.css" />
+    <Content Include="Content\demo.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\footer-distributed-with-address-and-phones.css" />
     <Content Include="Content\Loginstyle.css" />
     <Content Include="Content\mystyle.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\sb-admin.css" />
     <Content Include="Content\slider.css" />
     <Content Include="Content\stylemoi.css" />
