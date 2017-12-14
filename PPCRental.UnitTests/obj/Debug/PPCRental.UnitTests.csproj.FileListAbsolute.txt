@@ -27,3 +27,4 @@ C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UnitTests\bin\Debug\nunit.fr
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csproj.CoreCompileInputs.cache
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.dll
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.pdb
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csprojResolveAssemblyReference.cache

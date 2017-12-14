@@ -13,3 +13,4 @@ C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UITests.Selenium\bin\Debug\n
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.csproj.CoreCompileInputs.cache
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.dll
 C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.pdb
+C:\Users\Anh Thy\Desktop\Final\PPC-Rental\PPCRental.UITests.Selenium\obj\Debug\PPCRental.UITests.Selenium.csprojResolveAssemblyReference.cache
