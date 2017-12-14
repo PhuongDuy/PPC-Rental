@@ -12,24 +12,23 @@ namespace PPCRental.AcceptanceTests.StepDefinitions
         {
             _detailsDriver = driver;
         }
-     
+
         [Given(@"the following projects")]
-        public void GivenTheFollowingProjects(Table Project)
+        public void GivenTheFollowingProjects(Table givenProjects)
         {
-            _detailsDriver.InsertProjectToDB(Project);
+            _detailsDriver.InsertProjectToDB(givenProjects);
         }
 
-        [When(@"User click ""(.*)""")]
-        public void WhenUserClick(string p0)
+        [When(@"I open the details of '(.*)'")]
+        public void WhenIOpenTheDetailsOf(string givenPrjName)
         {
-            _detailsDriver.OpenPropertyDetails(p0);
+            _detailsDriver.OpenPropertyDetails(givenPrjName);
         }
 
-        [Then(@"Hien thi thong tin chi tiet du an")]
-        public void ThenHienThiThongTinChiTietDuAn(Table table)
+        [Then(@"I should see the following information")]
+        public void ThenIShouldSeeTheFollowingInformation(Table shownProject)
         {
-            _detailsDriver.ShowDetailProject(table);
+            _detailsDriver.ShowDetailProject(shownProject);
         }
-
     }
 }

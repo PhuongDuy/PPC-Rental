@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using FluentAssertions;
 
-namespace BookShop.AcceptanceTests.Support
+namespace PPCRental.AcceptanceTests.Support
 {
     public static class ActionResultExtensions
     {

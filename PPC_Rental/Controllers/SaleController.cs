@@ -266,14 +266,58 @@ namespace PPC_Rental.Controllers
         }
         
         [HttpPost]
-        public ActionResult editnews(NEW model)
+        public ActionResult editnews(NEW model, HttpPostedFileBase Avatar)
         {
             NEW n = db.NEWs.Find(model.ID);
+
+            if (Avatar != null)
+            {
+                string avatar = "";
+                if (Avatar.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/News/"), filename);
+                    Avatar.SaveAs(path);
+                    avatar = filename;
+                }
+                n.Image = avatar;
+            }
             n.Name = model.Name;
             n.Content = model.Content;
-            n.Image = model.Image;
 
             db.Entry(n).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("News");
+        }
+
+        [HttpGet]
+        public ActionResult addnews(int id)
+        {
+            var news = db.NEWs.Find(id);
+            return View(news);
+        }
+
+        [HttpPost]
+        public ActionResult addnews(NEW model, HttpPostedFileBase Avatar)
+        {
+            NEW n = db.NEWs.Find(model.ID);
+
+            if (Avatar != null)
+            {
+                string avatar = "";
+                if (Avatar.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(Avatar.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/News/"), filename);
+                    Avatar.SaveAs(path);
+                    avatar = filename;
+                }
+                model.Image = avatar;
+            }
+
+            model.Created_at = DateTime.Now;
+            model.Sale_ID = int.Parse(Session["UserID"].ToString());
+            db.NEWs.Add(model);
             db.SaveChanges();
             return RedirectToAction("News");
         }
