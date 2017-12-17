@@ -100,7 +100,6 @@ namespace PPCRental.AcceptanceTests.Features
                         "Bathroom",
                         "Content",
                         "UnitPrice",
-                        "PropertyType_ID",
                         "Area"});
             table1.AddRow(new string[] {
                         "PIS Serviced Apartment – Style 3",
@@ -116,7 +115,6 @@ namespace PPCRental.AcceptanceTests.Features
                             "table and chairs.. Behind the industrial glass wall you will find the bedroom ar" +
                             "ea with a double bed and a large closet.",
                         "USD",
-                        "3",
                         "20m2"});
 #line 10
 testRunner.Given("the following projects", ((string)(null)), table1, "Given ");
@@ -140,37 +138,11 @@ this.FeatureBackground();
  testRunner.When("I open the details of \'PIS Serviced Apartment – Style 3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PropertyName",
-                        "Price",
-                        "PropertyType",
-                        "District",
-                        "Ward",
-                        "Street",
-                        "PackingPlace",
-                        "Bedroom",
-                        "Bathroom",
-                        "Content",
-                        "UnitPrice",
-                        "PropertyType_ID",
-                        "Area"});
+                        "PropertyName"});
             table2.AddRow(new string[] {
-                        "PIS Serviced Apartment – Style 3",
-                        "30000",
-                        "Office",
-                        "Chương Mỹ",
-                        "TT Chúc Sơn",
-                        "Đường Nội Bộ",
-                        "1",
-                        "2",
-                        "4",
-                        "The well equipped kitchen is opened on a cozy living room and a dining area with " +
-                            "table and chairs.. Behind the industrial glass wall you will find the bedroom ar" +
-                            "ea with a double bed and a large closet.",
-                        "USD",
-                        "3",
-                        "20m2"});
+                        "PIS Serviced Apartment – Style 3"});
 #line 17
- testRunner.Then("I should see the following information", ((string)(null)), table2, "Then ");
+  testRunner.Then("I should see the following information", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

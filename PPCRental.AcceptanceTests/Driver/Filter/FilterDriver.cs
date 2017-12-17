@@ -11,12 +11,17 @@ namespace PPCRental.AcceptanceTests.Driver.Filter
     {
         internal void Filter(string property_Name)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        internal void Filter(Table table)
+        {
+            
         }
 
         internal void ShouldShowProjects(Table shownProperties)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

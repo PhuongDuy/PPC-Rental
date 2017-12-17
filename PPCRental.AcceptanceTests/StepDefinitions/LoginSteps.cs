@@ -4,7 +4,6 @@ using PPC_Rental;
 using PPCRental.AcceptanceTests.Driver.Home;
 using PPCRental.AcceptanceTests.Driver.Login;
 using PPCRental.UITests.Selenium.Support;
-
 namespace PPCRental.AcceptanceTests.StepDefinitions
 {
     [Binding, Scope(Tag = "automated")]

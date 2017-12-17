@@ -149,11 +149,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PPCRental.UITests.Selenium\PPCRental.UITests.Selenium.csproj">
+      <Project>{4f97eac2-a9ed-4692-89be-2d56525723af}</Project>
+      <Name>PPCRental.UITests.Selenium</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PPC_Rental\PPC_Rental.csproj">
       <Project>{453daaee-8629-42d7-bbeb-a1b5e8f4aca1}</Project>
       <Name>PPC_Rental</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

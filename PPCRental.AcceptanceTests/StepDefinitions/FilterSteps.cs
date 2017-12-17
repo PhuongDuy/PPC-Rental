@@ -9,41 +9,41 @@ using TechTalk.SpecFlow;
 
 namespace PPCRental.AcceptanceTests.StepDefinitions
 {
-    [Binding, Scope(Tag = "automated")]
+    [Binding]
     class FilterSteps
     {
-        private FilterDriver _filterDriver;
+        private FilterDriver filterDriver;
 
-        public FilterSteps(FilterDriver driver)
+        public FilterSteps (FilterDriver driver)
         {
-            _filterDriver = driver;
+            filterDriver = driver;
         }
 
         [Given(@"the following property")]
-        public void GivenTheFollowingProperty(Table inputProperty)
+        public void GivenTheFollowingProperty(Table table)
         {
-
+            
         }
 
-        [Given(@"User at the Home page")]
-        public void GivenUserAtTheHomePage()
+        [Given(@"I at the Home Page")]
+        public void GivenIAtTheHomePage()
         {
-            HomeDriver _homeDriver = new HomeDriver();
-            _homeDriver.Navigate();
+            HomeDriver homeDriver = new HomeDriver();
+            homeDriver.Navigate();
         }
 
         [When(@"I search for property by the pharse '(.*)'")]
         public void WhenISearchForPropertyByThePharse(string Property_Name)
         {
-            _filterDriver.Filter(Property_Name);
+            filterDriver.Filter(Property_Name);
         }
 
-
-        [Then(@"User should see the list name of project")]
-        public void ThenUserShouldSeeTheListNameOfProject(Table ShownProperties)
+        [Then(@"I should see the following information")]
+        public void ThenIShouldSeeTheFollowingInformation(Table ShownProperties)
         {
-            _filterDriver.ShouldShowProjects(ShownProperties);
+            filterDriver.ShouldShowProjects(ShownProperties);
         }
+
 
 
     }

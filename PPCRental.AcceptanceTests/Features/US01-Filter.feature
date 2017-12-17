@@ -11,9 +11,9 @@ Background:
 		| PIS Serviced Apartment | Villa         | Ba Vì       | 70000 | 3       | Ba Vì       | 2        |
 
 Scenario: PropertyName should be matched
-	Given User at the Home Page
+	Given I at the Home Page
 	When I search for property by the pharse 'Property name'
-	Then User should see the following information
+	Then I should see the following information
 		| Property_Name          |
 		| PIS Top Apartment      | 
 		| Modern Style Apartment | 

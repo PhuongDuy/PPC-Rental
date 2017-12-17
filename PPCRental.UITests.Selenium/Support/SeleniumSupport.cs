@@ -2,7 +2,6 @@
 using System.Text;
 using TechTalk.SpecFlow;
 using PPCRental.UITests.Selenium.Config;
-
 namespace PPCRental.UITests.Selenium.Support
 {
     [Binding]
