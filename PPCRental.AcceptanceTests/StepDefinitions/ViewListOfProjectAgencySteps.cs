@@ -10,6 +10,7 @@ using PPCRental.AcceptanceTests.Driver.ViewListOfProjectAgency;
 
 namespace PPCRental.AcceptanceTests.StepDefinitions
 {
+    [Binding, Scope(Tag = "automated")]
     class ViewListOfProjectAgencySteps
     {
         private readonly ViewListOfProjectAgencyDriver _viewListOfProjectAgencyDriver;
@@ -17,30 +18,30 @@ namespace PPCRental.AcceptanceTests.StepDefinitions
         {
             _viewListOfProjectAgencyDriver = driver;
         }
-
-        [Given(@"Saler login system by Sale account")]
-        public void GivenSalerLoginSystemBySaleAccount(string email, string password)
+        [Given(@"the following project list")]
+        public void GivenTheFollowingProjectList(Table table)
         {
-            _viewListOfProjectAgencyDriver.Login(email, password);
+            
         }
 
-        [When(@"Saler enter account information")]
-        public void WhenSalerEnterAccountInformation(Table givenProjects)
+        [Given(@"The project has been approved")]
+        public void GivenTheProjectHasBeenApproved()
         {
-            _viewListOfProjectAgencyDriver.InsertPropertyToDB(givenProjects);
+            _viewListOfProjectAgencyDriver.Showlistapproved();
         }
 
-        [When(@"Saler click on Login Button")]
-        public void WhenSalerClickOnLoginButton()
+        [When(@"I at the Sale Page")]
+        public void WhenIAtTheSalePage()
         {
-            _viewListOfProjectAgencyDriver.OpenPropert();
+            _viewListOfProjectAgencyDriver.saleindex();
         }
 
-        [Then(@"Show project list of agency")]
-        public void ThenShowProjectListOfAgency(Table shownProject)
+        [Then(@"I will see status of project")]
+        public void ThenIWillSeeStatusOfProject(Table table)
         {
-            _viewListOfProjectAgencyDriver.Showpropertylist(shownProject);
+            _viewListOfProjectAgencyDriver.Showlistapproved();
         }
 
     }
+
 }

@@ -14,67 +14,63 @@ namespace PPCRental.AcceptanceTests.Driver.ViewListOfProjectAgency
 {
     class ViewListOfProjectAgencyDriver
     {
-        K21T1_Team4Entities1 db = new K21T1_Team4Entities1();
-        //private readonly CatalogContext _context;
+        private readonly CatalogContext _context = new CatalogContext();
         private ActionResult _result;
-        public void Login()
-        {
-            using (var controller = new HomeController())
-            {
-                _result = controller.Login();
-            }
-        }
 
-        public void Login(string email, string password)
+        public void Showlistapproved()
         {
-            using (var controller = new HomeController())
-            {
-                _result = controller.Login(email, password);
-            }
-        }
-
-        public void InsertPropertyToDB(Table project)
-        {
-            using (var db = new K21T1_Team4Entities1())
-            {
-                foreach (var item in project.Rows)
-                {
-                    PROPERTY pro = new PROPERTY
-                    {
-                        PropertyName = item["PropertyName"],
-                        PropertyType_ID = db.PROPERTY_TYPE.FirstOrDefault(t => t.CodeType == item["PropertyType"]).ID,
-                        District_ID = db.DISTRICTs.FirstOrDefault(d => d.DistrictName == item["District"]).ID,
-                        Street_ID = db.STREETs.FirstOrDefault(s => s.StreetName == item["Street"]).ID,
-                        Status_ID = db.PROJECT_STATUS.FirstOrDefault(s => s.Status_Name == item["Status"]).ID
-                    };
-                    db.PROPERTies.Add(pro);
-                }
-                db.SaveChanges();
-            }
-        }
-
-        public void Showpropertylist(Table showpropertylist)
-        {
-            var expectedProject = showpropertylist.Rows.Single();
-            var actualProject = _result.Model<PROPERTY>();
             var db = new K21T1_Team4Entities1();
-
-            actualProject.Should().Match<PROPERTY>(
-                b => b.PropertyName == expectedProject["PropertyName"]
-                && b.PropertyType_ID == db.PROPERTY_TYPE.FirstOrDefault(d => d.CodeType == expectedProject["PropertyType"]).ID
-                && b.District_ID == db.DISTRICTs.FirstOrDefault(d => d.DistrictName == expectedProject["District"]).ID
-                && b.Street_ID == db.STREETs.FirstOrDefault(s => s.StreetName == expectedProject["Street"]).ID
-                && b.Status_ID == db.PROJECT_STATUS.FirstOrDefault(s => s.Status_Name == expectedProject["Status"]).ID
-                );
-        }
-        public void OpenPropert()
-        {
-            //var book = _context.ReferenceBooks.GetById(propertyId);
+            var viewlist = db.PROPERTies.OrderByDescending(m => m.Create_post).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt" || p.PROJECT_STATUS.Status_Name == "Hết hạn").ToList();
             using (var controller = new SaleController())
             {
                 _result = controller.Index();
             }
         }
+        public void InsertProjectToDB(Table projects)
+        {
+            using (var db = new K21T1_Team4Entities1())
+            {
+                var oStreets = db.STREETs.ToList();
+
+                foreach (var item in projects.Rows)
+                {
+                    var tPropertyType = item["PropertyType"].ToString();
+                    var tStreet_ID = item["Street"].ToString();
+                    var tDistrict_ID = item["District"].ToString();
+                    var tPropertyName = item["PropertyName"].ToString();
+
+                    var a = db.PROPERTY_TYPE.FirstOrDefault(d1 => d1.CodeType == tPropertyType);
+                    var b = db.STREETs.FirstOrDefault(s => s.StreetName == tStreet_ID);
+                    var c = db.DISTRICTs.FirstOrDefault(d2 => d2.DistrictName == tDistrict_ID);
+
+
+                    PROPERTY project = new PROPERTY()
+                    {
+
+                        PropertyName = item["PropertyName"].ToString(),
+                        PropertyType_ID = a.ID,
+                        Street_ID = db.STREETs.FirstOrDefault(s => s.StreetName == tStreet_ID).ID,
+                        District_ID = db.DISTRICTs.FirstOrDefault(d => d.DistrictName == tDistrict_ID).ID
+
+                    };
+                    //project.STREET = db.STREETs.Find(project.Street_ID);
+                    // project.STREET.StreetName
+                    _context.ReferenceDetails.Add(projects.Header.Contains("ID") ? item["ID"] : project.PropertyName, project);
+                    db.PROPERTies.Add(project);
+                }
+                db.SaveChanges();
+
+            }
+        }
+
+        public void saleindex()
+        {
+            using (var controller = new SaleController())
+            {
+                _result = controller.Index();
+            }
+        }
+
 
     }
 }

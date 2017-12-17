@@ -1,16 +1,18 @@
-﻿Feature: US05-ViewListOfProjectAgency
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿@automated
+Feature: US05-ViewListOfProjectAgency
+As a salesman,
+I want to see the list of real estate projects posted by users
+So I can choose the real estate projects that need fixing
+
+Background: 
+Given the following project list
+| PropertyName                     | PropertyType | District  | Street       | Status   |
+| PIS Serviced Apartment – Style 3 | Office       | Chương Mỹ | Đường Nội Bộ | Đã duyệt |       
 
 @mytag
-Scenario: Show project agency list
-	Given Saler login system by Sale account
-	When Saler enter account information
-	| Field    | Value            |
-	| Email    | duyho9@gmail.com |
-	| Password | 123456789        |
-	And Saler click on Login Button
-	Then Show project list of agency
-	| Ten du an                        | Loai du an | Quan      | Duong        | Trang thai |
-	| PIS Serviced Apartment – Style 3 | Office     | Chuong My | Duong Noi Bo | Da duyet   |
+Scenario: Show property list of agency
+	Given The project has been approved
+	When I at the Sale Page
+	Then I will see status of project
+         | Status   |
+         | Đã duyệt |

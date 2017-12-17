@@ -30,6 +30,8 @@ namespace PPC_Rental.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+
         public ActionResult Delete1(PROPERTY model)
         {
             PROPERTY pro = db.PROPERTies.Find(model.ID);
