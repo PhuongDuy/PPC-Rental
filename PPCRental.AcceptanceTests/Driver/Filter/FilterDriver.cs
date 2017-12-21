@@ -14,19 +14,35 @@ namespace PPCRental.AcceptanceTests.Driver.Filter
     {
         private ActionResult _result;
         private readonly PropertyContext _context;
-        internal void Filter(string property_Name)
+
+        public object ProjectAssertion { get; private set; }
+
+        public void Filter(string property_Name)
         {
-            
+            using (var controller = new HomeController())
+            {
+                _result = controller.Search(property_Name, null, null, null, null, null, null);
+            }
         }
 
-        internal void Filter(Table table)
+        public void ShouldShowProjects(Table shownProperties)
         {
-            
+            //Arrange
+            var expectedProject = shownProperties.Rows.Select(m => m["Property_Name"]);
+
+            //Act
+            var actualProject = _result.Model<IEnumerable<PPC_Rental.Models.PROPERTY>>();
+
+            //Assert
+            FilterAssertions.HomeScreenShouldShow(shownProperties, expectedProject);
         }
 
-        internal void ShouldShowProjects(Table shownProperties)
+        private class FilterAssertions
         {
-            
+            internal static void HomeScreenShouldShow(Table shownProperties, IEnumerable<string> expectedProject)
+            {
+                
+            }
         }
     }
 }

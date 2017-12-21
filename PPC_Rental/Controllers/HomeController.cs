@@ -28,6 +28,7 @@ namespace PPC_Rental.Controllers
             return View(p);
         }
 
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
