@@ -73,3 +73,18 @@ D:\git\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csprojResolv
 D:\git\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csproj.CoreCompileInputs.cache
 D:\git\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.dll
 D:\git\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.pdb
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\PPCRental.UnitTests.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\PPCRental.UnitTests.pdb
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.dll
+C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.pdb

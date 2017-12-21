@@ -18,7 +18,7 @@ namespace PPC_Rental.Controllers
         {
             int pageSize = 4;
             int pageNumber = (page ?? 1);
-            var properties = m.PROPERTies.ToList();
+            var properties = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt").ToList();
             return View(properties.ToPagedList(pageNumber, pageSize));
         }
 
