@@ -38,3 +38,11 @@ D:\git\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.Acceptanc
 D:\git\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csproj.CoreCompileInputs.cache
 D:\git\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.dll
 D:\git\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.pdb
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.dll
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\PPCRental.AcceptanceTests.Common.pdb
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\nunit.framework.dll
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\bin\Debug\nunit.framework.xml
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csprojResolveAssemblyReference.cache
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.csproj.CoreCompileInputs.cache
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.dll
+C:\Users\Anh Thy\Desktop\Data\PPC-Rental\PPCRental.AcceptanceTests.Common\obj\Debug\PPCRental.AcceptanceTests.Common.pdb

@@ -21,7 +21,7 @@ namespace PPCRental.AcceptanceTests.StepDefinitions
         [Given(@"the following project list")]
         public void GivenTheFollowingProjectList(Table table)
         {
-            
+           // _viewListOfProjectAgencyDriver.InsertProjectToDB(table);
         }
 
         [Given(@"The project has been approved")]

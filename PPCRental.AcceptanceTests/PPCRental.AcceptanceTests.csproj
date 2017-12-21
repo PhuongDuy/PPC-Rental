@@ -91,8 +91,7 @@
   <ItemGroup>
     <Compile Include="Driver\Filter\FilterDriver.cs" />
     <Compile Include="Driver\Home\HomeDriver.cs" />
-    <Compile Include="Driver\Login\LoginDriver.cs" />
-    <Compile Include="Driver\ViewDetails\DetailsDriver.cs" />
+    <Compile Include="Driver\User\UserDriver.cs" />
     <Compile Include="Driver\ViewDetails\ViewDetailsDriver.cs" />
     <Compile Include="Driver\ViewListOfProjectAgency\ViewListOfProjectAgencyDriver.cs" />
     <Compile Include="Features\US01-Filter.feature.cs">
@@ -127,7 +126,9 @@
     <Compile Include="Support\TableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Features\US01-Filter.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>US01-Filter.feature.cs</LastGenOutput>
