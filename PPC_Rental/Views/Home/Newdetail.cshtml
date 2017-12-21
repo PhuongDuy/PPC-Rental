@@ -1,0 +1,21 @@
+﻿@model IEnumerable<PPC_Rental.Models.NEW>
+@{
+    ViewBag.Title = "Newdetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ foreach (var item in Model)
+    {
+        <h1 style="text-align:center"><strong>@item.Name</strong></h1>
+        <div style="margin-left:3%">
+            <img src="~/Images/News/@item.Image" />
+        </div>
+        <div style="width:90%;margin-left:2%">
+            <ul style="text-align:left">
+                <li style="color:black;text-indent: 50px;">@item.Content</li>
+                <li style="color:black;text-indent: 50px;">@item.Created_at</li>
+            </ul>
+        </div>
+    }
+}
+

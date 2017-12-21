@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewBag.Title = "LayoutSale";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewlistofprojectagency" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/stylemoi.css")
+    @Scripts.Render("~/Scripts/scriptmoi.js")
+
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/Content/sb-admin.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap1.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+</head>
+<body style="padding: 0;background-color: #e0e0d1;margin-left: -15px;margin-right: -15px;">
+    <a href="~/Views/Shared/LayoutSale.cshtml"></a>
+    <div class="container-fluid">
+        <div class="col-md-2" style="background-color: #1f1f14;height:820px">
+            <div>
+                <img src="~/Images/ImageSale/logo.png" alt="logo PPC Rental" style="width: 100%;height:auto;" />
+            </div>
+            <hr style="margin-bottom: 0;margin-top: 0;" />
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="~/Images/ImageSale/if_malecostume_403022.png" alt="Hinh avatar sale" style="width: 100px;" />
+                </div>
+                <div class="col-md-6" style="padding-top: 20px;padding-left:5px;padding-right: 5px;">
+                    <h2 style="text-align:center;color: aliceblue">Sale</h2>
+                    <div>
+                        @if (Session["UserID"] == null)
+                        {
+                            @Html.Partial("_LoginPartial")
+                        }
+                        else
+                        {
+                                <a href="#" style="color:aliceblue;font-size:13px;">@Session["FullName"] -</a>
+                                <a href="/Home/Logout/@Session["UserID"]" style="color: aliceblue;font-size:13px;"> Log out</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="padding-left: 0;">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Trang chủ">
+                        <a class="nav-link" href="#" style="font-size: large;color: aliceblue;">
+                            <i class="glyphicon glyphicon-home"></i>
+                            <span class="nav-link-text">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Quản lý người dùng">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion" style="font-size: large;color: aliceblue;">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <span class="nav-link-text">Agency</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseComponents">
+                            <li style="font-size: initial;">
+                                <a href="#" style="color: aliceblue;">Quản lý tài khoản</a>
+                            </li>
+                            <li style="font-size: initial;">
+                                <a href="#" style="color: aliceblue;">Duyệt tài khoản</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Các dự án bất động sản">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion" style="font-size: large;color: aliceblue;">
+                            <i class="fa fa-fw fa-file"></i>
+                            <span class="nav-link-text">Dự án</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                            <li style="font-size: initial;">
+                                <a href="/Sale/Index" style="color: aliceblue;">Quản lý dự án</a>
+                            </li>
+                            <li style="font-size: initial;">
+                                <a href="/Sale/duyetduan" style="color: aliceblue;">Duyệt dự án</a>
+                            </li>
+                            <li style="font-size: initial;">
+                                <a href="#" style="color: aliceblue;">Dự án hết hạn</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Hỗ trợ khách hàng">
+                        <a class="nav-link" href="#" style="font-size: large;color: aliceblue;">
+                            <i class="glyphicon glyphicon-earphone"></i>
+                            <span class="nav-link-text">Hỗ trợ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tin tức">
+                        <a class="nav-link" href="/Sale/News" style="font-size: large;color: aliceblue;">
+                            <i class="glyphicon glyphicon-globe"></i>
+                            <span class="nav-link-text">Tin tức</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="About">
+                        <a class="nav-link" href="/Sale/About" style="font-size: large;color: aliceblue;">
+                            <i class="glyphicon glyphicon-tower"></i>
+                            <span class="nav-link-text">About</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10" style="height: 800px;">
+            <div>
+                @RenderBody()
+
+
+
+            </div>
+        </div>
+        <script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+        <script src="~/Scripts/jquery.easing.min.js"></script>
+        <script src="~/Scripts/jquery.dataTables.js"></script>
+        <script src="~/Scripts/dataTables.bootstrap4.js"></script>
+        <script src="~/Scripts/sb-admin.min.js"></script>
+        <script src="~/Scripts/sb-admin-datatables.min.js"></script>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
+    <script src="~/Scripts/js_select2/select2.min.js"></script>
+    <script>
+            $(document).ready(function () {
+                $('.select2cbx').select2();
+                $("#Street_ID").empty();
+                $.getJSON("../GetStreet?District_id=" + $('#District_ID').val(), function (data) {
+                    $("#Street_ID").select2({ data: data });
+                });
+
+                $('#Ward_ID').empty();
+                $.getJSON("../GetWard?District_id=" + $('#District_ID').val(), function (data) {
+                    $('#Ward_ID').select2({ data: data });
+                });
+            });
+
+            $("#District_ID").on('change', function () {
+                $("#Street_ID").empty();
+                $.getJSON("../GetStreet?District_id=" + $('#District_ID').val(), function (data) {
+                    $("#Street_ID").select2({ data: data });
+                });
+
+                $('#Ward_ID').empty();
+                $.getJSON("../GetWard?District_id=" + $('#District_ID').val(), function (data) {
+                    $('#Ward_ID').select2({ data: data });
+                });
+            });
+        </script>
+
+    <script>
+            $(document).ready(function () {
+                $('.select2cbx').select2();
+                $("#Street_ID").empty();
+                $.getJSON("GetStreet?District_id=" + $('#District_ID').val(), function (data) {
+                    $("#Street_ID").select2({ data: data });
+                });
+
+                $('#Ward_ID').empty();
+                $.getJSON("GetWard?District_id=" + $('#District_ID').val(), function (data) {
+                    $('#Ward_ID').select2({ data: data });
+                });
+            });
+
+            $("#District_ID").on('change', function () {
+                $("#Street_ID").empty();
+                $.getJSON("GetStreet?District_id=" + $('#District_ID').val(), function (data) {
+                    $("#Street_ID").select2({ data: data });
+                });
+
+                $('#Ward_ID').empty();
+                $.getJSON("GetWard?District_id=" + $('#District_ID').val(), function (data) {
+                    $('#Ward_ID').select2({ data: data });
+                });
+            });
+    </script>
+</body>
+</html>

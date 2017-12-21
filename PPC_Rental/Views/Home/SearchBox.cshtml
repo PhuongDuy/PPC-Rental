@@ -1,0 +1,73 @@
+﻿@using PPC_Rental.Models;
+@model K21T1_Team4Entities1
+<link href="~/Content/StyleSearch.css" rel="stylesheet" />
+
+
+<form role="search" action="@Url.Action("Search","Home")" method="post">
+    <div class="row">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-search"></span> TÌM KIẾM THÔNG TIN DỰ ÁN</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group col-sm-3 col-xs-12">
+                <select class="form-control selectpicker" name="gia">
+                    <option class="bs-title-option" value="Giá">Giá</option>
+                    <option value="Dưới 50.000">Dưới 50.000</option>
+                    <option value="Từ 50.000-100.000">Từ 50.000-100.000</option>
+                    <option value="Từ 100.000-150.000">Từ 100.000-150.000</option>
+                    <option value="Trên 150.000">Trên 150.000</option>
+                </select>
+                <hr />
+                <select class="form-control selectpicker" name="loaida">
+                    <option class="bs-title-option" value="Loại Dự Án">Loại Dự Án</option>
+                    @foreach (PROPERTY_TYPE pt in Model.PROPERTY_TYPE)
+                    {
+                        <option value="@pt.CodeType">@pt.Description</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-sm-3 col-xs-12">
+                <select class="form-control selectpicker"  name="quanhuyen">
+                    <option class="bs-title-option" value="Quận/Huyện">Quận/Huyện</option>
+                    @foreach (DISTRICT dt in Model.DISTRICTs)
+                    {
+                        <option value="@dt.DistrictName">@dt.DistrictName</option>
+                    }
+                </select>
+                <hr />
+                <select class="form-control selectpicker" name="baidauxe">
+                    <option class="bs-title-option" value="Bãi đậu xe">Bãi đậu xe</option>
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-3 col-xs-12">
+                <select class="form-control selectpicker" name="phongtam">
+                    <option class="bs-title-option" value="Phòng tắm">Phòng tắm</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+
+                </select>
+                <hr />
+                <select class="form-control selectpicker" name="phongngu">
+                    <option class="bs-title-option" value="Phòng ngủ">Phòng ngủ</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-3 col-xs-12">
+                <input type="text" name="searchtxt" class="form-control" placeholder="Nhập từ khóa" />
+                <hr />
+                <button type="submit" class="btn btn-primary form-control searchform">Search</button>
+            </div>
+        </div>
+    </div>
+</form>

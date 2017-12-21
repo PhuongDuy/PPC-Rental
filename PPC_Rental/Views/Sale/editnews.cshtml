@@ -1,0 +1,115 @@
+﻿@model PPC_Rental.Models.NEW
+@{
+    ViewBag.Title = "editnews";
+    Layout = "~/Views/Shared/LayoutSale.cshtml";
+}
+<style>
+
+    .image-preview-input {
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+
+        .image-preview-input input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .image-preview-input-title {
+        margin-left: 2px;
+    }
+</style>
+<div>
+    <div class="col-md-1">
+        <img src="~/Images/ImageSale/if_scroll left_36560.png" style="width:38px; margin-left: 50%" />
+    </div><h1 style="margin-top: 10px;">Tin tức \ Cập nhật thông tin tin tức</h1>
+</div>
+<hr />
+@using (Html.BeginForm("editnews", "Sale", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div style="margin-top: 0;">
+            <nav class="navbar navbar-default" role="navigation" style="border: 1px solid;margin : 0;background-color: #323b3e">
+                <div class="container-fluid" style="margin-bottom: 0;padding-left: 20px;">
+                    <p style="margin-bottom: 0;color: white;font-size: 20px">Thông tin tin tức</p>
+                </div>
+            </nav>
+            <div style="border: 1px solid;">
+                <div style="padding: 10px;">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Name</span>
+                        <input style="max-width:initial;" id="PropertyName" type="text" class="form-control" name="Name" value="@Html.ValueFor(m => m.Name)">
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon">Content</span>
+                        <textarea style="max-width:initial;height: 400px;" type="text" class="form-control" name="Content">@Html.ValueFor(m => m.Content)</textarea>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon">Image</span>
+                        <div class="container">
+                            <div>
+                                <div>
+                                    <!-- image-preview-filename input [CUT FROM HERE]-->
+                                    <div class="input-group image-preview">
+                                        <input type="text" class="form-control image-preview-filename" disabled="disabled" name="Avatar" value="@Html.ValueFor(m => m.Image)"> <!-- don't give a name === doesn't send on POST/GET -->
+                                        <span class="input-group-btn" style="width: auto;">
+                                            <!-- image-preview-clear button -->
+                                            <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                <span class="glyphicon glyphicon-remove"></span> Clear
+                                            </button>
+                                            <!-- image-preview-input -->
+                                            <div class="btn btn-default image-preview-input" style="padding-top: 8px;">
+                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                <span class="image-preview-input-title">Browse</span>
+                                                <input type="file" accept="image/png, image/jpeg, image/gif" name="Avatar" value="@Html.ValueFor(m => m.Image)" /> <!-- rename it -->
+                                            </div>
+                                        </span>
+                                    </div><!-- /input-group image-preview [TO HERE]-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon">Created at</span>
+                        <input style="max-width:initial;" type="text" class="form-control" name="Created at" value="@Html.ValueFor(m => m.Created_at)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1" style="margin-top: 10px;">
+        <div>
+            @Html.ActionLink("Back to List", "News")
+        </div>
+    </div>
+    <div class="col-md-11" style="margin-top: 10px;text-align: right;">
+        <div class="form-group">
+            <div class="col-md-11">
+                <input style="width:100px;font-size:16px;" type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/Scripts/fileimage.js")
+    }
+}
