@@ -1,7 +1,0 @@
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UITests.Selenium\bin\Debug\PPCRental.UITests.Selenium.dll.config
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UITests.Selenium\bin\Debug\PPCRental.UITests.Selenium.dll
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UITests.Selenium\bin\Debug\PPCRental.UITests.Selenium.pdb
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UITests.Selenium\Debug\PPCRental.UITests.Selenium.csprojResolveAssemblyReference.cache
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UITests.Selenium\Debug\PPCRental.UITests.Selenium.csproj.CoreCompileInputs.cache
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UITests.Selenium\Debug\PPCRental.UITests.Selenium.dll
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UITests.Selenium\Debug\PPCRental.UITests.Selenium.pdb
