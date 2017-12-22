@@ -254,3 +254,7 @@ C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debu
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.dll
 C:\Users\Duy Ho\Desktop\PPC Rental\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.pdb
+C:\Users\LeeSanHoon\Desktop\update\19-12-2017\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
+C:\Users\LeeSanHoon\Desktop\update\19-12-2017\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache
+C:\Users\LeeSanHoon\Desktop\update\19-12-2017\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.dll
+C:\Users\LeeSanHoon\Desktop\update\19-12-2017\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.pdb

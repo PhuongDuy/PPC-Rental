@@ -9,8 +9,8 @@
             <h3 class="panel-title"><span class="glyphicon glyphicon-search"></span> TÌM KIẾM THÔNG TIN DỰ ÁN</h3>
         </div>
         <div class="panel-body">
-            <div class="form-group col-sm-3 col-xs-12">
-                <select class="form-control selectpicker" name="gia">
+            <div class="form-group col-sm-3 col-xs-12 ">
+                <select class="form-control selectpicker animated bounceInDown" name="gia">
                     <option class="bs-title-option" value="Giá">Giá</option>
                     <option value="Dưới 50.000">Dưới 50.000</option>
                     <option value="Từ 50.000-100.000">Từ 50.000-100.000</option>
@@ -18,7 +18,7 @@
                     <option value="Trên 150.000">Trên 150.000</option>
                 </select>
                 <hr />
-                <select class="form-control selectpicker" name="loaida">
+                <select class="form-control selectpicker animated bounceInUp" name="loaida">
                     <option class="bs-title-option" value="Loại Dự Án">Loại Dự Án</option>
                     @foreach (PROPERTY_TYPE pt in Model.PROPERTY_TYPE)
                     {
@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-group col-sm-3 col-xs-12">
-                <select class="form-control selectpicker"  name="quanhuyen">
+                <select class="form-control selectpicker animated bounceInDown"  name="quanhuyen">
                     <option class="bs-title-option" value="Quận/Huyện">Quận/Huyện</option>
                     @foreach (DISTRICT dt in Model.DISTRICTs)
                     {
@@ -36,7 +36,7 @@
                     }
                 </select>
                 <hr />
-                <select class="form-control selectpicker" name="baidauxe">
+                <select class="form-control selectpicker animated bounceInUp" name="baidauxe">
                     <option class="bs-title-option" value="Bãi đậu xe">Bãi đậu xe</option>
                     <option value="0">1</option>
                     <option value="1">2</option>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-group col-sm-3 col-xs-12">
-                <select class="form-control selectpicker" name="phongtam">
+                <select class="form-control selectpicker animated bounceInDown" name="phongtam">
                     <option class="bs-title-option" value="Phòng tắm">Phòng tắm</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -54,7 +54,7 @@
 
                 </select>
                 <hr />
-                <select class="form-control selectpicker" name="phongngu">
+                <select class="form-control selectpicker animated bounceInUp" name="phongngu">
                     <option class="bs-title-option" value="Phòng ngủ">Phòng ngủ</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -64,9 +64,9 @@
             </div>
 
             <div class="form-group col-sm-3 col-xs-12">
-                <input type="text" name="searchtxt" class="form-control" placeholder="Nhập từ khóa" />
+                <input type="text" name="searchtxt" class="form-control animated bounceInDown" placeholder="Nhập từ khóa" />
                 <hr />
-                <button type="submit" class="btn btn-primary form-control searchform">Search</button>
+                <button type="submit" class="btn btn-primary form-control searchform animated bounceInUp">Search</button>
             </div>
         </div>
     </div>

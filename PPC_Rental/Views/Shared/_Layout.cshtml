@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+﻿
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
 
     <link href="~/Content/StyleSearch.css" rel="stylesheet" />
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/stylemoi.css")
-    @Scripts.Render("~/Scripts/scriptmoi.js")
+    @*@Scripts.Render("~/Scripts/scriptmoi.js")*@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,8 +20,7 @@
     <link href="~/Content/footer-distributed-with-address-and-phones.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-
-
+    <link href="~/Content/animate.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -120,7 +119,7 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner" style="height:500px">
+            <div class="carousel-inner">
                 <div class="item active">
                     <img src="~/Images/Slider/house_hut_boat_thickets_jungle_lake_privacy_green_summer_brightly_63280_1440x900.jpg" style="width:100%" />
                 </div>
@@ -147,7 +146,7 @@
         </div>
     </div>
 
-    <div class="container body-content">
+    <div class="container body-content animated shake">
         @Html.Action("searchbox", "home")
     </div>
 
@@ -201,44 +200,44 @@
             </div>
         </div>
     </footer>
-
-
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    <link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
-    <script src="~/Scripts/js_select2/select2.full.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.select2cbx').select2();
-            $("#Street_ID").empty();
-            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
-                $("#Street_ID").select2({ data: data });
-            });
-
-            $('#Ward_ID').empty();
-            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
-                $('#Ward_ID').select2({ data: data });
-            });
-        });
-
-        $("#District_ID").on('change', function () {
-            $("#Street_ID").empty();
-            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
-                $("#Street_ID").select2({ data: data });
-            });
-
-            $('#Ward_ID').empty();
-            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
-                $('#Ward_ID').select2({ data: data });
-            });
-        });
-
-
-    </script>
-
-
 </body>
 </html>
+
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+<link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
+<script src="~/Scripts/js_select2/select2.full.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.select2cbx').select2();
+        $("#Street_ID").empty();
+        $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+            $("#Street_ID").select2({ data: data });
+        });
+
+        $('#Ward_ID').empty();
+        $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+            $('#Ward_ID').select2({ data: data });
+        });
+    });
+
+    $("#District_ID").on('change', function () {
+        $("#Street_ID").empty();
+        $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+            $("#Street_ID").select2({ data: data });
+        });
+
+        $('#Ward_ID').empty();
+        $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+            $('#Ward_ID').select2({ data: data });
+        });
+    });
+
+
+</script>
+
+
+

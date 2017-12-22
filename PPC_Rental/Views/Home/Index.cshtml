@@ -1,29 +1,31 @@
 ﻿@model PagedList.IPagedList<PPC_Rental.Models.PROPERTY>
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData["page1"] = 1;
+    TempData["page2"] = 1;
 }
 @using PagedList.Mvc;
 
+@{
+    var lsnoibat = (PagedList.IPagedList<PPC_Rental.Models.PROPERTY>)TempData["lsnoibat"];
+}
+
 <div>
-    <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">DỰ ÁN NỔI BẬT</div>
+    <div class="animated bounceInLeft" style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">DỰ ÁN NỔI BẬT</div>
     <div style="margin-top:2%">
         <div class="row">
-            @{int count = 0; }
 
-            @{ foreach (var iteam in Model)
+
+            @{ foreach (var iteam in lsnoibat)
                 {
                     <div class="col-sm-12 col-md-3" style="margin-top:10px">
-                        <div class="thumbnail">
-                            <div style="height:160px"><a href="viewdetail/index/@iteam.ID"><img class="img-responsive" src="~/Images/@iteam.Avatar" /></a></div>
+                        <div class="thumbnail animated fadeInDownBig">
+                            <div><a href="viewdetail/index/@iteam.ID"><img style="height:170px" class="img-responsive" src="~/Images/@iteam.Avatar" /></a></div>
                             <div class="caption">
-<<<<<<< HEAD
-                                <a href="~/viewDetail/Index/@iteam.ID" style="text-decoration:none;"><h3 class="h3ac" style="color:red">@iteam.PropertyName</h3></a>
-                                <p>@iteam.Content.Substring(0, 30)</p>
-=======
                                 <div class="max-lines-nameProperty"><a href="/viewdetail/index/@iteam.ID" style="text-decoration:none"><h3 style="color:red;">@iteam.PropertyName</h3></a></div>
                                 <div style="height:80px"><p class="max-lines-content">@iteam.Content</p></div>
                                 <a href="viewdetail/index/@iteam.ID">Xem thêm</a>
->>>>>>> d83789faa470108a3e430ba152e018c57de38c6e
                                 <hr />
                                 <div style="height:40px"><p><span class="glyphicon glyphicon-map-marker"></span>@iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p></div>
                                 <hr />
@@ -31,24 +33,22 @@
                             </div>
                         </div>
                     </div>
-                    count++;
-                    if (count > 3)
-                    { break; }
+
                 }
             }
         </div>
     </div>
-    <div style="margin-left:40%">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+    <div style="margin-left:40%">@Html.PagedListPager((PagedList.IPagedList)TempData["lsnoibat"], page2 => Url.Action("Index", new { page = TempData["page1"], page2 = TempData["page2"] = page2 }))</div>
 
     <div style="margin-top:2%">
         <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">BẤT ĐỘNG SẢN MỚI NHẤT</div>
 
-        @{ int countt = 0;}
+
         @{ foreach (var iteam in Model)
             {
                 <div class="row" style="margin-top:2%">
                     <div class="col-md-5">
-                        <img style="width:100%" class="img-responsive" src="~/Images/@iteam.Avatar" />
+                        <img style="height:350px" class="img-responsive" src="~/Images/@iteam.Avatar" />
                     </div>
                     <div class="col-md-7">
                         <a href="~/viewDetail/Index/@iteam.ID"><h3>@iteam.PropertyName</h3></a>
@@ -72,19 +72,12 @@
 
                     </div>
                 </div>
-                countt++;
-                if (countt > 4) { break; }
-
-
 
             }
         }
 
     </div>
-
+    <div style="margin-left:40%">@Html.PagedListPager(Model, page1 => Url.Action("Index", new { page = TempData["page1"] = page1 }))</div>
 
 </div>
-
-
-<div style="margin-left:40%">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
 
