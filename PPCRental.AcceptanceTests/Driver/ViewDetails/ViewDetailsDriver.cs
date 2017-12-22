@@ -13,10 +13,11 @@ namespace PPCRental.AcceptanceTests.Driver.ViewDetails
 {
     class ViewDetailsDriver
     {
-        private const decimal BookDefaultPrice = 10;
+       // private const decimal BookDefaultPrice = 10;
         private readonly CatalogContext _context = new CatalogContext();
         private ActionResult _result;
 
+       
         
         public void InsertProjectToDB(Table projects)
         {

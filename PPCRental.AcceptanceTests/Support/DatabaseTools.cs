@@ -14,6 +14,7 @@ namespace PPCRental.AcceptanceTests.Support
                 db.PROPERTY_IMAGE.RemoveRange(db.PROPERTY_IMAGE);
                 db.PROPERTY_FEATURE.RemoveRange(db.PROPERTY_FEATURE);
                 db.PROPERTies.RemoveRange(db.PROPERTies);
+
                 db.SaveChanges();
             }
         }

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<PPC_Rental.Models.PROPERTY>
+
+@{
+    ViewBag.Title = "Savedrafts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="nav navbar-btn">
+    <div class="navbar-form navbar-right">
+        <a class=" btn btn-default" href="/Home/Viewlistofproject">BÀI ĐĂNG</a>
+        <a class=" btn btn-default" href="/Home/Savedrafts">LƯU NHÁP</a>
+    </div>
+</div>
+<div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:1%">Agency</div>
+
+<h2> Danh sách các bài lưu nháp</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avatar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISTRICT.DistrictName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROPERTY_TYPE.CodeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STREET.StreetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WARD.WardName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Where(p => p.UserID == int.Parse(Session["UserID"].ToString())))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyName)
+            </td>
+            <td>
+                <img src="~/Images/@item.Avatar" style="width: 50px;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DISTRICT.DistrictName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.CodeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STREET.StreetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WARD.WardName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

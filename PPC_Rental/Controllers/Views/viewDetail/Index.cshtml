@@ -1,0 +1,185 @@
+﻿@model PPC_Rental.Models.PROPERTY
+@*@model IEnumerable<PPC_Rental.Models.PROPERTY>*@
+@using PPC_Rental.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData["eamailagency"] = Model.USER.Email;
+    TempData["proID"] = Model.ID;
+    K21T1_Team4Entities1 db = new K21T1_Team4Entities1();
+
+    var lsImag = db.PROPERTY_IMAGE.ToList().Where(x => x.Property_ID == Model.ID);
+}
+
+<div>
+    <ul class="nav nav-tabs" style="font-size:25px;">
+        @*<li role="presentation" class="active"><a href=""></a></li>
+            <li role="presentation"><a href="~/viewDetail/Support/"></a></li>*@
+
+        <li class="active"><a data-toggle="tab" href="#thongtinduan"><span class="glyphicon glyphicon-home"></span> Thông tin dự án</a></li>
+        <li><a data-toggle="tab" href="#lienhe"><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="thongtinduan" class="tab-pane fade in active">
+            <div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
+                Property Type : @Html.DisplayFor(model => model.PropertyName)
+            </div>
+            <a href="~/Views/viewDetail/Index.cshtml"></a>
+            <div class="row" style="margin-top:5%;font-size:17px;">
+                <div class="col-md-6">Street Name : @Html.DisplayFor(model => model.STREET.StreetName) @Html.DisplayFor(model => model.WARD.WardName) @Html.DisplayFor(model => model.DISTRICT.DistrictName)</div>
+                <div class="col-md-6" style="text-align:right;color:#f43f3f">Price : @Html.DisplayFor(model => model.Price) USD</div>
+            </div>
+            <div class="row">
+
+                @foreach (var imga in lsImag)
+                {
+                    <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                            <img src="~/Images/@imga.Image" style="min-height:230px" />
+                        </a>
+                    </div>
+                }
+            </div>
+            <div class="content">
+                <div class="pill-content" style="margin-top:5%">Content : @Html.DisplayFor(model => model.Content)</div>
+                <div class="alert alert-info" style="margin-top:2%">ADDRESS</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Property Type : @Html.DisplayFor(model => model.PROPERTY_TYPE.CodeType)</p>
+                        <p>District : @Html.DisplayFor(model => model.DISTRICT.DistrictName)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Property Name : @Html.DisplayFor(model => model.PropertyName)</p>
+                        <p>Ward : @Html.DisplayFor(model => model.WARD.WardName) </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Street : @Html.DisplayFor(model => model.STREET.StreetName)</p>
+                        <p>City : Hồ Chí Minh</p>
+                    </div>
+                </div>
+                <div class="alert alert-info">DESCRIPTIONS</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Property_ID : @Html.DisplayFor(model => model.ID)</p>
+                        <p>Bed Room : @Html.DisplayFor(model => model.BedRoom)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Price : @Html.DisplayFor(model => model.Price) USD</p>
+                        <p>Bath Room : @Html.DisplayFor(model => model.BedRoom)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Area : @Html.DisplayFor(model => model.Area)</p>
+                       
+                    </div>
+                </div>
+                <div class="alert alert-info">FEATURE</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Packing Place : @Html.DisplayFor(model => model.PackingPlace)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Fitness : Updating</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Security : Updating</p>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size:30px;font-weight:bold;color:#ea9e25;text-align:center;margin-top:10%">
+                <p>Phòng kinh doanh dự án</p>
+                <p><span class="glyphicon glyphicon-earphone"></span> 0916.356.789</p>
+            </div>
+            <div style="border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%;font-size:20px;font-family:Arial">
+                Các dự án khác
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="~/Images/sunshine-benthanh-cityhome-10-stamp.jpg" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="lienhe" class="tab-pane fade">
+            <div style="font-size:22px;border-bottom:4px solid #ff5c01;font-weight:bold;margin-top:5%">Liên hệ</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Tên dự án @Html.DisplayFor(model => model.PropertyName)</h3>
+                    <p>Địa chỉ: @Html.DisplayFor(model => model.WARD.WardName) @Html.DisplayFor(model => model.STREET.StreetName) @Html.DisplayFor(model => model.DISTRICT.DistrictName)</p>
+                    <p>Điện thoại : @Html.DisplayFor(model => model.USER.Phone)</p>
+                    <p>Email : @Html.DisplayFor(model => model.USER.Email)</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Liên hệ chủ dự án</h3>
+                    @if (ViewBag != null)
+                    {
+                        <h2>@ViewBag.Error</h2>
+                    }
+                    @using (@Html.BeginForm("Support", "viewDetail", FormMethod.Post))
+                    {
+                        <input type="text" class="form-control" placeholder="Họ và tên *" required name="nameUser" /><br />
+                        <input type="text" class="form-control" placeholder="Điện thoại *" required name="numberPhone" /><br />
+                        <input type="text" class="form-control" placeholder="Email *" required name="emailUser" /><br />
+                        <textarea class="form-control" placeholder="Nội dung *" rows="5" required name="message"></textarea><br />
+                        <button class="btn btn-info" type="submit">Gửi email</button>
+                    }
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@*<div style="margin-top:2%">
+        <div class="row">
+            @{int count = 0; }
+            @{ foreach (var iteam in Model)
+            {
+                    <div class="col-sm-12 col-md-3">
+                        <div class="thumbnail">
+                            <img src="~/Images/@iteam.Avatar" />
+                            <div class="caption">
+                                <a href="~/viewDetail/Index/@iteam.ID" style="text-decoration:none;"><h3 class="h3ac" style="color:red">@iteam.PropertyName</h3></a>
+                                <p>@iteam.Content.Substring(0, 50)</p>
+                                <hr />
+                                <p><span class="glyphicon glyphicon-map-marker"></span>@iteam.STREET.StreetName @iteam.WARD.WardName @iteam.DISTRICT.DistrictName</p>
+                                <hr />
+                                <p>Giá bán <span style="float:right"> @iteam.Price</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    count++;
+                    if (count > 3)
+                    { break; }
+                }
+            }
+        </div>
+    </div>*@
+
+
+
+
+

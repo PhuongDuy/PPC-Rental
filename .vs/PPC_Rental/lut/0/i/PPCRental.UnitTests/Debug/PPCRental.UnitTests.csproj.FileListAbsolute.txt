@@ -1,9 +1,0 @@
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UnitTests\bin\Debug\PPCRental.UnitTests.dll
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\b\PPCRental.UnitTests\bin\Debug\PPCRental.UnitTests.pdb
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UnitTests\Debug\PPCRental.UnitTests.csprojResolveAssemblyReference.cache
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UnitTests\Debug\PPCRental.UnitTests.csproj.CoreCompileInputs.cache
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UnitTests\Debug\PPCRental.UnitTests.dll
-D:\PPC-Rental\PPC-Rental\.vs\PPC_Rental\lut\0\i\PPCRental.UnitTests\Debug\PPCRental.UnitTests.pdb

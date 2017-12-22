@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link href="~/Content/StyleSearch.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/stylemoi.css")
+    @Scripts.Render("~/Scripts/scriptmoi.js")
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="footer, address, phone, icons" />
+
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    <link href="~/Content/footer-distributed-with-address-and-phones.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Home/Index">PPC RENTAL</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li @*class="active"*@><a href="~/Home/Index">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Các dự án nổi bật</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Loại dự án <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Chung cư</a></li>
+                            <li><a href="#">Nhà ở </a></li>
+                            <li><a href="#">Cho thuê</a></li>
+                            <li><a href="#">Biệt thự</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Khu vực <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Quận 1</a></li>
+                            <li><a href="#">Quận 2</a></li>
+                            <li><a href="#">Quận 3</a></li>
+                            <li><a href="#">Quận 4</a></li>
+                            <li><a href="#">Quận 5</a></li>
+                            <li><a href="#">Quận 6</a></li>
+                            <li><a href="#">Quận 7</a></li>
+                            <li><a href="#">Quận 8</a></li>
+                            <li><a href="#">Quận 9</a></li>
+                            <li><a href="#">Quận 10</a></li>
+                            <li><a href="#">Quận 11</a></li>
+                            <li><a href="#">Quận 12</a></li>
+                            <li><a href="#">Quận Thủ Đức</a></li>
+                            <li><a href="#">Quận Tân Phú</a></li>
+                            <li><a href="#">Quận Gò Vấp</a></li>
+                            <li><a href="#">Quận Tân Bình</a></li>
+                            <li><a href="#">Quận Bình Thạnh</a></li>
+                            <li><a href="#">Quận Bình Tân</a></li>
+                            <li><a href="#">Quận Phú Nhuận</a></li>
+                            <li><a href="#">Huyện Bình Chánh</a></li>
+                            <li><a href="#">Huyện Cần Giờ</a></li>
+                            <li><a href="#">Huyện Nhà Bè</a></li>
+                            <li><a href="#">Huyện Củ Chi</a></li>
+                            <li><a href="#">Huyện Hóc Môn</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/Home/Contact">Liên hệ</a></li>
+                    <li><a href="/Home/News">Tin tức</a></li>
+                    <li><a href="/Home/About">About</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/Home/postProject"><span class="glyphicon glyphicon-pencil"></span> Đăng tin</a></li>
+                    @if (Session["UserID"] == null)
+                    {
+                        <li><a href="/Home/Login">Login</a></li>
+                        <li><a href="/home/Register">Register</a></li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="#"> @Session["FullName"]</a>
+                        </li>
+                        <li>
+                            <a href="/Home/Logout/@Session["UserID"]">Log out</a>
+                        </li>
+
+                    }
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="slider">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" style="height:500px">
+                <div class="item active">
+                    <img src="~/Images/Slider/house_hut_boat_thickets_jungle_lake_privacy_green_summer_brightly_63280_1440x900.jpg" style="width:100%" />
+                </div>
+                <div class="item">
+                    <img src="~/Images/Slider/house_ocean_island_palm_maldives_pool_jacuzzi_sofas_cushions_interior_73673_1440x900.jpg" style="width:100%" />
+
+                </div>
+                <div class="item">
+                    <img src="~/Images/Slider/thun_switzerland_building_river_shore_118358_1440x900.jpg" style="width:100%" />
+                </div>
+            </div>
+
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+
+
+
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @Html.Action("searchbox", "home")
+    </div>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+    <footer class="footer-distributed">
+        <div class="footer-left">
+            <h3>Company<span>PPC-Rental</span></h3>
+            <p class="footer-links">
+                <a href="/home/index">Home</a>
+                ·
+                <a href="/home/about">About</a>
+                ·
+                <a href="/home/contact">Support</a>
+                ·
+                <a href="/home/news">Tin tức</a>
+            </p>
+            <p class="footer-company-name">PPC-Rental &copy; @DateTime.Now.Year</p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>45 Nguyễn Khắc Nhu</span> Quận 1, TP.HCM</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+1 555 123456</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">support@company.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Công ty bất động sản PPC Rental (PPC = Perfect Property Company) là Doanh nghiệp hoạt động chuyên nghiệp trong lĩnh vực môi giới và tiếp thị bất động sản trong nước cũng như quốc tế. PPC Rental tập trung vào hai lĩnh vực chính:
+                - Bất động sản
+                - Khu du lịch nghỉ dưỡng
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <link href="~/Content/css_select2/select2.min.css" rel="stylesheet" />
+    <script src="~/Scripts/js_select2/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.select2cbx').select2();
+            $("#Street_ID").empty();
+            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+                $("#Street_ID").select2({ data: data });
+            });
+
+            $('#Ward_ID').empty();
+            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+                $('#Ward_ID').select2({ data: data });
+            });
+        });
+
+        $("#District_ID").on('change', function () {
+            $("#Street_ID").empty();
+            $.getJSON("requestStreets?District_ID=" + $('#District_ID').val(), function (data) {
+                $("#Street_ID").select2({ data: data });
+            });
+
+            $('#Ward_ID').empty();
+            $.getJSON("requestWard?District_ID=" + $('#District_ID').val(), function (data) {
+                $('#Ward_ID').select2({ data: data });
+            });
+        });
+
+
+    </script>
+
+
+</body>
+</html>
