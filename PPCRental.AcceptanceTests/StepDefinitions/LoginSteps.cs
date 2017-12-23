@@ -2,14 +2,14 @@
 using TechTalk.SpecFlow;
 using PPC_Rental;
 using PPCRental.AcceptanceTests.Driver.Home;
-using PPCRental.AcceptanceTests.Driver.Login;
+using PPCRental.AcceptanceTests.Driver.User;
 using PPCRental.UITests.Selenium.Support;
 namespace PPCRental.AcceptanceTests.StepDefinitions
 {
     [Binding, Scope(Tag = "automated")]
     public class LoginSteps
     {
-        private readonly LoginDriver _loginDriver;
+        private readonly UserDriver _loginDriver;
         string _username;
         string _password;
         [Given(@"I am at Home page")]

@@ -49,7 +49,7 @@ namespace PPC_Rental.Controllers
             db.NEWs.Remove(pro);
             db.SaveChanges();
             return RedirectToAction("News");
-        }
+        }   
 
         public ActionResult EditProject1(int? id)
         {
@@ -74,7 +74,7 @@ namespace PPC_Rental.Controllers
             
             PROPERTY pro = db.PROPERTies.Find(model.ID);
             var ftpr = db.PROPERTY_FEATURE.Where(x => x.Property_ID == model.ID).ToList();
-            var imag = db.PROPERTY_IMAGE.Where(x => x.Property_ID == model.ID).ToList();
+            var imag = db.PROPERTY_IMAGE.Where(x => x.Property_ID == model.ID);
             db.PROPERTY_FEATURE.RemoveRange(ftpr);
             db.PROPERTY_IMAGE.RemoveRange(imag);            
             
@@ -104,10 +104,14 @@ namespace PPC_Rental.Controllers
                         ppti.Property_ID = model.ID;
                         db.PROPERTY_IMAGE.Add(ppti);
                     }
+                    else
+                    {
+                        db.SaveChanges();
+                    }
                 }
                 else
                 {
-                    break;
+                    db.SaveChanges();
                 }
             }
                 foreach (var fe in chk1)
@@ -119,7 +123,6 @@ namespace PPC_Rental.Controllers
                 }
 
                 pro.PropertyName = model.PropertyName;
-                pro.Images = model.Images;
                 pro.PropertyType_ID = model.PropertyType_ID;
                 pro.Content = model.Content;
                 pro.Street_ID = model.Street_ID;

@@ -53,13 +53,9 @@ namespace PPCRental.AcceptanceTests.Driver.ViewListOfProjectAgency
                         District_ID = db.DISTRICTs.FirstOrDefault(d => d.DistrictName == tDistrict_ID).ID
 
                     };
-                    //project.STREET = db.STREETs.Find(project.Street_ID);
-                    // project.STREET.StreetName
                     _context.ReferenceDetails.Add(projects.Header.Contains("ID") ? item["ID"] : project.PropertyName, project);
                     db.PROPERTies.Add(project);
                 }
-                db.SaveChanges();
-
             }
         }
 

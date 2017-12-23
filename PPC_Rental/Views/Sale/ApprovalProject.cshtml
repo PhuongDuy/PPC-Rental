@@ -63,36 +63,21 @@
                         <span class="input-group-addon">Images :</span>
                         <div class="col-md-10" style="padding: 0;">
                             <div class="container">
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
-                                <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
-                                    <div class="img-picker"><div class="form-control btn btn-default btn-block img-upload-btn" style="width: 40px;"><i class="glyphicon glyphicon-plus"></i><input type="file" class="imgin" name="images"></div></div>
-                                </div>
+                                @{
+                                    var lst = db.PROPERTY_IMAGE.Where(pi => pi.Property_ID == Model.ID).ToList();
+
+                                }
+
+                                @foreach (var item in lst)
+                                {
+                                    <div class="form-group col-md-2 img12" style="margin-left: 0;margin-right:0;padding: 0;margin-bottom:0;">
+                                        <div class="img-picker">
+                                            <div class="form-control btn btn-default btn-block img-upload-btn" style="width: 60px;">
+                                                <img style="width: 60px;" src="~/Images/@item.Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
