@@ -14,7 +14,7 @@ namespace PPC_Rental.Controllers
     public class HomeController : Controller
     {
         K21T1_Team4Entities1 m = new K21T1_Team4Entities1();
-        public ActionResult Index(int? page=1,int? page2=1)
+        public ActionResult Index(int? page = 1, int? page2 = 1)
         {
             int pageSize = 4;
             int pageNumber = (page ?? 1);
@@ -38,7 +38,7 @@ namespace PPC_Rental.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Contact(string nameUser,string emailUser,string subject , string message)
+        public ActionResult Contact(string nameUser, string emailUser, string subject, string message)
         {
             try
             {
@@ -48,8 +48,8 @@ namespace PPC_Rental.Controllers
                     var receiveremail = new MailAddress("k21t1ppcrental@gmail.com", "Công ty PPC Rental"); //mail công ty
 
                     var password = "K21t1team04";// mật khẩu địa chỉ mail   
-                    var sub =subject;
-                    var body ="Tên: "+ nameUser + " Email: "+emailUser +" Tiêu đề: "+subject + " Nội dung: " + message;
+                    var sub = subject;
+                    var body = "Tên: " + nameUser + " Email: " + emailUser + " Tiêu đề: " + subject + " Nội dung: " + message;
                     // nội dung tin nhắn
 
 
@@ -78,7 +78,7 @@ namespace PPC_Rental.Controllers
             }
             catch (Exception)
             {
-                ViewBag.Error= "There are some problem in sending email";
+                ViewBag.Error = "There are some problem in sending email";
             }
             return View();
         }
@@ -149,7 +149,7 @@ namespace PPC_Rental.Controllers
             #endregion
             return View(ls);
         }
-        
+
         public ActionResult postProject()
         {
             var model = new PROPERTY();
@@ -159,18 +159,18 @@ namespace PPC_Rental.Controllers
         [HttpPost]
         public ActionResult postProject(PROPERTY e, HttpPostedFileBase Avatar, List<string> chk1, List<HttpPostedFileBase> images)
         {
-            
 
-            if(Session["UserID"] == null)
+
+            if (Session["UserID"] == null)
             {
                 return View("Login");
             }
-            if(Avatar == null && !Avatar.ContentType.Contains("image"))
+            if (Avatar == null && !Avatar.ContentType.Contains("image"))
             {
                 ModelState.AddModelError("Avatar", "chưa có Avatar");
             }
             //Avatar save file on webserver and sign value for model
-            if(e.Content==null&&e.PropertyName==null&&e.Area==null&&e.Price==0&&Avatar==null)
+            if (e.Content == null && e.PropertyName == null && e.Area == null && e.Price == 0 && Avatar == null)
             {
                 return View();
             }
@@ -210,7 +210,7 @@ namespace PPC_Rental.Controllers
             }
 
             //save PROPERTY_FEATURE into PROPERTY_FEATURE table foreach Feature
-            if (chk1 !=null)
+            if (chk1 != null)
             {
                 foreach (string fe in chk1)
                 {
@@ -292,11 +292,11 @@ namespace PPC_Rental.Controllers
             e.Create_post = DateTime.Now;
             e.UserID = int.Parse(Session["UserID"].ToString());
             e.Status_ID = 2;
-            if(e.PropertyName == null)
+            if (e.PropertyName == null)
             {
                 e.PropertyName = "NULL";
             }
-            if(e.Content == null)
+            if (e.Content == null)
             {
                 e.Content = "NULL";
             }
@@ -304,7 +304,7 @@ namespace PPC_Rental.Controllers
             {
                 e.Price = 0;
             }
-            if(e.Area == null)
+            if (e.Area == null)
             {
                 e.Area = "NULL";
             }
@@ -317,7 +317,8 @@ namespace PPC_Rental.Controllers
         }
 
         [HttpGet]
-        public JsonResult requestStreets(int? District_ID) {
+        public JsonResult requestStreets(int? District_ID)
+        {
             return Json(
                 m.STREETs.Where(x => x.DISTRICT.ID == District_ID).Select(s => new { id = s.ID, text = s.StreetName }).ToList(), JsonRequestBehavior.AllowGet);
         }
@@ -328,7 +329,7 @@ namespace PPC_Rental.Controllers
             return Json(
                 m.WARDs.Where(x => x.DISTRICT.ID == District_ID).Select(s => new { id = s.ID, text = s.WardName }).ToList(), JsonRequestBehavior.AllowGet);
         }
-        
+
         public ActionResult Login()
         {
             return View();
@@ -345,12 +346,12 @@ namespace PPC_Rental.Controllers
                     Session["FullName"] = user.FullName;
                     Session["UserID"] = user.ID;
                     if (user.Role == "1")
-                    { 
-                    return RedirectToAction("Viewlistofproject");
-                    }
-                    if(user.Role == "2")
                     {
-                        return RedirectToAction("Index","Sale");
+                        return RedirectToAction("Viewlistofproject");
+                    }
+                    if (user.Role == "2")
+                    {
+                        return RedirectToAction("Index", "Sale");
                     }
                 }
             }
@@ -371,7 +372,7 @@ namespace PPC_Rental.Controllers
             }
             return RedirectToAction("Login");
         }
-        
+
         public ActionResult Viewlistofproject(string status = "Đã duyệt")
         {
             var viewlist = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == status).ToList();
@@ -392,17 +393,17 @@ namespace PPC_Rental.Controllers
         [HttpPost]
         public ActionResult Register(USER user, string confirmpassword, string email, string password, string fullname, string phone, string address, string role)
         {
-                var reg = new USER();
-                reg.FullName = user.FullName;
-                reg.Email = user.Email;
-                reg.Password = user.Password;
-                reg.Phone = user.Phone;
-                reg.Address = user.Address;
-                reg.Role = user.Role;
-                m.USERs.Add(reg);
-                m.SaveChanges();
-         
-                return View("Register");
+            var reg = new USER();
+            reg.FullName = user.FullName;
+            reg.Email = user.Email;
+            reg.Password = user.Password;
+            reg.Phone = user.Phone;
+            reg.Address = user.Address;
+            reg.Role = "1";
+            m.USERs.Add(reg);
+            m.SaveChanges();
+
+            return View("Login");
         }
 
         public ActionResult News()
