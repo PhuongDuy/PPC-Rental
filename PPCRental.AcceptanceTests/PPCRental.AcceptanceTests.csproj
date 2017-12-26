@@ -97,6 +97,7 @@
     <Compile Include="Driver\ViewDetails\ViewDetailsDriver.cs" />
     <Compile Include="Driver\ViewlistofNew\ViewlistofNewsDriver.cs" />
     <Compile Include="Driver\ViewListOfProjectAgency\ViewListOfProjectAgencyDriver.cs" />
+    <Compile Include="Driver\ViewListProject\ViewListProjectDriver.cs" />
     <Compile Include="Features\US01-Filter.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +107,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>US02-HomeScreen.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\US02-ViewListProject.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>US02-ViewListProject.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\US03-ViewDetails.feature.cs">
       <AutoGen>True</AutoGen>
@@ -146,6 +152,7 @@
     <Compile Include="StepDefinitions\ViewDetailsSteps.cs" />
     <Compile Include="StepDefinitions\ViewlistofNewsSteps.cs" />
     <Compile Include="StepDefinitions\ViewListOfProjectAgencySteps.cs" />
+    <Compile Include="StepDefinitions\ViewOfProjectSteps.cs" />
     <Compile Include="Support\ActionResultExtensions.cs" />
     <Compile Include="Support\CatalogContext.cs" />
     <Compile Include="Support\DatabaseTools.cs" />
@@ -164,6 +171,10 @@
     <None Include="Features\US02-HomeScreen.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>US02-HomeScreen.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\US02-ViewListProject.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>US02-ViewListProject.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\US03-ViewDetails.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -194,6 +205,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PPCRental.AcceptanceTests.Common\PPCRental.AcceptanceTests.Common.csproj">
+      <Project>{01ad4be9-3f37-4a03-a556-8ce1f0f78b88}</Project>
+      <Name>PPCRental.AcceptanceTests.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PPCRental.UITests.Selenium\PPCRental.UITests.Selenium.csproj">
       <Project>{4f97eac2-a9ed-4692-89be-2d56525723af}</Project>
       <Name>PPCRental.UITests.Selenium</Name>

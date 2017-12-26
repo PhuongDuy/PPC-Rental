@@ -1,0 +1,2 @@
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csprojResolveAssemblyReference.cache
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.AcceptanceTests\obj\Debug\PPCRental.AcceptanceTests.csproj.CoreCompileInputs.cache

@@ -22,7 +22,7 @@ namespace PPC_Rental.Controllers
             int pageNumber2 = (page2 ?? 1);
             var properties = m.PROPERTies.Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt").ToList();
             //var properties = m.PROPERTies.OrderBy(x => x.Updated_at).ToList();
-            var noibatlst = m.PROPERTies.OrderByDescending(x => x.Price).ToList();
+            var noibatlst = m.PROPERTies.OrderByDescending(x => x.Updated_at).Where(p => p.PROJECT_STATUS.Status_Name == "Đã duyệt").ToList();
             TempData["lsnoibat"] = noibatlst.ToPagedList(pageNumber2, pageSize);
 
            

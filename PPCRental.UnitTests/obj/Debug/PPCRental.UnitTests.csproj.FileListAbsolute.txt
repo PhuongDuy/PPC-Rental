@@ -1,0 +1,15 @@
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\PPCRental.UnitTests.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\PPCRental.UnitTests.pdb
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.dll
+C:\Users\Anh Thy\Desktop\K21T1_Team4_FinalProject\PPC-Rental\PPCRental.UnitTests\obj\Debug\PPCRental.UnitTests.pdb

@@ -78,6 +78,7 @@
     <Compile Include="Support\SeleniumSupport.cs" />
     <Compile Include="Support\TableExtensions.cs" />
     <Compile Include="Support\WebDriverExtensions.cs" />
+    <Compile Include="ViewDetailsSelenium.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -89,5 +90,6 @@
       <Name>PPC_Rental</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
