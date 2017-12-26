@@ -5,7 +5,7 @@
 }
 
 </br>
-<div class="row">
+@*<div class="row">
     @{ foreach (var item in Model)
         {
             <div class="col-md-12">
@@ -20,4 +20,29 @@
             </div>
         }
     }
+</div>*@
+<div class="container" id="news">
+    <div class="row">
+        @{ foreach (var item in Model)
+            {
+                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                    <div class="row row-news">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="news-item" data-when="enter" data-from="1" data-to="0" data-crop="false" data-opacity="0" data-scale="1.5">
+                                <a href=""><img class="img-responsive" src="~/Images/News/@item.Image" alt=""></a>
+                                <div class="caption">
+                                    <span class="title">
+                                        <h3><a href="/Home/Newdetail/@item.ID">@item.Name</a></h3>
+                                        <p>@item.Content.Substring(0, 50)</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+        }
+    </div>
 </div>

@@ -13,21 +13,21 @@
 namespace PPCRental.AcceptanceTests.Features
 {
     using TechTalk.SpecFlow;
-
-
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
     public partial class US01_FilterFeature
     {
-
+        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-
+        
         private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
-
+        
 #line 1 "US01-Filter.feature"
 #line hidden
-
+        
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
         {
             get
@@ -39,7 +39,7 @@ namespace PPCRental.AcceptanceTests.Features
                 this._testContext = value;
             }
         }
-
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
@@ -48,44 +48,44 @@ namespace PPCRental.AcceptanceTests.Features
                     "ould choose the most suitable property", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute()]
         public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute()]
         public virtual void TestInitialize()
         {
-            if (((testRunner.FeatureContext != null)
+            if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "US01-Filter")))
             {
                 global::PPCRental.AcceptanceTests.Features.US01_FilterFeature.FeatureSetup(null);
             }
         }
-
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-
+        
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Microsoft.VisualStudio.TestTools.UnitTesting.TestContext>(TestContext);
         }
-
+        
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-
+        
         public virtual void FeatureBackground()
         {
-#line 6
+#line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property_Name",
@@ -119,25 +119,25 @@ namespace PPCRental.AcceptanceTests.Features
                         "3",
                         "Ba Vì",
                         "2"});
-#line 7
-            testRunner.Given("the following property", ((string)(null)), table1, "Given ");
+#line 8
+ testRunner.Given("the following property", ((string)(null)), table1, "Given ");
 #line hidden
         }
-
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("PropertyName should be matched")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "US01-Filter")]
         public virtual void PropertyNameShouldBeMatched()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("PropertyName should be matched", ((string[])(null)));
-#line 13
-            this.ScenarioSetup(scenarioInfo);
-#line 6
-            this.FeatureBackground();
 #line 14
-            testRunner.Given("I at the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
 #line 15
-            testRunner.When("I search for property by the pharse \'Property name\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I at the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+ testRunner.When("I search for property by the pharse \'Property name\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property_Name"});
@@ -147,8 +147,8 @@ namespace PPCRental.AcceptanceTests.Features
                         "Modern Style Apartment"});
             table2.AddRow(new string[] {
                         "PIS Serviced Apartment"});
-#line 16
-            testRunner.Then("I should see the following information", ((string)(null)), table2, "Then ");
+#line 17
+ testRunner.Then("I should see the following information", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

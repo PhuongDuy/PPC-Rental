@@ -1,4 +1,5 @@
-﻿Feature: US01-Filter
+﻿#@web
+Feature: US01-Filter
 	As a potential customer
 	I want to view the filter of a properety
 	So that I could choose the most suitable property
